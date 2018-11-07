@@ -8,8 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		87B9C8CD893936C6DC549E79 /* Pods_Engage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FF5597B9F482FB1DF51C43A /* Pods_Engage.framework */; };
+		8AAA614921928E4C00CBBF7A /* MagicWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAA614821928E4C00CBBF7A /* MagicWordViewController.swift */; };
+		8AAA614B21928E7C00CBBF7A /* ClassSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAA614A21928E7C00CBBF7A /* ClassSetupViewController.swift */; };
 		8AEDEF3F21928908006ECE42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEDEF3E21928908006ECE42 /* AppDelegate.swift */; };
-		8AEDEF4121928908006ECE42 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEDEF4021928908006ECE42 /* ViewController.swift */; };
+		8AEDEF4121928908006ECE42 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEDEF4021928908006ECE42 /* LogInViewController.swift */; };
 		8AEDEF4421928908006ECE42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AEDEF4221928908006ECE42 /* Main.storyboard */; };
 		8AEDEF462192890A006ECE42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AEDEF452192890A006ECE42 /* Assets.xcassets */; };
 		8AEDEF492192890A006ECE42 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AEDEF472192890A006ECE42 /* LaunchScreen.storyboard */; };
@@ -17,9 +19,11 @@
 
 /* Begin PBXFileReference section */
 		7FF5597B9F482FB1DF51C43A /* Pods_Engage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Engage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8AAA614821928E4C00CBBF7A /* MagicWordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicWordViewController.swift; sourceTree = "<group>"; };
+		8AAA614A21928E7C00CBBF7A /* ClassSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassSetupViewController.swift; sourceTree = "<group>"; };
 		8AEDEF3B21928908006ECE42 /* Engage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Engage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AEDEF3E21928908006ECE42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8AEDEF4021928908006ECE42 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8AEDEF4021928908006ECE42 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		8AEDEF4321928908006ECE42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8AEDEF452192890A006ECE42 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8AEDEF482192890A006ECE42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -40,6 +44,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8AAA614721928CDC00CBBF7A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8AEDEF4021928908006ECE42 /* LogInViewController.swift */,
+				8AAA614821928E4C00CBBF7A /* MagicWordViewController.swift */,
+				8AAA614A21928E7C00CBBF7A /* ClassSetupViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		8AEDEF3221928907006ECE42 = {
 			isa = PBXGroup;
 			children = (
@@ -61,8 +75,8 @@
 		8AEDEF3D21928908006ECE42 /* Engage */ = {
 			isa = PBXGroup;
 			children = (
+				8AAA614721928CDC00CBBF7A /* Controllers */,
 				8AEDEF3E21928908006ECE42 /* AppDelegate.swift */,
-				8AEDEF4021928908006ECE42 /* ViewController.swift */,
 				8AEDEF4221928908006ECE42 /* Main.storyboard */,
 				8AEDEF452192890A006ECE42 /* Assets.xcassets */,
 				8AEDEF472192890A006ECE42 /* LaunchScreen.storyboard */,
@@ -206,8 +220,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8AEDEF4121928908006ECE42 /* ViewController.swift in Sources */,
+				8AEDEF4121928908006ECE42 /* LogInViewController.swift in Sources */,
+				8AAA614921928E4C00CBBF7A /* MagicWordViewController.swift in Sources */,
 				8AEDEF3F21928908006ECE42 /* AppDelegate.swift in Sources */,
+				8AAA614B21928E7C00CBBF7A /* ClassSetupViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,7 +373,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZR8862QZ87;
 				INFOPLIST_FILE = Engage/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = brandonhudavid.Engage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -373,7 +392,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZR8862QZ87;
 				INFOPLIST_FILE = Engage/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = brandonhudavid.Engage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
