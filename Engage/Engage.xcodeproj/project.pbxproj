@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		87B9C8CD893936C6DC549E79 /* Pods_Engage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FF5597B9F482FB1DF51C43A /* Pods_Engage.framework */; };
 		8AEDEF3F21928908006ECE42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEDEF3E21928908006ECE42 /* AppDelegate.swift */; };
 		8AEDEF4121928908006ECE42 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEDEF4021928908006ECE42 /* ViewController.swift */; };
 		8AEDEF4421928908006ECE42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AEDEF4221928908006ECE42 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7FF5597B9F482FB1DF51C43A /* Pods_Engage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Engage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AEDEF3B21928908006ECE42 /* Engage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Engage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AEDEF3E21928908006ECE42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8AEDEF4021928908006ECE42 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +24,8 @@
 		8AEDEF452192890A006ECE42 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8AEDEF482192890A006ECE42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8AEDEF4A2192890A006ECE42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9BDDF113EE4A33A70C1AFC85 /* Pods-Engage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Engage.release.xcconfig"; path = "Pods/Target Support Files/Pods-Engage/Pods-Engage.release.xcconfig"; sourceTree = "<group>"; };
+		D8DC94FFAE97A1BDD8E4C44E /* Pods-Engage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Engage.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Engage/Pods-Engage.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87B9C8CD893936C6DC549E79 /* Pods_Engage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,8 @@
 			children = (
 				8AEDEF3D21928908006ECE42 /* Engage */,
 				8AEDEF3C21928908006ECE42 /* Products */,
+				CEB1E458DAAD55BC7CDCC713 /* Pods */,
+				ED97684429D0F9F5E5A84936 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +71,23 @@
 			path = Engage;
 			sourceTree = "<group>";
 		};
+		CEB1E458DAAD55BC7CDCC713 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D8DC94FFAE97A1BDD8E4C44E /* Pods-Engage.debug.xcconfig */,
+				9BDDF113EE4A33A70C1AFC85 /* Pods-Engage.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		ED97684429D0F9F5E5A84936 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7FF5597B9F482FB1DF51C43A /* Pods_Engage.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8AEDEF4D2192890A006ECE42 /* Build configuration list for PBXNativeTarget "Engage" */;
 			buildPhases = (
+				59AB7CE8E272C3872CE6AE94 /* [CP] Check Pods Manifest.lock */,
 				8AEDEF3721928908006ECE42 /* Sources */,
 				8AEDEF3821928908006ECE42 /* Frameworks */,
 				8AEDEF3921928908006ECE42 /* Resources */,
+				E182F9BCFF608F050BB0DCA3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -129,6 +155,51 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		59AB7CE8E272C3872CE6AE94 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Engage-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E182F9BCFF608F050BB0DCA3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Engage/Pods-Engage-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Engage/Pods-Engage-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8AEDEF3721928908006ECE42 /* Sources */ = {
@@ -280,15 +351,13 @@
 		};
 		8AEDEF4E2192890A006ECE42 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D8DC94FFAE97A1BDD8E4C44E /* Pods-Engage.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZR8862QZ87;
 				INFOPLIST_FILE = Engage/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = brandonhudavid.Engage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -298,15 +367,13 @@
 		};
 		8AEDEF4F2192890A006ECE42 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9BDDF113EE4A33A70C1AFC85 /* Pods-Engage.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZR8862QZ87;
 				INFOPLIST_FILE = Engage/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = brandonhudavid.Engage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
