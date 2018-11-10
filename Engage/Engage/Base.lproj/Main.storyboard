@@ -21,6 +21,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="UiY-aY-j5z"/>
+                    <connections>
+                        <segue destination="Ssf-3N-I7B" kind="show" identifier="toMagicWordVC" id="sF1-53-bAt"/>
+                        <segue destination="qQW-Rc-DTu" kind="show" identifier="toClassSetupVC" id="Kca-Io-dXf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -55,7 +59,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nnp-c0-VqI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="881" y="831"/>
+            <point key="canvasLocation" x="881" y="950"/>
         </scene>
         <!--Magic Word View Controller-->
         <scene sceneID="645-3U-1d6">
@@ -67,10 +71,28 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="dNa-34-gvr"/>
                     </view>
+                    <connections>
+                        <segue destination="ddu-x7-UUI" kind="show" identifier="toStudentVC" id="fl2-nE-GME"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yza-VY-mG9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="881" y="133"/>
+        </scene>
+        <!--Student View Controller-->
+        <scene sceneID="DKS-qL-gnX">
+            <objects>
+                <viewController id="ddu-x7-UUI" customClass="StudentViewController" customModule="Engage" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hm2-Dz-EIT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="45L-It-uNU"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E9J-Ts-Aqw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1655" y="133"/>
         </scene>
     </scenes>
 </document>

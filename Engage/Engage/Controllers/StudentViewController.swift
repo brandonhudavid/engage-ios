@@ -1,20 +1,20 @@
 //
-//  ClassSetupViewController.swift
+//  StudentViewController.swift
 //  Engage
 //
-//  Created by Brandon David on 11/6/18.
+//  Created by Brandon David on 11/8/18.
 //  Copyright © 2018 Brandon David. All rights reserved.
 //
 
 import UIKit
 
-class ClassSetupViewController: UIViewController {
+class StudentViewController: UIViewController {
     
-    var classNameField: UITextField!
+    var sectionKey: String!
+    var testLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupUI()
 
         // Do any additional setup after loading the view.
