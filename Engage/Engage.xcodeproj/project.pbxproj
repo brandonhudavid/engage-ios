@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		431A84CD219794750003CAA8 /* HistogramViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431A84CC219794750003CAA8 /* HistogramViewController.swift */; };
+		431A84CF21979C0D0003CAA8 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431A84CE21979C0D0003CAA8 /* File.swift */; };
 		87B9C8CD893936C6DC549E79 /* Pods_Engage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FF5597B9F482FB1DF51C43A /* Pods_Engage.framework */; };
 		8A9372E921955482009E3048 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A9372E821955482009E3048 /* GoogleService-Info.plist */; };
 		8A9372EB21955906009E3048 /* StudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9372EA21955906009E3048 /* StudentViewController.swift */; };
@@ -28,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		431A84CC219794750003CAA8 /* HistogramViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistogramViewController.swift; sourceTree = "<group>"; };
+		431A84CE21979C0D0003CAA8 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		7FF5597B9F482FB1DF51C43A /* Pods_Engage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Engage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A9372E821955482009E3048 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8A9372EA21955906009E3048 /* StudentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentViewController.swift; sourceTree = "<group>"; };
@@ -70,8 +74,10 @@
 				8AEDEF4021928908006ECE42 /* LogInViewController.swift */,
 				8AAA614E2192929500CBBF7A /* LogInViewController - UISetup.swift */,
 				8AAA614821928E4C00CBBF7A /* MagicWordViewController.swift */,
+				431A84CC219794750003CAA8 /* HistogramViewController.swift */,
 				8AAA615F21929EDE00CBBF7A /* MagicWordViewController - UISetup.swift */,
 				8A9372EA21955906009E3048 /* StudentViewController.swift */,
+				431A84CE21979C0D0003CAA8 /* File.swift */,
 				8A9372EC2195592D009E3048 /* StudentViewController - UISetup.swift */,
 				8AAA614A21928E7C00CBBF7A /* ClassSetupViewController.swift */,
 				8AAA614C2192926A00CBBF7A /* ClassSetupViewController - UISetup.swift */,
@@ -239,17 +245,31 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Engage/Pods-Engage-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/10Clock/_10Clock.framework",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
+				"${BUILT_PRODUCTS_DIR}/ChartsRealm/ChartsRealm.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/fluid-slider/fluid_slider.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/_10Clock.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChartsRealm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/fluid_slider.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -264,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AEDEF4121928908006ECE42 /* LogInViewController.swift in Sources */,
+				431A84CD219794750003CAA8 /* HistogramViewController.swift in Sources */,
 				8A9372ED2195592D009E3048 /* StudentViewController - UISetup.swift in Sources */,
 				8AAA616021929EDE00CBBF7A /* MagicWordViewController - UISetup.swift in Sources */,
 				8AAA614D2192926A00CBBF7A /* ClassSetupViewController - UISetup.swift in Sources */,
@@ -271,6 +292,7 @@
 				8A9372EB21955906009E3048 /* StudentViewController.swift in Sources */,
 				8AAA614921928E4C00CBBF7A /* MagicWordViewController.swift in Sources */,
 				8AEDEF3F21928908006ECE42 /* AppDelegate.swift in Sources */,
+				431A84CF21979C0D0003CAA8 /* File.swift in Sources */,
 				8AAA614B21928E7C00CBBF7A /* ClassSetupViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -418,17 +440,20 @@
 			baseConfigurationReference = D8DC94FFAE97A1BDD8E4C44E /* Pods-Engage.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZR8862QZ87;
+				DEVELOPMENT_TEAM = SP53HB6S3N;
 				INFOPLIST_FILE = Engage/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = brandonhudavid.Engage;
+				PRODUCT_BUNDLE_IDENTIFIER = ShubhaJ.Engage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -437,17 +462,20 @@
 			baseConfigurationReference = 9BDDF113EE4A33A70C1AFC85 /* Pods-Engage.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZR8862QZ87;
+				DEVELOPMENT_TEAM = SP53HB6S3N;
 				INFOPLIST_FILE = Engage/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = brandonhudavid.Engage;
+				PRODUCT_BUNDLE_IDENTIFIER = ShubhaJ.Engage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

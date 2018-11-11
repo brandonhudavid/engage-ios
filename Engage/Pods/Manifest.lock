@@ -1,4 +1,11 @@
 PODS:
+  - 10Clock (0.0.20)
+  - Charts (3.2.1):
+    - Charts/Core (= 3.2.1)
+  - Charts/Core (3.2.1)
+  - ChartsRealm (3.2.1):
+    - Charts (~> 3.2.1)
+    - RealmSwift (~> 3.11.1)
   - Firebase/Core (5.4.1):
     - Firebase/CoreOnly
     - FirebaseAnalytics (= 5.0.1)
@@ -22,6 +29,8 @@ PODS:
   - FirebaseStorage (3.0.0):
     - FirebaseCore (~> 5.0)
     - GTMSessionFetcher/Core (~> 1.1)
+  - fluid-slider (1.0.0):
+    - pop
   - GoogleToolboxForMac/Defines (2.1.4)
   - "GoogleToolboxForMac/NSData+zlib (2.1.4)":
     - GoogleToolboxForMac/Defines (= 2.1.4)
@@ -32,15 +41,29 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - pop (1.0.12)
+  - Realm (3.11.1):
+    - Realm/Headers (= 3.11.1)
+  - Realm/Headers (3.11.1)
+  - RealmSwift (3.11.1):
+    - Realm (= 3.11.1)
 
 DEPENDENCIES:
+  - 10Clock
+  - Charts
+  - ChartsRealm
   - Firebase/Core
   - FirebaseAuth
   - FirebaseDatabase
   - FirebaseStorage
+  - fluid-slider
+  - Realm
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
+    - 10Clock
+    - Charts
+    - ChartsRealm
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -48,12 +71,19 @@ SPEC REPOS:
     - FirebaseDatabase
     - FirebaseInstanceID
     - FirebaseStorage
+    - fluid-slider
     - GoogleToolboxForMac
     - GTMSessionFetcher
     - leveldb-library
     - nanopb
+    - pop
+    - Realm
+    - RealmSwift
 
 SPEC CHECKSUMS:
+  10Clock: 2a4041365787259a1311cd089695550291a063d2
+  Charts: f122fb70b19847fa5817d018b77d6c5a2296ab25
+  ChartsRealm: 8570ca829ee82715018e72a0935687de86e3b126
   Firebase: 355bd535bfdacaa82a7fe8d9784115edefd6fc03
   FirebaseAnalytics: b3628aea54c50464c32c393fb2ea032566e7ecc2
   FirebaseAuth: 096e457cdd4274412a66c4a35874787e411f5a03
@@ -61,11 +91,15 @@ SPEC CHECKSUMS:
   FirebaseDatabase: 27be5ac5bc75e0b17537b2bbfada8258addcc8cd
   FirebaseInstanceID: f3f0657372592ecdfdfe2cac604a5a75758376a6
   FirebaseStorage: 7ca4bb7b58a25fa647b04f524033fc7cb7eb272b
+  fluid-slider: a19a991606a34a545cba9341e7422073b4ec3a66
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
+  Realm: 037c5919b9ceb59d6beed5d3b031096856b119b3
+  RealmSwift: c9580133e73ef40ed340401af2dbc9a5790dfea7
 
-PODFILE CHECKSUM: 262b086b217bfc550dbee13e71ddca01f23db9be
+PODFILE CHECKSUM: 9e777b4699000e214cc0af832038b54b646e3370
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.5.3

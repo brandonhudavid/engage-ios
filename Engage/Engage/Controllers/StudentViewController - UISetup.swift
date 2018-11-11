@@ -11,6 +11,7 @@ import UIKit
 
 extension StudentViewController {
     
+    
     func setupUI() {
         view.backgroundColor = UIColor.init(red: 6/255, green: 38/255, blue: 51/255, alpha: 1.0)
         setUpLabel()

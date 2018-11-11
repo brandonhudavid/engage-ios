@@ -11,7 +11,24 @@ import UIKit
 class ClassSetupViewController: UIViewController {
     
     var classNameField: UITextField!
-
+    var datePicker : UIDatePicker!
+    var txtDatePicker : UITextField!
+    var date : String!
+    
+    
+    var startTimePicker : UIDatePicker!
+    var startTxtTimePicker : UITextField!
+    var startTime : String!
+    
+    var endTimePicker : UIDatePicker!
+    var endTxtTimePicker : UITextField!
+    var endTime : String!
+    
+    
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
