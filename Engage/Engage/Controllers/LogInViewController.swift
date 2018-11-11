@@ -14,6 +14,8 @@ class LogInViewController: UIViewController {
     
 //    let quicksandBold = UIFont(name: "Quicksand-Bold", size: UIFont.systemFontSize)
 
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true

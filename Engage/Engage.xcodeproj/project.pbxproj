@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		431A84CD219794750003CAA8 /* HistogramViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431A84CC219794750003CAA8 /* HistogramViewController.swift */; };
 		431A84CF21979C0D0003CAA8 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431A84CE21979C0D0003CAA8 /* File.swift */; };
+		431A84D12197E5660003CAA8 /* DataInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431A84D02197E5660003CAA8 /* DataInputViewController.swift */; };
+		431A84D52197E8330003CAA8 /* SliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431A84D42197E8330003CAA8 /* SliderViewController.swift */; };
 		87B9C8CD893936C6DC549E79 /* Pods_Engage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FF5597B9F482FB1DF51C43A /* Pods_Engage.framework */; };
 		8A9372E921955482009E3048 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A9372E821955482009E3048 /* GoogleService-Info.plist */; };
 		8A9372EB21955906009E3048 /* StudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9372EA21955906009E3048 /* StudentViewController.swift */; };
@@ -32,6 +34,8 @@
 /* Begin PBXFileReference section */
 		431A84CC219794750003CAA8 /* HistogramViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistogramViewController.swift; sourceTree = "<group>"; };
 		431A84CE21979C0D0003CAA8 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		431A84D02197E5660003CAA8 /* DataInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataInputViewController.swift; sourceTree = "<group>"; };
+		431A84D42197E8330003CAA8 /* SliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderViewController.swift; sourceTree = "<group>"; };
 		7FF5597B9F482FB1DF51C43A /* Pods_Engage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Engage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A9372E821955482009E3048 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8A9372EA21955906009E3048 /* StudentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentViewController.swift; sourceTree = "<group>"; };
@@ -75,12 +79,14 @@
 				8AAA614E2192929500CBBF7A /* LogInViewController - UISetup.swift */,
 				8AAA614821928E4C00CBBF7A /* MagicWordViewController.swift */,
 				431A84CC219794750003CAA8 /* HistogramViewController.swift */,
+				431A84D02197E5660003CAA8 /* DataInputViewController.swift */,
 				8AAA615F21929EDE00CBBF7A /* MagicWordViewController - UISetup.swift */,
 				8A9372EA21955906009E3048 /* StudentViewController.swift */,
 				431A84CE21979C0D0003CAA8 /* File.swift */,
 				8A9372EC2195592D009E3048 /* StudentViewController - UISetup.swift */,
 				8AAA614A21928E7C00CBBF7A /* ClassSetupViewController.swift */,
 				8AAA614C2192926A00CBBF7A /* ClassSetupViewController - UISetup.swift */,
+				431A84D42197E8330003CAA8 /* SliderViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -285,6 +291,7 @@
 			files = (
 				8AEDEF4121928908006ECE42 /* LogInViewController.swift in Sources */,
 				431A84CD219794750003CAA8 /* HistogramViewController.swift in Sources */,
+				431A84D52197E8330003CAA8 /* SliderViewController.swift in Sources */,
 				8A9372ED2195592D009E3048 /* StudentViewController - UISetup.swift in Sources */,
 				8AAA616021929EDE00CBBF7A /* MagicWordViewController - UISetup.swift in Sources */,
 				8AAA614D2192926A00CBBF7A /* ClassSetupViewController - UISetup.swift in Sources */,
@@ -292,6 +299,7 @@
 				8A9372EB21955906009E3048 /* StudentViewController.swift in Sources */,
 				8AAA614921928E4C00CBBF7A /* MagicWordViewController.swift in Sources */,
 				8AEDEF3F21928908006ECE42 /* AppDelegate.swift in Sources */,
+				431A84D12197E5660003CAA8 /* DataInputViewController.swift in Sources */,
 				431A84CF21979C0D0003CAA8 /* File.swift in Sources */,
 				8AAA614B21928E7C00CBBF7A /* ClassSetupViewController.swift in Sources */,
 			);

@@ -18,11 +18,12 @@ extension LogInViewController {
     
     func setupUI() {
         
-        
+        navigationController?.navigationBar.barTintColor = UIColor.init(red: 6/255, green: 38/255, blue: 51/255, alpha: 1.0)
         view.backgroundColor = UIColor.init(red: 6/255, green: 38/255, blue: 51/255, alpha: 1.0)
         setUpLabel()
         setUpTextField()
         setUpButtons()
+        setupImage()
         
     }
     
@@ -77,5 +78,13 @@ extension LogInViewController {
         teacherButton.addTarget(nil, action: #selector(teacherPressed), for: .touchUpInside)
         self.view.addSubview(teacherButton)
         
+    }
+    
+    
+    func setupImage() {
+        let icon = UIImageView(frame: CGRect(x: 0, y: 0, width: 120, height: 120))
+        icon.center = CGPoint.init(x: view.frame.width/2, y: view.frame.height/2 - 150)
+        icon.image = UIImage(named: "EngageAppIconCircle")
+        view.addSubview(icon)
     }
 }

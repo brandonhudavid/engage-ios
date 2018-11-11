@@ -30,11 +30,27 @@ extension ClassSetupViewController {
         view.backgroundColor = UIColor.init(red: 6/255, green: 38/255, blue: 51/255, alpha: 1.0)
         
         setupHeader()
+        setupButton()
         setupClassName()
         setupClassDate()
         setupTime()
         
     }
+    
+    func setupButton(){
+        
+        let createClassButton = UIButton.init(frame: CGRect.init(x:  view.frame.width / 2 - view.frame.width / 3, y: 615, width: 2*view.frame.width/3, height: 50))
+        createClassButton.backgroundColor = UIColor.init(red: 47/255, green: 92/255, blue: 216/255, alpha: 1.0)
+        createClassButton.layer.cornerRadius = 5.0
+        createClassButton.tintColor = UIColor.white
+        createClassButton.setTitle("CREATE CLASS", for: .normal)
+        createClassButton.titleLabel?.font = UIFont(name: "Quicksand-Bold", size: 18)
+        createClassButton.addTarget(nil, action: #selector(createClass), for: .touchUpInside)
+        self.view.addSubview(createClassButton)
+        
+        
+    }
+
     
     func setupHeader() {
         let headerLabel = UILabel.init(frame: CGRect.init(x: 0, y: 0, width: view.frame.width, height: 50))
@@ -47,15 +63,15 @@ extension ClassSetupViewController {
     }
     
     func setupClassName() {
-        let classNameLabel = UILabel.init(frame: CGRect.init(x: 0, y: 0, width: view.frame.width, height: 50))
-        classNameLabel.center = CGPoint.init(x: view.frame.width/2 + 70, y: 265)
+        let classNameLabel = UILabel.init(frame: CGRect.init(x: view.frame.width / 2 - view.frame.width / 3 , y: 240, width: view.frame.width, height: 50))
+//        classNameLabel.center = CGPoint.init(x: view.frame.width/2 + 70, y: 265)
         classNameLabel.text = " Class Name"
         classNameLabel.textColor = UIColor.white
-        classNameLabel.font = UIFont(name: "Quicksand-Bold", size: 24)
+        classNameLabel.font = UIFont(name: "Quicksand-Bold", size: 20)
         self.view.addSubview(classNameLabel)
         
-        classNameField = UITextField.init(frame: CGRect.init(x: 0, y: 0, width: 2*view.frame.width/3, height: 50))
-        classNameField.center = CGPoint.init(x: view.frame.width/2, y: 315)
+        classNameField = UITextField.init(frame: CGRect.init(x:  view.frame.width / 2 - view.frame.width / 3, y: 290, width: 2*view.frame.width/3, height: 50))
+//        classNameField.center = CGPoint.init(x: view.frame.width/2, y: 315)
         classNameField.placeholder = " Enter your class name"
         classNameField.font = UIFont(name: "Quicksand-Bold", size: 18)
         classNameField.backgroundColor = UIColor.white
@@ -64,10 +80,20 @@ extension ClassSetupViewController {
     }
     
     func setupClassDate() {
+        
+        let dateLabel = UILabel.init(frame: CGRect.init(x: view.frame.width / 2 - view.frame.width / 3, y: 365, width: view.frame.width, height: 50))
+//        dateLabel.center = CGPoint.init(x: view.frame.width/2 + 70, y: 315 + 100)
+        dateLabel.text = " Date"
+        dateLabel.textColor = UIColor.white
+        dateLabel.font = UIFont(name: "Quicksand-Bold", size: 20)
+        self.view.addSubview(dateLabel)
+        
+        
+        
         datePicker = UIDatePicker()
         datePicker.datePickerMode = .date
-        txtDatePicker = UITextField(frame: CGRect.init(x: 0, y: 0, width: view.frame.width / 3, height: 50));
-        txtDatePicker.center =  CGPoint.init(x: view.frame.width/2, y: 315 + 100)
+        txtDatePicker = UITextField(frame: CGRect.init(x:  view.frame.width / 2 - view.frame.width / 3, y: 415, width: 2 * view.frame.width / 3, height: 50));
+        //txtDatePicker.center =  CGPoint.init(x: view.frame.width/2, y: 315 + 100)
         txtDatePicker.placeholder = " mm/dd/yyyy"
         txtDatePicker.font = UIFont(name: "Quicksand-Bold", size: 18)
         txtDatePicker.backgroundColor = UIColor.white
@@ -75,44 +101,56 @@ extension ClassSetupViewController {
         view.addSubview(txtDatePicker)
         
         showDatePicker()
+    
     }
     
     
     func setupTime() {
+        
+        
+        let startLabel = UILabel.init(frame: CGRect.init(x: view.frame.width / 2 - view.frame.width / 3, y:  415 + 75, width: view.frame.width, height: 50))
+       
+        startLabel.text = " Start Time"
+        startLabel.textColor = UIColor.white
+        startLabel.font = UIFont(name: "Quicksand-Bold", size: 20)
+        self.view.addSubview(startLabel)
+        
+        
         startTimePicker = UIDatePicker()
         startTimePicker.datePickerMode = .time
-        startTxtTimePicker = UITextField(frame: CGRect.init(x: 0, y: 0, width: view.frame.width / 6 - 4, height: 50));
-        startTxtTimePicker.center =  CGPoint.init(x: view.frame.width/4, y: 315 + 100)
+        startTxtTimePicker = UITextField(frame: CGRect.init(x:  view.frame.width / 2 - view.frame.width / 3, y: 415 + 75 + 50, width: view.frame.width / 3 - 5, height: 50));
+        //startTxtTimePicker.center =  CGPoint.init(x: view.frame.width/4, y: 315 + 100)
         startTxtTimePicker.placeholder = " hh:mm"
         startTxtTimePicker.font = UIFont(name: "Quicksand-Bold", size: 18)
         startTxtTimePicker.backgroundColor = UIColor.white
         startTxtTimePicker.layer.cornerRadius = 5.0
-//        startTxtTimePicker.addTarget(self, action: #selector(startTimeDiveChanged), for: UIControlEvents.valueChanged)
         view.addSubview(startTxtTimePicker)
+        
+        
+        let endLabel = UILabel.init(frame: CGRect.init(x: view.frame.width / 2, y:  415 + 75, width: view.frame.width, height: 50))
+        endLabel.text = " End Time"
+        endLabel.textColor = UIColor.white
+        endLabel.font = UIFont(name: "Quicksand-Bold", size: 20)
+        self.view.addSubview(endLabel)
         
         endTimePicker = UIDatePicker()
         endTimePicker.datePickerMode = .time
-        endTxtTimePicker = UITextField(frame: CGRect(x: 0, y: 0, width: view.frame.width / 6 - 4, height: 50))
-        endTxtTimePicker.center =  CGPoint(x: 3 * view.frame.width/4 , y: 315 + 80)
+        endTxtTimePicker = UITextField(frame: CGRect.init(x: view.frame.width / 2 + 5, y: 415 + 75 + 50, width: view.frame.width / 3 - 5, height: 50));
+        //endTxtTimePicker.center =  CGPoint.init(x: 3 * view.frame.width/4, y: 315 + 100)
         endTxtTimePicker.placeholder = " hh:mm"
-        endTxtTimePicker.font = UIFont(name: "Quicksand-Bold", size: 100)
+        endTxtTimePicker.font = UIFont(name: "Quicksand-Bold", size: 18)
         endTxtTimePicker.backgroundColor = UIColor.white
         endTxtTimePicker.layer.cornerRadius = 5.0
         view.addSubview(endTxtTimePicker)
         
-        showDatePicker()
+        showStartTimePicker()
+        showEndTimePicker()
         
         
     }
     
     
-    
-//    @IBAction func datePickerChanged(sender: AnyObject) {
-//        setDateAndTime()
-//    }
-//    @IBAction func timePickerChanged(sender: AnyObject) {
-//        setDateAndTime()
-//    }
+
 
     func showDatePicker() {
 
@@ -129,8 +167,41 @@ extension ClassSetupViewController {
         
     }
     
+    func showStartTimePicker() {
+        
+        let toolbar = UIToolbar();
+        toolbar.sizeToFit()
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneStartTimePicker));
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelStartTimePicker));
+        
+        toolbar.setItems([doneButton,spaceButton,cancelButton], animated: false)
+        
+        startTxtTimePicker.inputAccessoryView = toolbar
+        startTxtTimePicker.inputView = startTimePicker
+        
+    }
     
     
+    func showEndTimePicker() {
+        let toolbar = UIToolbar();
+        toolbar.sizeToFit()
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneEndTimePicker));
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelEndTimePicker));
+        
+        toolbar.setItems([doneButton,spaceButton,cancelButton], animated: false)
+        
+        endTxtTimePicker.inputAccessoryView = toolbar
+        endTxtTimePicker.inputView = endTimePicker
+        
+        
+    }
+    
+    
+    @objc func createClass() {
+        performSegue(withIdentifier: "toDataInput", sender: self)
+    }
     
     @objc func donedatePicker() {
         
@@ -144,7 +215,36 @@ extension ClassSetupViewController {
     @objc func cancelDatePicker(){
         self.view.endEditing(true)
     }
+    
+    
+    @objc func doneStartTimePicker() {
+        
+        let formatter = DateFormatter()
+        formatter.timeStyle = .short
+        startTxtTimePicker.text = formatter.string(from: startTimePicker.date)
+        date = formatter.string(from: startTimePicker.date)
+        self.view.endEditing(true)
+    }
+    
+    @objc func cancelStartTimePicker(){
+        self.view.endEditing(true)
+    }
+    
+    @objc func doneEndTimePicker() {
+        
+        let formatter = DateFormatter()
+        formatter.timeStyle = .short
+        endTxtTimePicker.text = formatter.string(from: endTimePicker.date)
+        date = formatter.string(from: endTimePicker.date)
+        self.view.endEditing(true)
+    }
+    
+    @objc func cancelEndTimePicker(){
+        self.view.endEditing(true)
+    }
 
+    
+    
     
 //    func startTimeDiveChanged(sender: UIDatePicker) {
 //        let formatter = DateFormatter()

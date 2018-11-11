@@ -8,80 +8,27 @@
 
 import UIKit
 
-class StudentViewController: UIViewController, UITextFieldDelegate {
-
-    var textField: UITextField!
-    var loginButton : UIButton!
-    var nextView : UIButton!
-    var sectionKey : String!
-    var testLabel : UILabel!
+class StudentViewController: UIViewController {
     
+    var sectionKey: String!
+    var testLabel: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        textField = UITextField(frame: CGRect(x: 0, y: 0, width: view.frame.width - 40, height: 50))
-        textField.center = CGPoint(x: view.frame.width / 2, y: view.frame.height / 2)
-        textField.delegate = self
-        textField.keyboardType = .numberPad
-        view.addSubview(textField)
-
-        self.view.backgroundColor = .green
-        loginButton = UIButton(frame: CGRect(x: 20, y: view.frame.height - 200, width: view.frame.width - 40, height: 60))
-        loginButton.backgroundColor = .magenta
-        loginButton.setTitle("LOG NUMBER", for: UIControl.State())
-        loginButton.setTitleColor(UIColor.white, for: UIControl.State())
-        loginButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-        loginButton.addTarget(self, action: #selector(btnAddTapped), for: .touchUpInside)
-        view.addSubview(loginButton)
-
-
-        self.view.backgroundColor = .green
-        nextView = UIButton(frame: CGRect(x: 20, y: view.frame.height - 100, width: view.frame.width - 40, height: 60))
-        nextView.backgroundColor = .magenta
-        nextView.setTitle("NEXT VIEW", for: UIControl.State())
-        nextView.setTitleColor(UIColor.white, for: UIControl.State())
-        nextView.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-        nextView.addTarget(self, action: #selector(histogram), for: .touchUpInside)
-        view.addSubview(nextView)
-
-        self.navigationController?.isNavigationBarHidden = true
-
-
-
+        setupUI()
 
         // Do any additional setup after loading the view.
     }
-
-    @IBAction func btnAddTapped(_ sender: AnyObject) {
-        if let value = textField.text , value != "" {
-            let visitorCount = Count()
-            visitorCount.count = (NumberFormatter().number(from: value)?.intValue)!
-            visitorCount.save()
-            textField.text = ""
-        }
-
-    }
-
-
-    @objc func histogram () {
-        performSegue(withIdentifier: "toHistogram", sender: self)
-
-    }
-
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let invalidCharacters = CharacterSet(charactersIn: "0123456789").inverted
-        return string.rangeOfCharacter(from: invalidCharacters) == nil
-    }
-
+    
 
     /*
-     // MARK: - Navigation
+    // MARK: - Navigation
 
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
 
 }

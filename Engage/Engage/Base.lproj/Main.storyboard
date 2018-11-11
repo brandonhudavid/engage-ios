@@ -55,15 +55,36 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="ceo-4W-cZE"/>
                     </view>
+                    <connections>
+                        <segue destination="fYT-yi-QVR" kind="show" identifier="toDataInput" id="aYF-nY-KAh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nnp-c0-VqI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="881" y="950"/>
         </scene>
-        <!--View Controller-->
+        <!--Data Input View Controller-->
+        <scene sceneID="ng8-Au-c3l">
+            <objects>
+                <viewController id="fYT-yi-QVR" customClass="DataInputViewController" customModule="Engage" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="573-Iw-LQY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="ndH-2r-0cx"/>
+                    </view>
+                    <connections>
+                        <segue destination="mwK-NW-qAr" kind="show" identifier="toHistogram" id="EV2-2H-H1Z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rfj-fd-yc4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1686" y="949"/>
+        </scene>
+        <!--Histogram View Controller-->
         <scene sceneID="JWK-A9-sgH">
             <objects>
-                <viewController id="mwK-NW-qAr" sceneMemberID="viewController">
+                <viewController id="mwK-NW-qAr" customClass="HistogramViewController" customModule="Engage" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Foo-92-qla">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -73,7 +94,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mYJ-gg-lKK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1787" y="954"/>
+            <point key="canvasLocation" x="2530" y="949"/>
         </scene>
         <!--Magic Word View Controller-->
         <scene sceneID="645-3U-1d6">
@@ -86,7 +107,7 @@
                         <viewLayoutGuide key="safeArea" id="dNa-34-gvr"/>
                     </view>
                     <connections>
-                        <segue destination="ddu-x7-UUI" kind="show" identifier="toStudentVC" id="fl2-nE-GME"/>
+                        <segue destination="hfz-1q-0wk" kind="show" identifier="toSlider" id="7UV-zO-Kk4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yza-VY-mG9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -107,6 +128,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E9J-Ts-Aqw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1655" y="133"/>
+        </scene>
+        <!--Slider View Controller-->
+        <scene sceneID="3tR-su-U6u">
+            <objects>
+                <viewController id="hfz-1q-0wk" customClass="SliderViewController" customModule="Engage" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hPA-Wj-oG1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="IV5-Pv-MQC"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="09c-ns-ltc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2408" y="135"/>
         </scene>
     </scenes>
 </document>

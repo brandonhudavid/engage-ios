@@ -17,6 +17,7 @@ class MagicWordViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = false
         setupUI()
 
         // Do any additional setup after loading the view.
@@ -30,7 +31,7 @@ class MagicWordViewController: UIViewController {
                     self.invalidMagicWord()
                 }
                 else if sectionRefKey != "" {
-                    self.performSegue(withIdentifier: "toStudentVC", sender: sectionRefKey)
+                    self.performSegue(withIdentifier: "toSlider", sender: sectionRefKey)
                 }
             }
         } else {
