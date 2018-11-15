@@ -17,6 +17,7 @@ extension ClassSetupViewController {
         setupHeader()
         setupClassName()
         setupClassDate()
+        setUpButtons()
         
     }
     
@@ -55,5 +56,20 @@ extension ClassSetupViewController {
 //        datePicker.layer.cornerRadius = 8.0
         self.view.addSubview(datePicker)
     }
+    
+    func setUpButtons() {
+        let createButton = UIButton.init(frame: CGRect.init(x: 0, y: 0, width: view.frame.width/2, height: 50))
+        createButton.center = CGPoint.init(x: view.frame.width/2, y: 700)
+        createButton.backgroundColor = UIColor.init(red: 47/255, green: 92/255, blue: 216/255, alpha: 1.0)
+        createButton.layer.cornerRadius = 5.0
+        createButton.tintColor = UIColor.white
+        createButton.setTitle("CREATE CLASS", for: .normal)
+        createButton.titleLabel?.font = UIFont(name: "Quicksand-Bold", size: 18)
+        createButton.addTarget(nil, action: #selector(createClass), for: .touchUpInside)
+        self.view.addSubview(createButton)
+        
+    }
+    
+    
     
 }

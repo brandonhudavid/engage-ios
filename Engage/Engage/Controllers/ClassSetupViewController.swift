@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class ClassSetupViewController: UIViewController {
     
@@ -18,6 +19,18 @@ class ClassSetupViewController: UIViewController {
         setupUI()
 
         // Do any additional setup after loading the view.
+    }
+    
+    @objc func createClass() {
+        
+        performSegue(withIdentifier: "toTeacherVC", sender: nil)
+    }
+    
+    func addSectionToFirebase(_ className: String) {
+        let dbRef = Database.database().reference()
+        let uuid = UUID.init(uuidString: className)
+        let uuidString = uuid?.description
+        dbRef.child("Sections").child(uuidString).setValue("hi")
     }
     
 

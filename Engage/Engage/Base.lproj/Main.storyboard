@@ -56,10 +56,28 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="ceo-4W-cZE"/>
                     </view>
+                    <connections>
+                        <segue destination="b03-UB-ice" kind="show" identifier="toTeacherVC" id="Jx6-uw-t2k"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nnp-c0-VqI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="881" y="950"/>
+        </scene>
+        <!--Teacher View Controller-->
+        <scene sceneID="rMg-Rn-ZHR">
+            <objects>
+                <viewController id="b03-UB-ice" customClass="TeacherViewController" customModule="Engage" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xCQ-5i-WEB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="1s2-e0-y2t"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EMv-St-Vdu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1654" y="949"/>
         </scene>
         <!--Magic Word View Controller-->
         <scene sceneID="645-3U-1d6">

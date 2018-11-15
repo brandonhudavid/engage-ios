@@ -20,6 +20,7 @@
 		8AAD851821958884004A0D0A /* Quicksand-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A9372EF21958548009E3048 /* Quicksand-Light.ttf */; };
 		8AAD851921958884004A0D0A /* Quicksand-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A9372F021958548009E3048 /* Quicksand-Medium.ttf */; };
 		8AAD851A21958884004A0D0A /* Quicksand-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A9372EE21958548009E3048 /* Quicksand-Regular.ttf */; };
+		8AD1787F219C99D600D827FC /* TeacherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD1787E219C99D600D827FC /* TeacherViewController.swift */; };
 		8AEDEF3F21928908006ECE42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEDEF3E21928908006ECE42 /* AppDelegate.swift */; };
 		8AEDEF4121928908006ECE42 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEDEF4021928908006ECE42 /* LogInViewController.swift */; };
 		8AEDEF4421928908006ECE42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AEDEF4221928908006ECE42 /* Main.storyboard */; };
@@ -41,6 +42,7 @@
 		8AAA614C2192926A00CBBF7A /* ClassSetupViewController - UISetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClassSetupViewController - UISetup.swift"; sourceTree = "<group>"; };
 		8AAA614E2192929500CBBF7A /* LogInViewController - UISetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LogInViewController - UISetup.swift"; sourceTree = "<group>"; };
 		8AAA615F21929EDE00CBBF7A /* MagicWordViewController - UISetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MagicWordViewController - UISetup.swift"; sourceTree = "<group>"; };
+		8AD1787E219C99D600D827FC /* TeacherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherViewController.swift; sourceTree = "<group>"; };
 		8AEDEF3B21928908006ECE42 /* Engage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Engage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AEDEF3E21928908006ECE42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8AEDEF4021928908006ECE42 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				8A9372EC2195592D009E3048 /* StudentViewController - UISetup.swift */,
 				8AAA614A21928E7C00CBBF7A /* ClassSetupViewController.swift */,
 				8AAA614C2192926A00CBBF7A /* ClassSetupViewController - UISetup.swift */,
+				8AD1787E219C99D600D827FC /* TeacherViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				8AAA614F2192929500CBBF7A /* LogInViewController - UISetup.swift in Sources */,
 				8A9372EB21955906009E3048 /* StudentViewController.swift in Sources */,
 				8AAA614921928E4C00CBBF7A /* MagicWordViewController.swift in Sources */,
+				8AD1787F219C99D600D827FC /* TeacherViewController.swift in Sources */,
 				8AEDEF3F21928908006ECE42 /* AppDelegate.swift in Sources */,
 				8AAA614B21928E7C00CBBF7A /* ClassSetupViewController.swift in Sources */,
 			);
