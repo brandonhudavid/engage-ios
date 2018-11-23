@@ -34,7 +34,7 @@ extension MagicWordViewController {
         promptLabel.text = "Enter magic word:"
         promptLabel.textAlignment = .center
         promptLabel.textColor = UIColor.white
-        promptLabel.font = UIFont(name: "Quicksand-Bold", size: 24)
+        promptLabel.font = UIFont(name: "Quicksand-Bold", size: 18)
         self.view.addSubview(promptLabel)
     }
     

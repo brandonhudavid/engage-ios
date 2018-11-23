@@ -11,4 +11,11 @@ target 'Engage' do
   pod 'FirebaseStorage'
   pod 'FirebaseDatabase'
 
+
+pod 'fluid-slider'
+pod 'Charts'
+pod 'Realm'
+pod 'ChartsRealm'
+pod '10Clock'
+
 end

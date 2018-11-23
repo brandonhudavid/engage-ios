@@ -14,9 +14,13 @@ class LogInViewController: UIViewController {
     
 //    let quicksandBold = UIFont(name: "Quicksand-Bold", size: UIFont.systemFontSize)
 
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = true
         setupUI()
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -35,7 +39,7 @@ class LogInViewController: UIViewController {
     }
     
     @objc func teacherPressed() {
-        performSegue(withIdentifier: "toClassSetupVC", sender: nil)
+        performSegue(withIdentifier: "toTeacherVC", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

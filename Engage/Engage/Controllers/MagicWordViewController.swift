@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseDatabase
+import FirebaseAuth
 
 class MagicWordViewController: UIViewController {
 
@@ -17,6 +18,7 @@ class MagicWordViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = false
         setupUI()
 
         // Do any additional setup after loading the view.
@@ -30,7 +32,8 @@ class MagicWordViewController: UIViewController {
                     self.invalidMagicWord()
                 }
                 else if sectionRefKey != "" {
-                    self.performSegue(withIdentifier: "toStudentVC", sender: sectionRefKey)
+                    self.createUserSession(number, sectionRefKey)
+                    self.performSegue(withIdentifier: "toSlider", sender: sectionRefKey)
                 }
             }
         } else {
@@ -40,11 +43,55 @@ class MagicWordViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let studentVC = segue.destination as? StudentViewController {
-            studentVC.sectionKey = sender as? String
+        if let sliderVC = segue.destination as? SliderViewController {
+            sliderVC.sectionKey = sender as? String
             
         }
     }
+    
+    func createUserSession(_ magicKey: Int, _ sectionRefKey: String) {
+//        let userID = Auth.auth().currentUser!.uid // Proper authentication of users, for later iterations.
+        let userID = UIDevice.current.identifierForVendor!.uuidString
+        let userSessionData: [String:AnyObject] = ["magic_key": magicKey as AnyObject,
+                                                  "section_ref_key": sectionRefKey as AnyObject,
+                                                  "slider_val": 50 as AnyObject,
+                                                  "user_id": userID as AnyObject,
+                                                  "username": self.name as AnyObject]
+        let dbRef = Database.database().reference()
+        dbRef.child("UserSessions").child(userID).setValue(userSessionData)
+        
+        updateSection(userID, sectionRefKey) { (userIDs) in
+            guard var userIDs = userIDs, userIDs != [:] else {
+                dbRef.child("Sections").child(sectionRefKey).child("user_ids").setValue([userID: self.name])
+                return
+            }
+            if userIDs == ["None":"None"] {
+                return // Ignore the first Firebase query without snapshot callback.
+            }
+            userIDs[userID] = self.name
+            dbRef.child("Sections").child(sectionRefKey).child("user_ids").setValue(userIDs)
+        }
+        
+        
+    }
+    
+    func updateSection(_ userID: String, _ sectionRefKey: String, completionHandler: @escaping ([String:String]?) -> ()) {
+        let dbRef = Database.database().reference()
+        dbRef.child("Sections").observeSingleEvent(of: .value) { (snapshot) in
+            if snapshot.exists() {
+                let sections = snapshot.value as! [String : [String : AnyObject]]
+                let section: [String:AnyObject]! = sections[sectionRefKey]
+                if (section.keys.contains("user_ids")) {
+                    completionHandler((section["user_ids"] as! [String : String]))
+                } else {
+                    completionHandler([:])
+                }
+            }
+        }
+        completionHandler(["None":"None"]) // To bypass the first Firebase query without snapshot callback.
+    }
+    
+    
     
     func invalidMagicWord() {
         let alertController = UIAlertController(title: "Invalid Magic Word", message: "No classes found with the magic word.", preferredStyle: .alert)

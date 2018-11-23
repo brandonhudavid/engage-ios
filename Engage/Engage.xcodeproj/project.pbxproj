@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		431A84CD219794750003CAA8 /* HistogramViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431A84CC219794750003CAA8 /* HistogramViewController.swift */; };
+		431A84CF21979C0D0003CAA8 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431A84CE21979C0D0003CAA8 /* File.swift */; };
+		431A84D12197E5660003CAA8 /* DataInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431A84D02197E5660003CAA8 /* DataInputViewController.swift */; };
+		431A84D52197E8330003CAA8 /* SliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431A84D42197E8330003CAA8 /* SliderViewController.swift */; };
 		87B9C8CD893936C6DC549E79 /* Pods_Engage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FF5597B9F482FB1DF51C43A /* Pods_Engage.framework */; };
 		8A9372E921955482009E3048 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A9372E821955482009E3048 /* GoogleService-Info.plist */; };
 		8A9372EB21955906009E3048 /* StudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9372EA21955906009E3048 /* StudentViewController.swift */; };
@@ -20,15 +24,24 @@
 		8AAD851821958884004A0D0A /* Quicksand-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A9372EF21958548009E3048 /* Quicksand-Light.ttf */; };
 		8AAD851921958884004A0D0A /* Quicksand-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A9372F021958548009E3048 /* Quicksand-Medium.ttf */; };
 		8AAD851A21958884004A0D0A /* Quicksand-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A9372EE21958548009E3048 /* Quicksand-Regular.ttf */; };
-		8AD1787F219C99D600D827FC /* TeacherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD1787E219C99D600D827FC /* TeacherViewController.swift */; };
 		8AEDEF3F21928908006ECE42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEDEF3E21928908006ECE42 /* AppDelegate.swift */; };
 		8AEDEF4121928908006ECE42 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEDEF4021928908006ECE42 /* LogInViewController.swift */; };
 		8AEDEF4421928908006ECE42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AEDEF4221928908006ECE42 /* Main.storyboard */; };
 		8AEDEF462192890A006ECE42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AEDEF452192890A006ECE42 /* Assets.xcassets */; };
 		8AEDEF492192890A006ECE42 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AEDEF472192890A006ECE42 /* LaunchScreen.storyboard */; };
+		8AF9AC4821A4EA100002D019 /* SliderViewController - UISetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF9AC4721A4EA100002D019 /* SliderViewController - UISetup.swift */; };
+		8AF9AC4A21A6A1880002D019 /* TeacherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF9AC4921A6A1880002D019 /* TeacherViewController.swift */; };
+		8AF9AC4C21A6A19A0002D019 /* TeacherViewController - UISetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF9AC4B21A6A19A0002D019 /* TeacherViewController - UISetup.swift */; };
+		8AF9AC4E21A80CA10002D019 /* ClassListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF9AC4D21A80CA10002D019 /* ClassListController.swift */; };
+		8AF9AC5021A80CD90002D019 /* ClassListController - UISetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF9AC4F21A80CD90002D019 /* ClassListController - UISetup.swift */; };
+		8AF9AC5321A80F770002D019 /* ClassCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF9AC5221A80F770002D019 /* ClassCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		431A84CC219794750003CAA8 /* HistogramViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistogramViewController.swift; sourceTree = "<group>"; };
+		431A84CE21979C0D0003CAA8 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		431A84D02197E5660003CAA8 /* DataInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataInputViewController.swift; sourceTree = "<group>"; };
+		431A84D42197E8330003CAA8 /* SliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderViewController.swift; sourceTree = "<group>"; };
 		7FF5597B9F482FB1DF51C43A /* Pods_Engage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Engage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A9372E821955482009E3048 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8A9372EA21955906009E3048 /* StudentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentViewController.swift; sourceTree = "<group>"; };
@@ -42,7 +55,6 @@
 		8AAA614C2192926A00CBBF7A /* ClassSetupViewController - UISetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClassSetupViewController - UISetup.swift"; sourceTree = "<group>"; };
 		8AAA614E2192929500CBBF7A /* LogInViewController - UISetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LogInViewController - UISetup.swift"; sourceTree = "<group>"; };
 		8AAA615F21929EDE00CBBF7A /* MagicWordViewController - UISetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MagicWordViewController - UISetup.swift"; sourceTree = "<group>"; };
-		8AD1787E219C99D600D827FC /* TeacherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherViewController.swift; sourceTree = "<group>"; };
 		8AEDEF3B21928908006ECE42 /* Engage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Engage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AEDEF3E21928908006ECE42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8AEDEF4021928908006ECE42 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
@@ -50,6 +62,12 @@
 		8AEDEF452192890A006ECE42 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8AEDEF482192890A006ECE42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8AEDEF4A2192890A006ECE42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8AF9AC4721A4EA100002D019 /* SliderViewController - UISetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SliderViewController - UISetup.swift"; sourceTree = "<group>"; };
+		8AF9AC4921A6A1880002D019 /* TeacherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherViewController.swift; sourceTree = "<group>"; };
+		8AF9AC4B21A6A19A0002D019 /* TeacherViewController - UISetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TeacherViewController - UISetup.swift"; sourceTree = "<group>"; };
+		8AF9AC4D21A80CA10002D019 /* ClassListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassListController.swift; sourceTree = "<group>"; };
+		8AF9AC4F21A80CD90002D019 /* ClassListController - UISetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClassListController - UISetup.swift"; sourceTree = "<group>"; };
+		8AF9AC5221A80F770002D019 /* ClassCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClassCell.swift; path = Engage/Cells/ClassCell.swift; sourceTree = "<group>"; };
 		9BDDF113EE4A33A70C1AFC85 /* Pods-Engage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Engage.release.xcconfig"; path = "Pods/Target Support Files/Pods-Engage/Pods-Engage.release.xcconfig"; sourceTree = "<group>"; };
 		D8DC94FFAE97A1BDD8E4C44E /* Pods-Engage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Engage.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Engage/Pods-Engage.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -66,6 +84,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8A6A9C69219E36290021B6E3 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		8AAA614721928CDC00CBBF7A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -73,11 +98,19 @@
 				8AAA614E2192929500CBBF7A /* LogInViewController - UISetup.swift */,
 				8AAA614821928E4C00CBBF7A /* MagicWordViewController.swift */,
 				8AAA615F21929EDE00CBBF7A /* MagicWordViewController - UISetup.swift */,
+				431A84CC219794750003CAA8 /* HistogramViewController.swift */,
+				431A84D02197E5660003CAA8 /* DataInputViewController.swift */,
 				8A9372EA21955906009E3048 /* StudentViewController.swift */,
+				431A84CE21979C0D0003CAA8 /* File.swift */,
 				8A9372EC2195592D009E3048 /* StudentViewController - UISetup.swift */,
 				8AAA614A21928E7C00CBBF7A /* ClassSetupViewController.swift */,
 				8AAA614C2192926A00CBBF7A /* ClassSetupViewController - UISetup.swift */,
-				8AD1787E219C99D600D827FC /* TeacherViewController.swift */,
+				431A84D42197E8330003CAA8 /* SliderViewController.swift */,
+				8AF9AC4721A4EA100002D019 /* SliderViewController - UISetup.swift */,
+				8AF9AC4921A6A1880002D019 /* TeacherViewController.swift */,
+				8AF9AC4B21A6A19A0002D019 /* TeacherViewController - UISetup.swift */,
+				8AF9AC4D21A80CA10002D019 /* ClassListController.swift */,
+				8AF9AC4F21A80CD90002D019 /* ClassListController - UISetup.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -100,6 +133,7 @@
 				8AEDEF3C21928908006ECE42 /* Products */,
 				CEB1E458DAAD55BC7CDCC713 /* Pods */,
 				ED97684429D0F9F5E5A84936 /* Frameworks */,
+				8A6A9C69219E36290021B6E3 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -116,6 +150,7 @@
 			children = (
 				8A9372E821955482009E3048 /* GoogleService-Info.plist */,
 				8AAA6150219296DA00CBBF7A /* Fonts */,
+				8AF9AC5121A80F4B0002D019 /* Cells */,
 				8AAA614721928CDC00CBBF7A /* Controllers */,
 				8AEDEF3E21928908006ECE42 /* AppDelegate.swift */,
 				8AEDEF4221928908006ECE42 /* Main.storyboard */,
@@ -124,6 +159,15 @@
 				8AEDEF4A2192890A006ECE42 /* Info.plist */,
 			);
 			path = Engage;
+			sourceTree = "<group>";
+		};
+		8AF9AC5121A80F4B0002D019 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				8AF9AC5221A80F770002D019 /* ClassCell.swift */,
+			);
+			name = Cells;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		CEB1E458DAAD55BC7CDCC713 /* Pods */ = {
@@ -242,17 +286,31 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Engage/Pods-Engage-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/10Clock/_10Clock.framework",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
+				"${BUILT_PRODUCTS_DIR}/ChartsRealm/ChartsRealm.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/fluid-slider/fluid_slider.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/_10Clock.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChartsRealm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/fluid_slider.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -267,14 +325,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AEDEF4121928908006ECE42 /* LogInViewController.swift in Sources */,
+				431A84CD219794750003CAA8 /* HistogramViewController.swift in Sources */,
+				8AF9AC4A21A6A1880002D019 /* TeacherViewController.swift in Sources */,
+				431A84D52197E8330003CAA8 /* SliderViewController.swift in Sources */,
 				8A9372ED2195592D009E3048 /* StudentViewController - UISetup.swift in Sources */,
 				8AAA616021929EDE00CBBF7A /* MagicWordViewController - UISetup.swift in Sources */,
 				8AAA614D2192926A00CBBF7A /* ClassSetupViewController - UISetup.swift in Sources */,
+				8AF9AC4C21A6A19A0002D019 /* TeacherViewController - UISetup.swift in Sources */,
 				8AAA614F2192929500CBBF7A /* LogInViewController - UISetup.swift in Sources */,
+				8AF9AC5321A80F770002D019 /* ClassCell.swift in Sources */,
+				8AF9AC4E21A80CA10002D019 /* ClassListController.swift in Sources */,
+				8AF9AC4821A4EA100002D019 /* SliderViewController - UISetup.swift in Sources */,
 				8A9372EB21955906009E3048 /* StudentViewController.swift in Sources */,
 				8AAA614921928E4C00CBBF7A /* MagicWordViewController.swift in Sources */,
-				8AD1787F219C99D600D827FC /* TeacherViewController.swift in Sources */,
 				8AEDEF3F21928908006ECE42 /* AppDelegate.swift in Sources */,
+				431A84D12197E5660003CAA8 /* DataInputViewController.swift in Sources */,
+				431A84CF21979C0D0003CAA8 /* File.swift in Sources */,
+				8AF9AC5021A80CD90002D019 /* ClassListController - UISetup.swift in Sources */,
 				8AAA614B21928E7C00CBBF7A /* ClassSetupViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -422,17 +489,20 @@
 			baseConfigurationReference = D8DC94FFAE97A1BDD8E4C44E /* Pods-Engage.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZR8862QZ87;
 				INFOPLIST_FILE = Engage/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = brandonhudavid.Engage;
+				PRODUCT_BUNDLE_IDENTIFIER = iosEngage.Engage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -441,17 +511,20 @@
 			baseConfigurationReference = 9BDDF113EE4A33A70C1AFC85 /* Pods-Engage.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZR8862QZ87;
 				INFOPLIST_FILE = Engage/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = brandonhudavid.Engage;
+				PRODUCT_BUNDLE_IDENTIFIER = iosEngage.Engage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
