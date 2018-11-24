@@ -31,21 +31,29 @@ class HistogramViewController: UIViewController {
     @IBOutlet var pieChartViewL: PieChartView!
     @IBOutlet var pieChartViewR: PieChartView!
     var counts : [Int] = []
-
+    var countValid : Int!
+    var userIDs : [String] = []
+    var timer = Timer()
+    var first = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         getSectionData(completion: {
-            
         })
+        scheduledTimerWithTimeInterval()
         
         // Do any additional setup after loading the view.
     }
 
+
+    func scheduledTimerWithTimeInterval(){
+        // Scheduling timer to Call the function "updateCounting" with the interval of 1 seconds
+        timer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(self.updateData), userInfo: nil, repeats: true)
+    }
+    
     
     func setupPage() {
-        self.counts = [22, 32, 43, 55, 6, 55, 66, 77, 99, 1, 2, 3, 4, 4, 15, 15, 16, 17, 28, 29, 44, 44]
-        self.magicWord = 789 //currently hardcoded
+//        self.magicWord = 789 //currently hardcoded
         self.threshold = 50
         self.view.backgroundColor =  UIColor(red: 6/255, green: 38/255, blue: 51/255, alpha: 1)
         self.updateChartWithData()
@@ -61,7 +69,12 @@ class HistogramViewController: UIViewController {
                 if let value = snapshot.value as? NSDictionary {
                     self.sectionName = value["section_id"] as? String ?? ""
                     print(self.sectionName!)
-                    self.setupPage()
+                    self.magicWord = value["magic_key"] as? Int ?? 000
+                    print(self.magicWord!)
+                    let dict = value["user_ids"] as? NSDictionary
+                    self.userIDs = dict?.allKeys as! [String]
+                    print(self.userIDs)
+                    self.getStudentValues (completion: {})
                 } else {
                     print("NO USER FOUND")
                 }
@@ -74,6 +87,37 @@ class HistogramViewController: UIViewController {
             }
         }
     
+    
+    func getStudentValues(completion: @escaping () -> ()) {
+        let tempref = Database.database().reference()
+        tempref.child("UserSessions").observeSingleEvent(of: .value, with: { (snapshot) in
+            if let value = snapshot.value as? NSDictionary {
+                 for userID in self.userIDs {
+                    let user = value[userID] as? NSDictionary
+                    self.counts = []
+                    if let value = user?.value(forKey: "user_id") as? Int {
+                        self.counts.append(value)
+                    }
+                    print(userID)
+                    print(self.counts)
+                    if self.first {
+                        self.setupPage()
+                        self.first = false
+                    } else {
+                        self.updatePage()
+                    }
+                }
+            } else {
+                print("NO USER FOUND")
+            }
+            
+            // ...
+        }) { (error) in
+            print("ERROR IN FINDING USER")
+            print(error.localizedDescription)
+            completion()
+        }
+    }
 
     func setLeftPieChart() {
         pieChartViewL = PieChartView(frame: CGRect(x: 0, y: 0, width: 120, height: 120))
@@ -87,21 +131,26 @@ class HistogramViewController: UIViewController {
                 belowOrEqual += 1
             }
         }
-        
-        let dataEntryNone = PieChartDataEntry(value: Double(100 * (counts.count - belowOrEqual) / counts.count ))
-        dataEntries.append(dataEntryNone)
-        colors.append(setColor(value: -1))
-        
-        let dataEntryBelow = PieChartDataEntry(value: Double(100 * belowOrEqual / counts.count ))
-        dataEntries.append(dataEntryBelow)
-        colors.append(setColor(value: 1))
+        if counts.count != 0 {
+            let dataEntryNone = PieChartDataEntry(value: Double(100 * (counts.count - belowOrEqual) / counts.count ))
+            dataEntries.append(dataEntryNone)
+            colors.append(setColor(value: -1))
+        }
+       
+         if counts.count != 0 {
+            let dataEntryBelow = PieChartDataEntry(value: Double(100 * belowOrEqual / counts.count ))
+            dataEntries.append(dataEntryBelow)
+            colors.append(setColor(value: 1))
+        }
         
        
         let pieChartDataSet = PieChartDataSet(values: dataEntries, label: "Student Input")
         let pieChartData = PieChartData(dataSet: pieChartDataSet)
         pieChartData.setDrawValues(false)
         pieChartViewL.data = pieChartData
-        pieChartDataSet.colors = colors
+        if counts.count != 0 {
+            pieChartDataSet.colors = colors
+        }
         pieChartViewL.legend.enabled = false
         pieChartViewL.isUserInteractionEnabled = false
         pieChartViewL.holeColor = nil
@@ -133,21 +182,24 @@ class HistogramViewController: UIViewController {
                 above += 1
             }
         }
-        
-        let dataEntryAbove = PieChartDataEntry(value: Double(100 * above / counts.count ))
-        dataEntries.append(dataEntryAbove)
-        colors.append(setColor(value: 99))
-        
-        let dataEntryNone = PieChartDataEntry(value: Double(100 * (counts.count - above) / counts.count ))
-        dataEntries.append(dataEntryNone)
-        colors.append(setColor(value: -1))
-        
+          if counts.count != 0 {
+            let dataEntryAbove = PieChartDataEntry(value: Double(100 * above / counts.count ))
+            dataEntries.append(dataEntryAbove)
+            colors.append(setColor(value: 99))
+        }
+          if counts.count != 0 {
+            let dataEntryNone = PieChartDataEntry(value: Double(100 * (counts.count - above) / counts.count ))
+            dataEntries.append(dataEntryNone)
+            colors.append(setColor(value: -1))
+        }
         
         let pieChartDataSet = PieChartDataSet(values: dataEntries, label: "Student Input")
         let pieChartData = PieChartData(dataSet: pieChartDataSet)
         pieChartData.setDrawValues(false)
         pieChartViewR.data = pieChartData
-        pieChartDataSet.colors = colors
+        if counts.count != 0 {
+            pieChartDataSet.colors = colors
+        }
         pieChartViewR.legend.enabled = false
         pieChartViewR.isUserInteractionEnabled = false
         pieChartViewR.holeColor = nil
@@ -189,7 +241,9 @@ class HistogramViewController: UIViewController {
         let chartDataSet = BarChartDataSet(values: dataEntries, label: "Student Input")
         let chartData = BarChartData(dataSet: chartDataSet)
         chartData.barWidth = Double(9)
-        chartDataSet.colors = colors
+        if counts.count != 0 {
+            chartDataSet.colors = colors
+        }
         chartData.setDrawValues(false)
         barView.xAxis.labelTextColor = UIColor.white
         barView.leftAxis.labelTextColor = UIColor.white
@@ -216,7 +270,7 @@ class HistogramViewController: UIViewController {
         magicWordLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 50))
         magicWordLabel.center = CGPoint(x: view.frame.width / 2, y: 150)
         magicWordLabel.textAlignment = .center
-        magicWordLabel.text  = "Magic Word: " + String(magicWord)
+        magicWordLabel.text  = "Magic Word: " + String(magicWord!)
         magicWordLabel.textColor = UIColor.white
         magicWordLabel.font = UIFont(name: "Quicksand-Bold", size: 20)
         view.addSubview(magicWordLabel)
@@ -225,7 +279,11 @@ class HistogramViewController: UIViewController {
         numStudentsLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 20))
         numStudentsLabel.center = CGPoint(x: view.frame.width / 2, y: view.frame.height - 250)
         numStudentsLabel.textAlignment = .center
-        numStudentsLabel.text  = String(counts.count) + " Students Total"
+        if (counts.count == 1) {
+            numStudentsLabel.text  = String(counts.count) + " Student Total"
+        } else {
+            numStudentsLabel.text  = String(counts.count) + " Students Total"
+        }
         numStudentsLabel.textColor = UIColor.white
         numStudentsLabel.font = UIFont(name: "Quicksand-Bold", size: 21)
         view.addSubview(numStudentsLabel)
@@ -262,10 +320,12 @@ class HistogramViewController: UIViewController {
     
     func updatePage() {
         clearPage()
-        updateChartWithData()
-        setLeftPieChart()
-        setRightPieChart()
+        self.updateChartWithData()
+        self.setLeftPieChart()
+        self.setRightPieChart()
     }
+    
+
 
     func clearPage() {
         numStudentsLabel.removeFromSuperview()
@@ -275,7 +335,13 @@ class HistogramViewController: UIViewController {
         pieChartLabelL.removeFromSuperview()
         pieChartLabelR.removeFromSuperview()
     }
-
+    
+    @objc func updateData() {
+        sectionNameLabel.removeFromSuperview()
+        magicWordLabel.removeFromSuperview()
+        numStudentsLabel.removeFromSuperview()
+        getSectionData(completion: {})
+    }
 
 
     @objc func numberValueChanged() {

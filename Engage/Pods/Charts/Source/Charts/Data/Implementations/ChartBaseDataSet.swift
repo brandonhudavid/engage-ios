@@ -207,6 +207,7 @@ open class ChartBaseDataSet: NSObject, IChartDataSet
         {
             index = 0
         }
+        
         return colors[index % colors.count]
     }
     
