@@ -45,6 +45,7 @@ class MagicWordViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let sliderVC = segue.destination as? SliderViewController {
             sliderVC.sectionKey = sender as? String
+            sliderVC.userName = name
             
         }
     }

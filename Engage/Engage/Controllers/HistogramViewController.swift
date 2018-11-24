@@ -45,7 +45,7 @@ class HistogramViewController: UIViewController {
     
     func setupPage() {
         self.counts = [22, 32, 43, 55, 6, 55, 66, 77, 99, 1, 2, 3, 4, 4, 15, 15, 16, 17, 28, 29, 44, 44]
-        self.magicWord = 799 //currently hardcoded
+        self.magicWord = 789 //currently hardcoded
         self.threshold = 50
         self.view.backgroundColor =  UIColor(red: 6/255, green: 38/255, blue: 51/255, alpha: 1)
         self.updateChartWithData()

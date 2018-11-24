@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import Firebase
 
 class SliderViewController: UIViewController {
     
     var sectionKey: String!
     var slider : UISlider!
+    var userName : String!
     
     
     override func viewDidLoad() {
@@ -23,6 +25,15 @@ class SliderViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    @objc func numberValueChanged() {
+        updateSlider()
+    }
+    
+    func updateSlider() {
+        let userID = UIDevice.current.identifierForVendor!.uuidString
+        let tempref = Database.database().reference()
+        tempref.child("UserSessions").child(userID).setValue(["slider_val" : Int(slider.value)])
+    }
     
 //
 //    override func viewDidLayoutSubviews() {
