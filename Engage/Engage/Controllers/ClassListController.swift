@@ -12,6 +12,7 @@ class ClassListController: UIViewController {
     
     var sections: [[String]]!
     var classList: UITableView!
+    var selected : Int!
 
     override func viewDidLoad() {
         super.viewDidLoad()

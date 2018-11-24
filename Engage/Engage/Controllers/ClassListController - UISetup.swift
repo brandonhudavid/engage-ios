@@ -11,6 +11,8 @@ import UIKit
 
 extension ClassListController: UITableViewDelegate, UITableViewDataSource {
     
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
@@ -39,12 +41,12 @@ extension ClassListController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "listToDataInput", sender: sections[indexPath.section][0])
+        performSegue(withIdentifier: "toHistogram", sender: sections[indexPath.section][0])
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "listToDataInput", let dataInputVC = segue.destination as? DataInputViewController {
-            dataInputVC.sectionRefKey = (sender as! String)
+        if segue.identifier == "toHistogram", let histogramVC = segue.destination as? HistogramViewController {
+            histogramVC.sectionRefKey = (sender as! String)
         }
     }
     

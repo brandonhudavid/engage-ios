@@ -196,6 +196,14 @@ extension ClassSetupViewController {
         
     }
     
+//<<<<<<< Updated upstream
+//=======
+//    
+//    @objc func createClass() {
+//        performSegue(withIdentifier: "toHistogram", sender: self)
+//    }
+//    
+//>>>>>>> Stashed changes
     @objc func donedatePicker() {
         
         let formatter = DateFormatter()

@@ -21,16 +21,19 @@ extension SliderViewController {
     
     
     func setupSlider() {
-        slider = UISlider(frame: CGRect(x: 0, y: 0, width: view.frame.height - 300, height: view.frame.width - 30))
+        slider = UISlider(frame: CGRect(x: 0, y: 0, width: view.frame.height - 200, height: view.frame.width - 100))
         slider.center = CGPoint(x: view.frame.width / 2, y: view.frame.height / 2 + 50)
-        slider.setThumbImage(UIImage(named: "slider_thumb"), for: .normal)
+        let thumbImage = UIImage(named: "slider_thumb")
+        slider.setThumbImage(thumbImage, for: .normal)
         slider.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi / 2))
         slider.maximumTrackTintColor = UIColor.clear
         slider.minimumTrackTintColor = UIColor.clear
-        let slider_back = UIImageView(frame: CGRect(x: 0, y: 0, width: view.frame.height - 200, height: view.frame.width - 30))
+        let slider_back = UIImageView(frame: CGRect(x: 0, y: 0, width: view.frame.height - 200, height: view.frame.width - 100))
         slider_back.image = UIImage(named: "slider_track")
         slider_back.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi / 2))
         slider_back.center = CGPoint(x: view.frame.width / 2, y: view.frame.height / 2 + 50)
+        slider.minimumValue = 0
+        slider.maximumValue = 100
         view.addSubview(slider_back)
         view.addSubview(slider)
         

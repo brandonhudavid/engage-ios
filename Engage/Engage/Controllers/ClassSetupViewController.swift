@@ -81,11 +81,11 @@ class ClassSetupViewController: UIViewController {
             teacherSections[sectionRefKey] = sectionName
             dbRef.child("Teachers").child(userID).setValue(teacherSections)
         }
-        performSegue(withIdentifier: "toDataInput", sender: sectionRefKey)
+        performSegue(withIdentifier: "toHistogram", sender: sectionRefKey)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toDataInput", let dataInputVC = segue.destination as? DataInputViewController {
+        if segue.identifier == "toHistogram", let dataInputVC = segue.destination as? DataInputViewController {
             dataInputVC.sectionRefKey = (sender as! String)
         }
     }
