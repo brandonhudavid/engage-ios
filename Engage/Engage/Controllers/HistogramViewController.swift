@@ -51,33 +51,25 @@ class HistogramViewController: UIViewController {
         timer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(self.updateData), userInfo: nil, repeats: true)
     }
     
-    
-    func setupPage() {
-//        self.magicWord = 789 //currently hardcoded
-        self.threshold = 50
-        self.view.backgroundColor =  UIColor(red: 6/255, green: 38/255, blue: 51/255, alpha: 1)
-        self.updateChartWithData()
-        self.setLeftPieChart()
-        self.setRightPieChart()
-        self.setupSlider()
-    }
+ 
     
     func getSectionData(completion: @escaping () -> ()) {
         let tempref = Database.database().reference()
-        tempref.child("Sections").child(sectionRefKey!).observeSingleEvent(of: .value, with: { (snapshot) in
-                // Get user value
-                if let value = snapshot.value as? NSDictionary {
-                    self.sectionName = value["section_id"] as? String ?? ""
-                    print(self.sectionName!)
-                    self.magicWord = value["magic_key"] as? Int ?? 000
-                    print(self.magicWord!)
-                    let dict = value["user_ids"] as? NSDictionary
-                    self.userIDs = dict?.allKeys as! [String]
-                    print(self.userIDs)
-                    self.getStudentValues (completion: {})
-                } else {
-                    print("NO USER FOUND")
-                }
+        if let sectionRefKey = sectionRefKey {
+            tempref.child("Sections").child(sectionRefKey).observeSingleEvent(of: .value, with: { (snapshot) in
+                    // Get user value
+                    if let value = snapshot.value as? NSDictionary {
+                        self.sectionName = value["section_id"] as? String ?? ""
+                        print(self.sectionName!)
+                        self.magicWord = value["magic_key"] as? Int ?? 000
+                        print(self.magicWord!)
+                        let dict = value["user_ids"] as? NSDictionary
+                        self.userIDs = dict?.allKeys as? [String] ?? []
+                        print(self.userIDs)
+                        self.getStudentValues (completion: {})
+                    } else {
+                        print("NO USER FOUND")
+                    }
             
                 // ...
             }) { (error) in
@@ -85,7 +77,13 @@ class HistogramViewController: UIViewController {
                 print(error.localizedDescription)
                 completion()
             }
+        } else {
+            sectionName = "No name" ///generate new magic key and stuff here
+            magicWord = 000
+            userIDs = []
+            
         }
+    }
     
     
     func getStudentValues(completion: @escaping () -> ()) {
@@ -257,37 +255,6 @@ class HistogramViewController: UIViewController {
     }
 
 
-    func setLabel(counts : [Int]) {
-        
-        sectionNameLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 50))
-        sectionNameLabel.center = CGPoint(x: view.frame.width / 2, y: 125)
-        sectionNameLabel.textAlignment = .center
-        sectionNameLabel.text  = "Section Name: " + sectionName
-        sectionNameLabel.textColor = UIColor.white
-        sectionNameLabel.font = UIFont(name: "Quicksand-Bold", size: 20)
-        view.addSubview(sectionNameLabel)
-        
-        magicWordLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 50))
-        magicWordLabel.center = CGPoint(x: view.frame.width / 2, y: 150)
-        magicWordLabel.textAlignment = .center
-        magicWordLabel.text  = "Magic Word: " + String(magicWord!)
-        magicWordLabel.textColor = UIColor.white
-        magicWordLabel.font = UIFont(name: "Quicksand-Bold", size: 20)
-        view.addSubview(magicWordLabel)
-        
-        
-        numStudentsLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 20))
-        numStudentsLabel.center = CGPoint(x: view.frame.width / 2, y: view.frame.height - 250)
-        numStudentsLabel.textAlignment = .center
-        if (counts.count == 1) {
-            numStudentsLabel.text  = String(counts.count) + " Student Total"
-        } else {
-            numStudentsLabel.text  = String(counts.count) + " Students Total"
-        }
-        numStudentsLabel.textColor = UIColor.white
-        numStudentsLabel.font = UIFont(name: "Quicksand-Bold", size: 21)
-        view.addSubview(numStudentsLabel)
-    }
 
     func setColor(value: Double) -> UIColor{
 
@@ -304,18 +271,6 @@ class HistogramViewController: UIViewController {
         }
     }
     
-    func setupSlider() {
-        slider = UISlider(frame: CGRect(x: 0, y: 0, width: view.frame.width - 100, height: view.frame.height - 50))
-        slider.center = CGPoint(x: view.frame.width / 2, y: view.frame.height - 75)
-        slider.maximumTrackTintColor = UIColor.init(red: 47/255, green: 92/255, blue: 216/255, alpha: 1.0)
-        slider.minimumTrackTintColor = UIColor.init(red: 47/255, green: 92/255, blue: 216/255, alpha: 1.0)
-        slider.minimumValue = 0
-        slider.maximumValue = 100
-        slider.value = 50
-        slider.addTarget(self, action: #selector(numberValueChanged), for: UIControl.Event.valueChanged)
-        view.addSubview(slider)
-    }
-    
     
     
     func updatePage() {
@@ -328,19 +283,23 @@ class HistogramViewController: UIViewController {
 
 
     func clearPage() {
-        numStudentsLabel.removeFromSuperview()
-        barView.removeFromSuperview()
-        pieChartViewL.removeFromSuperview()
-        pieChartViewR.removeFromSuperview()
-        pieChartLabelL.removeFromSuperview()
-        pieChartLabelR.removeFromSuperview()
+         if let sectionNameLabel = sectionNameLabel, let magicWordLabel = magicWordLabel, let numStudentsLabel = numStudentsLabel, let barView = barView, let pieChartViewL = pieChartViewL, let pieChartViewR = pieChartViewR, let pieChartLabelL = pieChartLabelL, let pieChartLabelR = pieChartLabelR {
+            numStudentsLabel.removeFromSuperview()
+            barView.removeFromSuperview()
+            pieChartViewL.removeFromSuperview()
+            pieChartViewR.removeFromSuperview()
+            pieChartLabelL.removeFromSuperview()
+            pieChartLabelR.removeFromSuperview()
+        }
     }
     
     @objc func updateData() {
-        sectionNameLabel.removeFromSuperview()
-        magicWordLabel.removeFromSuperview()
-        numStudentsLabel.removeFromSuperview()
-        getSectionData(completion: {})
+        if let sectionNameLabel = sectionNameLabel, let magicWordLabel = magicWordLabel, let numStudentsLabel = numStudentsLabel {
+            sectionNameLabel.removeFromSuperview()
+            magicWordLabel.removeFromSuperview()
+            numStudentsLabel.removeFromSuperview()
+            getSectionData(completion: {})
+        }
     }
 
 
