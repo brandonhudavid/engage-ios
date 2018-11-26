@@ -161,7 +161,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E9J-Ts-Aqw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1655" y="133"/>
+            <point key="canvasLocation" x="1686" y="133"/>
         </scene>
         <!--Slider View Controller-->
         <scene sceneID="3tR-su-U6u">
@@ -176,7 +176,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="09c-ns-ltc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2408" y="135"/>
+            <point key="canvasLocation" x="2407.1999999999998" y="134.48275862068968"/>
+        </scene>
+        <!--Class Line Graph View Controller-->
+        <scene sceneID="OXs-if-hRk">
+            <objects>
+                <viewController id="Rha-kJ-RrM" customClass="ClassLineGraphViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AjA-pl-sTT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Pjc-N7-ESh"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CN0-bR-xii" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3196" y="134"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

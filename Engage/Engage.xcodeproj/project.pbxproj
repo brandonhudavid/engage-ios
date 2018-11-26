@@ -110,8 +110,8 @@
 				8AAA614C2192926A00CBBF7A /* ClassSetupViewController - UISetup.swift */,
 				431A84D42197E8330003CAA8 /* SliderViewController.swift */,
 				8AF9AC4721A4EA100002D019 /* SliderViewController - UISetup.swift */,
-				8AF9AC4921A6A1880002D019 /* TeacherViewController.swift */,
 				8AF9AC4B21A6A19A0002D019 /* TeacherViewController - UISetup.swift */,
+				8AF9AC4921A6A1880002D019 /* TeacherViewController.swift */,
 				8AF9AC4D21A80CA10002D019 /* ClassListController.swift */,
 				8AF9AC4F21A80CD90002D019 /* ClassListController - UISetup.swift */,
 			);
