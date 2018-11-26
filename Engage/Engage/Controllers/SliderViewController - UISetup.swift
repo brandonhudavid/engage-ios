@@ -73,7 +73,7 @@ extension SliderViewController {
     @objc func changeColor(sender: UISegmentedControl){
         switch sender.selectedSegmentIndex {
         case 0:
-            break
+            performSegue(withIdentifier: "toMe", sender: self)
         case 1:
             performSegue(withIdentifier: "toBoth", sender: self)
         default:

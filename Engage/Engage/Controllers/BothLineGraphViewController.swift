@@ -13,7 +13,6 @@ class BothLineGraphViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpBasics()
-        setUpSegmentedControl()
     }
     
     
