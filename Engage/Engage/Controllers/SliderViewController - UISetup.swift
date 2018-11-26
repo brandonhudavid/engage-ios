@@ -11,7 +11,6 @@ import UIKit
 
 extension SliderViewController {
     
-    
     func setupUI() {
         self.view.backgroundColor = UIColor.init(red: 6/255, green: 38/255, blue: 51/255, alpha: 1.0)
         setupLabel()
@@ -51,17 +50,14 @@ extension SliderViewController {
     }
     
     func setUpSegmentedControl(){
-        // Initialize
+
         let items = ["Me", "Class"]
         let customSC = UISegmentedControl(items: items)
         customSC.selectedSegmentIndex = 0
         let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         
-        // Set up Frame
         customSC.frame = CGRect(x: -103, y: view.frame.height/2 + 37, width: 264, height: 25)
-        
-        // Style the Segmented Control
-        customSC.layer.cornerRadius = 3.0  // Don't let background bleed
+        customSC.layer.cornerRadius = 3.0  
         customSC.backgroundColor = self.view.backgroundColor
         customSC.tintColor = UIColor.init(red: 47/255, green: 92/255, blue: 216/255, alpha: 1.0)
         customSC.setTitleTextAttributes(titleTextAttributes, for: .normal)
@@ -69,19 +65,19 @@ extension SliderViewController {
         customSC.clipsToBounds = true
         customSC.transform = CGAffineTransform(rotationAngle: 3*CGFloat.pi/2)
         
-        // Add target action method
-        customSC.addTarget(self, action: "changeColor:", for: .valueChanged)
+        customSC.addTarget(self, action: #selector(changeColor), for: .valueChanged)
         
-        // Add this custom Segmented Control to our view
         self.view.addSubview(customSC)
     }
     
-    func changeColor(sender: UISegmentedControl){
+    @objc func changeColor(sender: UISegmentedControl){
         switch sender.selectedSegmentIndex {
+        case 0:
+            break
         case 1:
-            print("move frame!")
+            performSegue(withIdentifier: "toBoth", sender: self)
         default:
-            print("stay in current frame!")
+            break
         }
     }
     

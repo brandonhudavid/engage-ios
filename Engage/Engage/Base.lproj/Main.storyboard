@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Mms-9T-3DE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Mms-9T-3DE">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -174,29 +174,36 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="IV5-Pv-MQC"/>
                     </view>
+                    <connections>
+                        <segue destination="Rha-kJ-RrM" kind="show" identifier="toBoth" id="cJl-jm-8Nt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="09c-ns-ltc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2407.1999999999998" y="134.48275862068968"/>
         </scene>
-        <!--Class Line Graph View Controller-->
+        <!--Both Line Graph View Controller-->
         <scene sceneID="OXs-if-hRk">
             <objects>
-                <viewController id="Rha-kJ-RrM" customClass="ClassLineGraphViewController" sceneMemberID="viewController">
+                <viewController id="Rha-kJ-RrM" customClass="BothLineGraphViewController" customModule="Engage" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AjA-pl-sTT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Pjc-N7-ESh"/>
                     </view>
+                    <connections>
+                        <segue destination="hfz-1q-0wk" kind="show" identifier="toMe" id="jbz-U2-aUg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CN0-bR-xii" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3196" y="134"/>
+            <point key="canvasLocation" x="3196" y="133.5832083958021"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="4g4-OP-aay"/>
+        <segue reference="jbz-U2-aUg"/>
+        <segue reference="x1S-tV-RrR"/>
         <segue reference="CiA-JC-lsC"/>
     </inferredMetricsTieBreakers>
 </document>
