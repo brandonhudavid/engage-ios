@@ -11,6 +11,7 @@
 		431A84CF21979C0D0003CAA8 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431A84CE21979C0D0003CAA8 /* File.swift */; };
 		431A84D12197E5660003CAA8 /* DataInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431A84D02197E5660003CAA8 /* DataInputViewController.swift */; };
 		431A84D52197E8330003CAA8 /* SliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431A84D42197E8330003CAA8 /* SliderViewController.swift */; };
+		43BD6C9A21AB324800500216 /* HistogramViewController - UISetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BD6C9921AB324800500216 /* HistogramViewController - UISetup.swift */; };
 		87B9C8CD893936C6DC549E79 /* Pods_Engage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FF5597B9F482FB1DF51C43A /* Pods_Engage.framework */; };
 		8A9372E921955482009E3048 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A9372E821955482009E3048 /* GoogleService-Info.plist */; };
 		8A9372EB21955906009E3048 /* StudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9372EA21955906009E3048 /* StudentViewController.swift */; };
@@ -42,6 +43,7 @@
 		431A84CE21979C0D0003CAA8 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		431A84D02197E5660003CAA8 /* DataInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataInputViewController.swift; sourceTree = "<group>"; };
 		431A84D42197E8330003CAA8 /* SliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderViewController.swift; sourceTree = "<group>"; };
+		43BD6C9921AB324800500216 /* HistogramViewController - UISetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HistogramViewController - UISetup.swift"; sourceTree = "<group>"; };
 		7FF5597B9F482FB1DF51C43A /* Pods_Engage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Engage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A9372E821955482009E3048 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8A9372EA21955906009E3048 /* StudentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				8AAA614821928E4C00CBBF7A /* MagicWordViewController.swift */,
 				8AAA615F21929EDE00CBBF7A /* MagicWordViewController - UISetup.swift */,
 				431A84CC219794750003CAA8 /* HistogramViewController.swift */,
+				43BD6C9921AB324800500216 /* HistogramViewController - UISetup.swift */,
 				431A84D02197E5660003CAA8 /* DataInputViewController.swift */,
 				8A9372EA21955906009E3048 /* StudentViewController.swift */,
 				431A84CE21979C0D0003CAA8 /* File.swift */,
@@ -331,6 +334,7 @@
 				8A9372ED2195592D009E3048 /* StudentViewController - UISetup.swift in Sources */,
 				8AAA616021929EDE00CBBF7A /* MagicWordViewController - UISetup.swift in Sources */,
 				8AAA614D2192926A00CBBF7A /* ClassSetupViewController - UISetup.swift in Sources */,
+				43BD6C9A21AB324800500216 /* HistogramViewController - UISetup.swift in Sources */,
 				8AF9AC4C21A6A19A0002D019 /* TeacherViewController - UISetup.swift in Sources */,
 				8AAA614F2192929500CBBF7A /* LogInViewController - UISetup.swift in Sources */,
 				8AF9AC5321A80F770002D019 /* ClassCell.swift in Sources */,
