@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Mms-9T-3DE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Mms-9T-3DE">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,6 +23,7 @@
                     <connections>
                         <segue destination="Ssf-3N-I7B" kind="show" identifier="toMagicWordVC" id="sF1-53-bAt"/>
                         <segue destination="PRW-Nf-RLs" kind="show" identifier="toTeacherVC" id="LBL-rs-Hpu"/>
+                        <segue destination="qQW-Rc-DTu" kind="show" identifier="loginToClassSetupVC" id="CiA-JC-lsC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -195,6 +196,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="x1S-tV-RrR"/>
+        <segue reference="4g4-OP-aay"/>
+        <segue reference="CiA-JC-lsC"/>
     </inferredMetricsTieBreakers>
 </document>

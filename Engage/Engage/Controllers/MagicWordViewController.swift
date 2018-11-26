@@ -25,14 +25,14 @@ class MagicWordViewController: UIViewController {
     }
     
     @objc func joinPressed() {
-        if let magicWord = magicWordField.text {
+        if let magicWord = magicWordField.text, magicWord.trimmingCharacters(in: .whitespaces) != "" {
             let number: Int! = Int(magicWord)
             magicWordToSection(number) { (sectionRefKey) in
                 if sectionRefKey == "None" {
                     self.invalidMagicWord()
                 }
                 else if sectionRefKey != "" {
-                    self.createUserSession(number, sectionRefKey)
+                    self.createUserSession(number, sectionRefKey!)
                     self.performSegue(withIdentifier: "toSlider", sender: sectionRefKey)
                 }
             }
@@ -52,6 +52,8 @@ class MagicWordViewController: UIViewController {
     
     func createUserSession(_ magicKey: Int, _ sectionRefKey: String) {
 //        let userID = Auth.auth().currentUser!.uid // Proper authentication of users, for later iterations.
+        
+        
         let userID = UIDevice.current.identifierForVendor!.uuidString
         let userSessionData: [String:AnyObject] = ["magic_key": magicKey as AnyObject,
                                                   "section_ref_key": sectionRefKey as AnyObject,
@@ -102,7 +104,7 @@ class MagicWordViewController: UIViewController {
         
     }
     
-    func magicWordToSection(_ magicWord: Int, completionHandler: @escaping (String) -> ()) {
+    func magicWordToSection(_ magicWord: Int, completionHandler: @escaping (String?) -> ()) {
         let dbRef = Database.database().reference()
         dbRef.child("Sections").observeSingleEvent(of: .value) { (snapshot) in
             var magicKeyFound = false

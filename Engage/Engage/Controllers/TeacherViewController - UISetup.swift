@@ -37,7 +37,7 @@ extension TeacherViewController {
         
         let resumeLabel = UILabel.init(frame: CGRect.init(x: 0, y: 0, width: view.frame.width / 2, height: 50))
         resumeLabel.center = CGPoint.init(x: view.frame.width/2, y: view.frame.height/3 + 230)
-        resumeLabel.text = "Or if you already created a class:"
+        resumeLabel.text = "Or if you already created a section:"
         resumeLabel.numberOfLines = 2
         resumeLabel.textAlignment = .center
         resumeLabel.textColor = UIColor.white

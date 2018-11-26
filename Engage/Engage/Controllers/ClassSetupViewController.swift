@@ -73,6 +73,7 @@ class ClassSetupViewController: UIViewController {
         updateTeacher(userID) { (teacherSections) in
             guard var teacherSections = teacherSections, teacherSections != [:] else {
                 dbRef.child("Teachers").child(userID).setValue([sectionRefKey: sectionName])
+                self.performSegue(withIdentifier: "toHistogram", sender: sectionRefKey)
                 return
             }
             if teacherSections == ["None":"None"] {
@@ -80,8 +81,8 @@ class ClassSetupViewController: UIViewController {
             }
             teacherSections[sectionRefKey] = sectionName
             dbRef.child("Teachers").child(userID).setValue(teacherSections)
+            self.performSegue(withIdentifier: "toHistogram", sender: sectionRefKey)
         }
-        performSegue(withIdentifier: "toHistogram", sender: sectionRefKey)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

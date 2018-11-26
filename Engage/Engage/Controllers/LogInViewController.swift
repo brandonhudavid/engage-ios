@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class LogInViewController: UIViewController {
     
@@ -38,8 +39,51 @@ class LogInViewController: UIViewController {
         }
     }
     
+    func updateSection(_ userID: String, _ sectionRefKey: String, completionHandler: @escaping ([String:String]?) -> ()) {
+        let dbRef = Database.database().reference()
+        dbRef.child("Sections").observeSingleEvent(of: .value) { (snapshot) in
+            if snapshot.exists() {
+                let sections = snapshot.value as! [String : [String : AnyObject]]
+                let section: [String:AnyObject]! = sections[sectionRefKey]
+                if (section.keys.contains("user_ids")) {
+                    completionHandler((section["user_ids"] as! [String : String]))
+                } else {
+                    completionHandler([:])
+                }
+            }
+        }
+        completionHandler(["None":"None"]) // To bypass the first Firebase query without snapshot callback.
+    }
+    
+    func teacherHasSections(completionHandler: @escaping (String) -> ()) {
+        let dbRef = Database.database().reference()
+        dbRef.child("Teachers").observeSingleEvent(of: .value) { (snapshot) in
+            if snapshot.exists() {
+                let userID = UIDevice.current.identifierForVendor!.uuidString
+                let teachers = snapshot.value as! [String : [String : String]]
+                if teachers.keys.contains(userID) {
+                    let sections = teachers[userID]
+                    guard sections != nil else {
+                        completionHandler("false")
+                        return
+                    }
+                    completionHandler("true")
+                } else {
+                    completionHandler("false")
+                }
+            }
+        }
+        completionHandler("") // To bypass the first Firebase query without snapshot callback.
+    }
+    
     @objc func teacherPressed() {
-        performSegue(withIdentifier: "toTeacherVC", sender: nil)
+        teacherHasSections { (hasSections) in
+            if hasSections == "true" {
+                self.performSegue(withIdentifier: "toTeacherVC", sender: nil)
+            } else if hasSections == "false" {
+                self.performSegue(withIdentifier: "loginToClassSetupVC", sender: nil)
+            }
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
