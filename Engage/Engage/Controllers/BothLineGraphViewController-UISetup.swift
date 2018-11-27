@@ -18,4 +18,5 @@ extension BothLineGraphViewController{
         self.navigationController?.isNavigationBarHidden = true
     }
     
+    
 }

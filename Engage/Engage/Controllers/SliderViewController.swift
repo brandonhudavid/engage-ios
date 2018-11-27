@@ -18,10 +18,12 @@ class SliderViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //print("sectionKey: " + sectionKey)
+        print("sectionKey: " + sectionKey)
         setupUI()
         setupSlider()
+        setUpSegmentedControl()
 
+        // Do any additional setup after loading the view.
     }
 
     @objc func numberValueChanged() {
