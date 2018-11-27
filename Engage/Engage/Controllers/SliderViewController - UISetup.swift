@@ -21,7 +21,8 @@ extension SliderViewController {
         welcomeLabel.center = CGPoint(x: view.frame.width - 30, y: view.frame.height / 2 + 50)
         welcomeLabel.textAlignment = .center
         welcomeLabel.transform = CGAffineTransform(rotationAngle: CGFloat(3 * Double.pi / 2))
-        welcomeLabel.text  = "Welcome, " + self.userName + "."
+        welcomeLabel.text = "Welcome, Kayli."
+        //welcomeLabel.text  = "Welcome, " + self.userName + "."
         welcomeLabel.textColor = UIColor.white
         welcomeLabel.font = UIFont(name: "Quicksand-Bold", size: 20)
         view.addSubview(welcomeLabel)
@@ -47,38 +48,6 @@ extension SliderViewController {
         view.addSubview(slider_back)
         view.addSubview(slider)
         
-    }
-    
-    func setUpSegmentedControl(){
-
-        let items = ["Me", "Class"]
-        let customSC = UISegmentedControl(items: items)
-        customSC.selectedSegmentIndex = 0
-        let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        
-        customSC.frame = CGRect(x: -103, y: view.frame.height/2 + 37, width: 264, height: 25)
-        customSC.layer.cornerRadius = 3.0  
-        customSC.backgroundColor = self.view.backgroundColor
-        customSC.tintColor = UIColor.init(red: 47/255, green: 92/255, blue: 216/255, alpha: 1.0)
-        customSC.setTitleTextAttributes(titleTextAttributes, for: .normal)
-        customSC.setTitleTextAttributes(titleTextAttributes, for: .selected)
-        customSC.clipsToBounds = true
-        customSC.transform = CGAffineTransform(rotationAngle: 3*CGFloat.pi/2)
-        
-        customSC.addTarget(self, action: #selector(changeColor), for: .valueChanged)
-        
-        self.view.addSubview(customSC)
-    }
-    
-    @objc func changeColor(sender: UISegmentedControl){
-        switch sender.selectedSegmentIndex {
-        case 0:
-            performSegue(withIdentifier: "toMe", sender: self)
-        case 1:
-            performSegue(withIdentifier: "toBoth", sender: self)
-        default:
-            break
-        }
     }
     
 }
