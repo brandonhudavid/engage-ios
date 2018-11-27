@@ -11,9 +11,8 @@ import UIKit
 
 extension SliderViewController {
     
-    
     func setupUI() {
-        view.backgroundColor = UIColor.init(red: 6/255, green: 38/255, blue: 51/255, alpha: 1.0)
+        self.view.backgroundColor = UIColor.init(red: 6/255, green: 38/255, blue: 51/255, alpha: 1.0)
         setupLabel()
     }
     
@@ -22,7 +21,8 @@ extension SliderViewController {
         welcomeLabel.center = CGPoint(x: view.frame.width - 30, y: view.frame.height / 2 + 50)
         welcomeLabel.textAlignment = .center
         welcomeLabel.transform = CGAffineTransform(rotationAngle: CGFloat(3 * Double.pi / 2))
-        welcomeLabel.text  = "Welcome, " + self.userName + ". How's class today?"
+        welcomeLabel.text = "Welcome, Kayli."
+        //welcomeLabel.text  = "Welcome, " + self.userName + "."
         welcomeLabel.textColor = UIColor.white
         welcomeLabel.font = UIFont(name: "Quicksand-Bold", size: 20)
         view.addSubview(welcomeLabel)

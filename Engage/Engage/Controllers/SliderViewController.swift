@@ -18,11 +18,10 @@ class SliderViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("sectionKey: " + sectionKey)
+        //print("sectionKey: " + sectionKey)
         setupUI()
         setupSlider()
 
-        // Do any additional setup after loading the view.
     }
 
     @objc func numberValueChanged() {
@@ -34,6 +33,7 @@ class SliderViewController: UIViewController {
         let tempref = Database.database().reference()
         tempref.child("UserSessions").child(userID).setValue(["slider_val" : Int(slider.value)])
     }
+    
     
 //
 //    override func viewDidLayoutSubviews() {

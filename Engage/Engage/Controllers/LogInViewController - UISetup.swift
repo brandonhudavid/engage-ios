@@ -52,7 +52,7 @@ extension LogInViewController {
         nameField = UITextField.init(frame: CGRect.init(x: 0, y: 0, width: 3*view.frame.width/5, height: 50))
         nameField.center = CGPoint.init(x: view.frame.width/2, y: view.frame.height/2 + 25)
         nameField.backgroundColor = UIColor.white
-        nameField.placeholder = " Enter your name"
+        nameField.placeholder = "  Enter your name"
         nameField.layer.cornerRadius = 5.0
         nameField.font = UIFont(name: "Quicksand-Bold", size: 18)
         self.view.addSubview(nameField)
