@@ -38,8 +38,8 @@
 		8AF9AC5321A80F770002D019 /* ClassCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF9AC5221A80F770002D019 /* ClassCell.swift */; };
 		B25B6F5521ABCC92000CDCDC /* BothLineGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25B6F5421ABCC91000CDCDC /* BothLineGraphViewController.swift */; };
 		B25B6F5721ABE4A8000CDCDC /* BothLineGraphViewController-UISetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25B6F5621ABE4A8000CDCDC /* BothLineGraphViewController-UISetup.swift */; };
-		B25B6F9921AD328D000CDCDC /* ThresholdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25B6F9821AD328D000CDCDC /* ThresholdViewController.swift */; };
-		B25B6F9B21AD32A5000CDCDC /* ThresholdViewController-UISetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25B6F9A21AD32A4000CDCDC /* ThresholdViewController-UISetup.swift */; };
+		B25B6F9D21AD35F6000CDCDC /* TimelineGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25B6F9C21AD35F6000CDCDC /* TimelineGraphViewController.swift */; };
+		B25B6F9F21AD3607000CDCDC /* TimelineGraphViewController-UISetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25B6F9E21AD3607000CDCDC /* TimelineGraphViewController-UISetup.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,8 +77,8 @@
 		9BDDF113EE4A33A70C1AFC85 /* Pods-Engage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Engage.release.xcconfig"; path = "Pods/Target Support Files/Pods-Engage/Pods-Engage.release.xcconfig"; sourceTree = "<group>"; };
 		B25B6F5421ABCC91000CDCDC /* BothLineGraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BothLineGraphViewController.swift; sourceTree = "<group>"; };
 		B25B6F5621ABE4A8000CDCDC /* BothLineGraphViewController-UISetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BothLineGraphViewController-UISetup.swift"; sourceTree = "<group>"; };
-		B25B6F9821AD328D000CDCDC /* ThresholdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThresholdViewController.swift; sourceTree = "<group>"; };
-		B25B6F9A21AD32A4000CDCDC /* ThresholdViewController-UISetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ThresholdViewController-UISetup.swift"; path = "/Users/kaylijiang/Desktop/Engage/engage-ios/Engage/Engage/Controllers/ThresholdViewController-UISetup.swift"; sourceTree = "<absolute>"; };
+		B25B6F9C21AD35F6000CDCDC /* TimelineGraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineGraphViewController.swift; sourceTree = "<group>"; };
+		B25B6F9E21AD3607000CDCDC /* TimelineGraphViewController-UISetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimelineGraphViewController-UISetup.swift"; sourceTree = "<group>"; };
 		D8DC94FFAE97A1BDD8E4C44E /* Pods-Engage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Engage.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Engage/Pods-Engage.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -113,8 +113,8 @@
 				8AAA614C2192926A00CBBF7A /* ClassSetupViewController - UISetup.swift */,
 				431A84CC219794750003CAA8 /* HistogramViewController.swift */,
 				43BD6C9921AB324800500216 /* HistogramViewController - UISetup.swift */,
-				B25B6F9821AD328D000CDCDC /* ThresholdViewController.swift */,
-				B25B6F9A21AD32A4000CDCDC /* ThresholdViewController-UISetup.swift */,
+				B25B6F9C21AD35F6000CDCDC /* TimelineGraphViewController.swift */,
+				B25B6F9E21AD3607000CDCDC /* TimelineGraphViewController-UISetup.swift */,
 				8A9372EA21955906009E3048 /* StudentViewController.swift */,
 				431A84CE21979C0D0003CAA8 /* File.swift */,
 				8A9372EC2195592D009E3048 /* StudentViewController - UISetup.swift */,
@@ -339,9 +339,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B25B6F9B21AD32A5000CDCDC /* ThresholdViewController-UISetup.swift in Sources */,
 				8AEDEF4121928908006ECE42 /* LogInViewController.swift in Sources */,
 				431A84CD219794750003CAA8 /* HistogramViewController.swift in Sources */,
+				B25B6F9D21AD35F6000CDCDC /* TimelineGraphViewController.swift in Sources */,
 				8AF9AC4A21A6A1880002D019 /* TeacherViewController.swift in Sources */,
 				431A84D52197E8330003CAA8 /* SliderViewController.swift in Sources */,
 				8A9372ED2195592D009E3048 /* StudentViewController - UISetup.swift in Sources */,
@@ -355,11 +355,11 @@
 				8AF9AC5321A80F770002D019 /* ClassCell.swift in Sources */,
 				8AF9AC4E21A80CA10002D019 /* ClassListController.swift in Sources */,
 				8AF9AC4821A4EA100002D019 /* SliderViewController - UISetup.swift in Sources */,
+				B25B6F9F21AD3607000CDCDC /* TimelineGraphViewController-UISetup.swift in Sources */,
 				8A9372EB21955906009E3048 /* StudentViewController.swift in Sources */,
 				8AAA614921928E4C00CBBF7A /* MagicWordViewController.swift in Sources */,
 				8AEDEF3F21928908006ECE42 /* AppDelegate.swift in Sources */,
 				431A84D12197E5660003CAA8 /* DataInputViewController.swift in Sources */,
-				B25B6F9921AD328D000CDCDC /* ThresholdViewController.swift in Sources */,
 				431A84CF21979C0D0003CAA8 /* File.swift in Sources */,
 				8AF9AC5021A80CD90002D019 /* ClassListController - UISetup.swift in Sources */,
 				8AAA614B21928E7C00CBBF7A /* ClassSetupViewController.swift in Sources */,

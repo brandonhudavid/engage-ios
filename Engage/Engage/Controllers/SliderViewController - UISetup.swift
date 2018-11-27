@@ -22,7 +22,6 @@ extension SliderViewController {
         welcomeLabel.center = CGPoint(x: view.frame.width - 30, y: view.frame.height / 2 + 50)
         welcomeLabel.textAlignment = .center
         welcomeLabel.transform = CGAffineTransform(rotationAngle: CGFloat(3 * Double.pi / 2))
-        //welcomeLabel.text = "Welcome, Kayli."
         welcomeLabel.text  = "Welcome, " + self.userName + "."
         welcomeLabel.textColor = UIColor.white
         welcomeLabel.font = UIFont(name: "Quicksand-Bold", size: 20)

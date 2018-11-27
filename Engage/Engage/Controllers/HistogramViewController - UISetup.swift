@@ -19,7 +19,7 @@ extension HistogramViewController {
         self.setLeftPieChart()
         self.setRightPieChart()
         self.setupSlider()
-        self.setUpSegmentedControl()
+        //self.setUpSegmentedControl()
     }
     
     
