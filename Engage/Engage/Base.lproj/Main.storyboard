@@ -142,7 +142,7 @@
                         <viewLayoutGuide key="safeArea" id="dNa-34-gvr"/>
                     </view>
                     <connections>
-                        <segue destination="4um-ec-AdH" kind="show" identifier="toSlider" id="6Wa-nf-EUL"/>
+                        <segue destination="hfz-1q-0wk" kind="show" identifier="toSlider" id="Jv2-Nh-hmr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yza-VY-mG9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -177,7 +177,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hnL-Pc-U8K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2618" y="133"/>
+            <point key="canvasLocation" x="2623" y="-630"/>
         </scene>
         <!--Slider View Controller-->
         <scene sceneID="3tR-su-U6u">
@@ -186,17 +186,31 @@
                     <view key="view" contentMode="scaleToFill" id="hPA-Wj-oG1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d2R-y4-Q57">
+                                <rect key="frame" x="67" y="64" width="308" height="603"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" red="0.023529411764705882" green="0.14901960784313725" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <segue destination="fTC-9u-6r9" kind="embed" id="Ca1-Gw-jhT"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="IV5-Pv-MQC"/>
                     </view>
+                    <connections>
+                        <outlet property="bothView" destination="d2R-y4-Q57" id="9c0-H1-woX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="09c-ns-ltc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3583" y="-321"/>
+            <point key="canvasLocation" x="2589.5999999999999" y="132.68365817091455"/>
         </scene>
         <!--Both Line Graph View Controller-->
         <scene sceneID="OXs-if-hRk">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CN0-bR-xii" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="BothLineGraphViewController" id="Rha-kJ-RrM" customClass="BothLineGraphViewController" customModule="Engage" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AjA-pl-sTT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -205,9 +219,36 @@
                         <viewLayoutGuide key="safeArea" id="Pjc-N7-ESh"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CN0-bR-xii" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3583" y="470"/>
+            <point key="canvasLocation" x="4279" y="776"/>
+        </scene>
+        <!--Both Line Graph View Controller-->
+        <scene sceneID="PUJ-Pw-xWz">
+            <objects>
+                <viewController id="fTC-9u-6r9" customClass="BothLineGraphViewController" customModule="Engage" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ch3-Oz-dPe">
+                        <rect key="frame" x="0.0" y="0.0" width="308" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M8z-Ac-PU4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3643" y="153"/>
+        </scene>
+        <!--Slider View Controller-->
+        <scene sceneID="Los-Lg-Bay">
+            <objects>
+                <viewController id="UDI-qZ-6Z7" customClass="SliderViewController" customModule="Engage" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rLb-yJ-1gw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tfe-wv-PTR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4086" y="-541"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

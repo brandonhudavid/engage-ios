@@ -14,11 +14,14 @@ class SliderViewController: UIViewController {
     var sectionKey: String!
     var slider : UISlider!
     var userName : String!
+    var welcomeLabel : UILabel!
+    var slider_back : UIImageView!
     
+    @IBOutlet weak var bothView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //print("sectionKey: " + sectionKey)
+        print("sectionKey: " + sectionKey)
         setupUI()
         setupSlider()
 

@@ -20,6 +20,11 @@ class ContainerViewController: UIViewController {
         setUpSegmentedControl()
         updateView()
         
+        let slider = SliderViewController
+        addChild(slider)
+        self.view.addSubview(slider.view)
+        //slider.didMove(toParent: self)
+        
     }
     
     func setUpSegmentedControl(){
