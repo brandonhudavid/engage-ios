@@ -221,7 +221,7 @@ extension ClassSetupViewController {
     @objc func doneStartTimePicker() {
         
         let formatter = DateFormatter()
-        formatter.timeStyle = .short
+        formatter.dateFormat = "h:mma"
         startTxtTimePicker.text = formatter.string(from: startTimePicker.date)
         date = formatter.string(from: startTimePicker.date)
         self.view.endEditing(true)
@@ -234,7 +234,7 @@ extension ClassSetupViewController {
     @objc func doneEndTimePicker() {
         
         let formatter = DateFormatter()
-        formatter.timeStyle = .short
+        formatter.dateFormat = "h:mma"
         endTxtTimePicker.text = formatter.string(from: endTimePicker.date)
         date = formatter.string(from: endTimePicker.date)
         self.view.endEditing(true)
