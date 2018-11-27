@@ -19,6 +19,7 @@ extension HistogramViewController {
         self.setLeftPieChart()
         self.setRightPieChart()
         self.setupSlider()
+        self.setUpSegmentedControl()
     }
     
     
@@ -67,6 +68,44 @@ extension HistogramViewController {
         view.addSubview(slider)
     }
     
+    func setUpSegmentedControl(){
+        
+        let items = ["Now", "Timeline"]
+        let customSC = UISegmentedControl(items: items)
+        customSC.selectedSegmentIndex = 0
+        let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        
+        customSC.frame = CGRect(x: view.frame.width/2, y: 20, width: 264, height: 25)
+        customSC.layer.cornerRadius = 3.0
+        customSC.backgroundColor = self.view.backgroundColor
+        customSC.tintColor = UIColor.init(red: 47/255, green: 92/255, blue: 216/255, alpha: 1.0)
+        customSC.setTitleTextAttributes(titleTextAttributes, for: .normal)
+        customSC.setTitleTextAttributes(titleTextAttributes, for: .selected)
+        customSC.clipsToBounds = true
+        
+        customSC.addTarget(self, action: #selector(changeColor), for: .valueChanged)
+        
+        self.view.addSubview(customSC)
+    }
+    
+    @objc func changeColor(sender: UISegmentedControl){
+        switch sender.selectedSegmentIndex {
+        case 0:
+            view.addSubview(sectionNameLabel)
+            view.addSubview(slider)
+            view.addSubview(magicWordLabel)
+            view.addSubview(numStudentsLabel)
+            self.timelineView.alpha = 0
+        case 1:
+            self.timelineView.alpha = 1
+            slider.removeFromSuperview()
+            numStudentsLabel.removeFromSuperview()
+            magicWordLabel.removeFromSuperview()
+            sectionNameLabel.removeFromSuperview()
+        default:
+            break
+        }
+    }
     
     
 }

@@ -30,6 +30,7 @@ class HistogramViewController: UIViewController {
     @IBOutlet var label: UILabel!
     @IBOutlet var pieChartViewL: PieChartView!
     @IBOutlet var pieChartViewR: PieChartView!
+    @IBOutlet weak var timelineView: UIView!
     var counts : [Int] = []
     var countValid : Int!
     var userIDs : [String] = []
