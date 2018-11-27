@@ -11,6 +11,8 @@ import FirebaseDatabase
 
 class ClassSetupViewController: UIViewController {
     
+    var name: String!
+    
     var classNameField: UITextField!
     var datePicker : UIDatePicker!
     var txtDatePicker : UITextField!
@@ -59,35 +61,90 @@ class ClassSetupViewController: UIViewController {
         }
         let userID = UIDevice.current.identifierForVendor!.uuidString
         let sectionRefKey = UUID().uuidString
-        let sectionData: [String:AnyObject] = [
-                                                "a_start": sectionDate + "-" + startTime as AnyObject,
-                                                "b_end": sectionDate + "-" + endTime as AnyObject,
-                                                "magic_key": 123 as AnyObject,
-                                                "ref_key": sectionRefKey as AnyObject,
-                                                "section_id": sectionName as AnyObject,
-                                                "ta_key": userID as AnyObject
-                                                ]
-        let dbRef = Database.database().reference()
-        dbRef.child("Sections").child(sectionRefKey).setValue(sectionData)
         
-        updateTeacher(userID) { (teacherSections) in
-            guard var teacherSections = teacherSections, teacherSections != [:] else {
-                dbRef.child("Teachers").child(userID).setValue([sectionRefKey: sectionName])
-                self.performSegue(withIdentifier: "toHistogram", sender: sectionRefKey)
+        generateMagicKey(sectionRefKey) { (magicKey) in
+            guard magicKey != -1 else {
                 return
             }
-            if teacherSections == ["None":"None"] {
-                return // Ignore the first Firebase query without snapshot callback.
+            let sectionData: [String:AnyObject] = [
+                "a_start": sectionDate + "-" + startTime as AnyObject,
+                "b_end": sectionDate + "-" + endTime as AnyObject,
+                "magic_key": magicKey as AnyObject,
+                "ref_key": sectionRefKey as AnyObject,
+                "section_id": sectionName as AnyObject,
+                "ta_key": userID as AnyObject
+            ]
+            let dbRef = Database.database().reference()
+            dbRef.child("Sections").child(sectionRefKey).setValue(sectionData)
+            
+            self.updateTeacher(userID) { (teacherSections) in
+                guard var teacherSections = teacherSections, teacherSections != [:] else {
+                    dbRef.child("Teachers").child(userID).child("name").setValue(self.name!)
+                    dbRef.child("Teachers").child(userID).child("existingSections").setValue([sectionRefKey: sectionName])
+                    self.performSegue(withIdentifier: "toHistogram", sender: sectionRefKey)
+                    var vcs: [UIViewController] = (self.navigationController?.viewControllers)!
+                    let prev = vcs.count - 2
+                    vcs.remove(at: prev)
+                    return
+                }
+                if teacherSections == ["None":"None"] {
+                    return // Ignore the first Firebase query without snapshot callback.
+                }
+                teacherSections[sectionRefKey] = sectionName
+                dbRef.child("Teachers").child(userID).child("name").setValue(self.name!)
+                dbRef.child("Teachers").child(userID).child("existingSections").setValue(teacherSections)
+                self.performSegue(withIdentifier: "toHistogram", sender: sectionRefKey)
+                var vcs: [UIViewController] = (self.navigationController?.viewControllers)!
+                let prev = vcs.count - 2
+                vcs.remove(at: prev)
             }
-            teacherSections[sectionRefKey] = sectionName
-            dbRef.child("Teachers").child(userID).setValue(teacherSections)
-            self.performSegue(withIdentifier: "toHistogram", sender: sectionRefKey)
         }
     }
     
+    func generateMagicKey(_ sectionRefKey: String, completionHandler: @escaping (Int) -> ()) {
+        var magicKey = String(arc4random_uniform(1000))
+        let dbRef = Database.database().reference()
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM/dd/yyyy HH:mm"
+        
+        dbRef.child("MagicKeys").observeSingleEvent(of: .value) { (snapshot) in
+            if snapshot.exists() {
+                var magicKeys = snapshot.value as! [String: String]
+                while magicKeys.keys.contains(magicKey) {
+                    let existingKey = magicKeys[magicKey]
+                    
+                    magicKey = String(arc4random_uniform(1000))
+                }
+                magicKeys[magicKey] = sectionRefKey
+                dbRef.child("MagicKeys").setValue(magicKeys)
+            } else {
+                dbRef.child("MagicKeys").setValue([magicKey: sectionRefKey])
+            }
+            completionHandler(Int(magicKey)!)
+        }
+        completionHandler(-1)
+    }
+    
+    func getSectionEndTime(_ existingKey: String, completionHandler: @escaping (String) -> ()) {
+        let dbRef = Database.database().reference()
+        
+        dbRef.child("Sections").child(existingKey).observeSingleEvent(of: .value) { (snapshot) in
+            if snapshot.exists() {
+                let section = snapshot.value as! [String: AnyObject]
+                completionHandler(section["b_end"] as! String)
+            }
+            
+        completionHandler("")
+    }
+        
+    }
+    
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toHistogram", let dataInputVC = segue.destination as? DataInputViewController {
-            dataInputVC.sectionRefKey = (sender as! String)
+        if segue.identifier == "toHistogram", let histogramVC = segue.destination as? HistogramViewController {
+            histogramVC.sectionRefKey = (sender as! String)
         }
     }
     
@@ -96,12 +153,16 @@ class ClassSetupViewController: UIViewController {
         let dbRef = Database.database().reference()
         dbRef.child("Teachers").observeSingleEvent(of: .value) { (snapshot) in
             if snapshot.exists() {
-                if let teachers = snapshot.value as? [String : [String : String]] {
-                    if teachers.keys.contains(userID) {
-                        completionHandler(teachers[userID])
-                    } else {
+                if let teachers = snapshot.value as? [String : [String : AnyObject]] {
+                    guard teachers.keys.contains(userID) else {
                         completionHandler([:])
+                        return
                     }
+                    guard teachers[userID]!.keys.contains("existingSections") else {
+                        completionHandler([:])
+                        return
+                    }
+                    completionHandler((teachers[userID]!["existingSections"] as! [String : String]))
                 }
             } else {
                 completionHandler([:])

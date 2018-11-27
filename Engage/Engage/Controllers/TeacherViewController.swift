@@ -10,6 +10,8 @@ import UIKit
 import FirebaseDatabase
 
 class TeacherViewController: UIViewController {
+    
+    var name: String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +22,7 @@ class TeacherViewController: UIViewController {
     }
     
     @objc func createNewSection() {
-        performSegue(withIdentifier: "toClassSetupVC", sender: nil)
+        performSegue(withIdentifier: "toClassSetupVC", sender: name)
         
     }
     
@@ -42,6 +44,8 @@ class TeacherViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toClassListVC", let classListVC = segue.destination as? ClassListController {
             classListVC.sections = (sender as! [[String]])
+        } else if segue.identifier == "toClassSetupVC", let classSetupVC = segue.destination as? ClassSetupViewController {
+            classSetupVC.name = (sender as! String)
         }
     }
     
@@ -51,14 +55,20 @@ class TeacherViewController: UIViewController {
         let dbRef = Database.database().reference()
         dbRef.child("Teachers").observeSingleEvent(of: .value) { (snapshot) in
             if snapshot.exists() {
-                if let teachers = snapshot.value as? [String : [String : String]] {
-                    if teachers.keys.contains(userID) {
-                        var sections: [[String]]? = []
-                        for (key, value) in teachers[userID]! {
-                            sections?.append([key, value])
-                        }
-                        completionHandler(sections)
+                if let teachers = snapshot.value as? [String : [String : AnyObject]] {
+                    guard teachers.keys.contains(userID) else {
+                        completionHandler([])
+                        return
                     }
+                    guard teachers[userID]!.keys.contains("existingSections") else {
+                        completionHandler([])
+                        return
+                    }
+                    var sections: [[String]]? = []
+                    for (key, value) in (teachers[userID]!["existingSections"] as! [String : String]) {
+                        sections?.append([key, value])
+                    }
+                    completionHandler(sections)
                 }
             }
         }
@@ -70,7 +80,7 @@ class TeacherViewController: UIViewController {
         let alertController = UIAlertController(title: "No Existing Classes", message: "You do not have any existing classes.", preferredStyle: .alert)
         let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alertController.addAction(defaultAction)
-        present(alertController, animated: true, completion: nil)
+        self.present(alertController, animated: true, completion: nil)
         
     }
     

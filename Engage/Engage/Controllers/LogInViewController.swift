@@ -25,16 +25,20 @@ class LogInViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
     
+    func invalidName() {
+        let alertController = UIAlertController(title: "Invalid Name", message: "Please enter a name.", preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alertController.addAction(defaultAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    
     @objc func studentPressed() {
         if let name = nameField.text {
             let studentName = name.trimmingCharacters(in: .whitespaces)
             if studentName != "" {
                 performSegue(withIdentifier: "toMagicWordVC", sender: studentName)
             } else {
-                let alertController = UIAlertController(title: "Invalid Name", message: "Please enter a name.", preferredStyle: .alert)
-                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                alertController.addAction(defaultAction)
-                present(alertController, animated: true, completion: nil)
+                invalidName()
             }
         }
     }
@@ -60,13 +64,8 @@ class LogInViewController: UIViewController {
         dbRef.child("Teachers").observeSingleEvent(of: .value) { (snapshot) in
             if snapshot.exists() {
                 let userID = UIDevice.current.identifierForVendor!.uuidString
-                let teachers = snapshot.value as! [String : [String : String]]
+                let teachers = snapshot.value as! [String : [String : AnyObject]]
                 if teachers.keys.contains(userID) {
-                    let sections = teachers[userID]
-                    guard sections != nil else {
-                        completionHandler("false")
-                        return
-                    }
                     completionHandler("true")
                 } else {
                     completionHandler("false")
@@ -77,11 +76,15 @@ class LogInViewController: UIViewController {
     }
     
     @objc func teacherPressed() {
+        guard let name = nameField.text, name.trimmingCharacters(in: .whitespaces) != "" else {
+            invalidName()
+            return
+        }
         teacherHasSections { (hasSections) in
             if hasSections == "true" {
-                self.performSegue(withIdentifier: "toTeacherVC", sender: nil)
+                self.performSegue(withIdentifier: "toTeacherVC", sender: name.trimmingCharacters(in: .whitespaces))
             } else if hasSections == "false" {
-                self.performSegue(withIdentifier: "loginToClassSetupVC", sender: nil)
+                self.performSegue(withIdentifier: "loginToClassSetupVC", sender: name.trimmingCharacters(in: .whitespaces))
             }
         }
     }
@@ -89,6 +92,10 @@ class LogInViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toMagicWordVC", let magicWordVC = segue.destination as? MagicWordViewController {
             magicWordVC.name = sender as? String
+        } else if segue.identifier == "toTeacherVC", let teacherVC = segue.destination as? TeacherViewController {
+            teacherVC.name = sender as? String
+        } else if segue.identifier == "loginToClassSetupVC", let classSetupVC = segue.destination as? ClassSetupViewController {
+            classSetupVC.name = sender as? String
         }
 //        else if segue.identifier == "toClassSetupVC", let classSetupVC = segue.destination as? ClassSetupViewController {
 //

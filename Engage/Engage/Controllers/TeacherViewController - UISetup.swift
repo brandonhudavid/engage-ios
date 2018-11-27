@@ -21,7 +21,7 @@ extension TeacherViewController {
     func setUpHeaders() {
         let welcomeLabel = UILabel.init(frame: CGRect.init(x: 0, y: 0, width: view.frame.width, height: 50))
         welcomeLabel.center = CGPoint.init(x: view.frame.width/2, y: view.frame.height/3)
-        welcomeLabel.text = "Hi there, instructor."
+        welcomeLabel.text = "Hi, \(name!)."
         welcomeLabel.textAlignment = .center
         welcomeLabel.textColor = UIColor.white
         welcomeLabel.font = UIFont(name: "Quicksand-Bold", size: 24)
