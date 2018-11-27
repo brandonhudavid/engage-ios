@@ -64,21 +64,6 @@
             </objects>
             <point key="canvasLocation" x="881" y="950"/>
         </scene>
-        <!--Data Input View Controller-->
-        <scene sceneID="ng8-Au-c3l">
-            <objects>
-                <viewController id="fYT-yi-QVR" customClass="DataInputViewController" customModule="Engage" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="573-Iw-LQY">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="ndH-2r-0cx"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rfj-fd-yc4" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1686" y="949"/>
-        </scene>
         <!--Histogram View Controller-->
         <scene sceneID="JWK-A9-sgH">
             <objects>
@@ -92,7 +77,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mYJ-gg-lKK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2530" y="949"/>
+            <point key="canvasLocation" x="1686" y="949"/>
         </scene>
         <!--Teacher View Controller-->
         <scene sceneID="aA4-gF-mCf">
@@ -202,8 +187,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="jbz-U2-aUg"/>
-        <segue reference="x1S-tV-RrR"/>
+        <segue reference="7UV-zO-Kk4"/>
+        <segue reference="4g4-OP-aay"/>
         <segue reference="CiA-JC-lsC"/>
     </inferredMetricsTieBreakers>
 </document>

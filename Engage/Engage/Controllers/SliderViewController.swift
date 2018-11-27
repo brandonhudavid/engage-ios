@@ -33,7 +33,7 @@ class SliderViewController: UIViewController {
     func updateSlider() {
         let userID = UIDevice.current.identifierForVendor!.uuidString
         let tempref = Database.database().reference()
-        tempref.child("UserSessions").child(userID).setValue(["slider_val" : Int(slider.value)])
+        tempref.child("UserSessions").child(userID).child("slider_val").setValue( Int(slider.value))
     }
     
     
