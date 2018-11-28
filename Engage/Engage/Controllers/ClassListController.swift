@@ -21,6 +21,12 @@ class ClassListController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if let index = classList.indexPathForSelectedRow{
+            self.classList.deselectRow(at: index, animated: true)
+        }
+    }
 
     /*
     // MARK: - Navigation
