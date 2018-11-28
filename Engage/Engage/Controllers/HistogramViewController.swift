@@ -27,6 +27,8 @@ class HistogramViewController: UIViewController {
     var pieChartLabelR : UILabel!
     var pieChartLabelL : UILabel!
     var sectionRefKey : String!
+    var thumbs_up : UIImageView!
+    var thumbs_down : UIImageView!
     @IBOutlet var label: UILabel!
     @IBOutlet var pieChartViewL: PieChartView!
     @IBOutlet var pieChartViewR: PieChartView!

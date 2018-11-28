@@ -12,4 +12,7 @@ import Charts
 
 extension TimelineViewController{
     
+    func setUpBasics(){
+        self.view.backgroundColor = UIColor(displayP3Red: 6/255.0, green: 38/255.0, blue: 51/255.0, alpha: 1.0)
+    }
 }
