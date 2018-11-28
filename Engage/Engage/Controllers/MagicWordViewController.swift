@@ -20,8 +20,6 @@ class MagicWordViewController: UIViewController {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = false
         setupUI()
-
-        // Do any additional setup after loading the view.
     }
     
     @objc func joinPressed() {
@@ -38,21 +36,16 @@ class MagicWordViewController: UIViewController {
         } else {
             invalidMagicWord()
         }
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let sliderVC = segue.destination as? SliderViewController {
             sliderVC.sectionKey = sender as? String
             sliderVC.userName = name
-            
         }
     }
     
     func createUserSession(_ magicKey: Int, _ sectionRefKey: String) {
-//        let userID = Auth.auth().currentUser!.uid // Proper authentication of users, for later iterations.
-        
-        
         let userID = UIDevice.current.identifierForVendor!.uuidString
         let userSessionData: [String:AnyObject] = ["magic_key": magicKey as AnyObject,
                                                   "section_ref_key": sectionRefKey as AnyObject,
@@ -73,8 +66,6 @@ class MagicWordViewController: UIViewController {
             userIDs[userID] = self.name
             dbRef.child("Sections").child(sectionRefKey).child("user_ids").setValue(userIDs)
         }
-        
-        
     }
     
     func updateSection(_ userID: String, _ sectionRefKey: String, completionHandler: @escaping ([String:String]?) -> ()) {
@@ -93,14 +84,11 @@ class MagicWordViewController: UIViewController {
         completionHandler(["None":"None"]) // To bypass the first Firebase query without snapshot callback.
     }
     
-    
-    
     func invalidMagicWord() {
         let alertController = UIAlertController(title: "Invalid Magic Word", message: "No classes found with the magic word.", preferredStyle: .alert)
         let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alertController.addAction(defaultAction)
         present(alertController, animated: true, completion: nil)
-        
     }
     
     func magicWordToSection(_ magicWord: String, completionHandler: @escaping (String) -> ()) {
@@ -116,37 +104,6 @@ class MagicWordViewController: UIViewController {
                 
             }
         }
-//        dbRef.child("Sections").observeSingleEvent(of: .value) { (snapshot) in
-//            var magicKeyFound = false
-//            if snapshot.exists() {
-//                if let sections = snapshot.value as? [String : [String : Any]] {
-//                    for (key, value) in sections {
-//                        if magicWord == value["magic_key"] as? Int {
-//                            magicKeyFound = true
-//                            completionHandler(key)
-//                        } else {
-//                            print("missed key")
-//                        }
-//                    }
-//                    if !magicKeyFound {
-//                        completionHandler("None")
-//                    }
-//                }
-//            }
-//        }
         completionHandler("")
     }
-
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -15,7 +15,7 @@ import FirebaseAuth
 
 class HistogramViewController: UIViewController {
 
-    
+
     var sectionName : String!
     var sectionNameLabel : UILabel!
     var magicWordLabel : UILabel!

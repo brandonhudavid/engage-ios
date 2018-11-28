@@ -10,21 +10,7 @@ import Foundation
 import UIKit
 
 
-extension ClassSetupViewController {
-    
-    
-//    
-//    func timesUpdated(_ clock:TenClock, startDate:Date,  endDate:Date  ) -> (){
-//        //...
-//    }
-//    
-//    func timesChanged(clock:TenClock, startDate:NSDate,  endDate:NSDate  ) -> (){
-//        print("start at: \(startDate), end at: \(endDate)")
-//        self.beginTimeLabel.text = dateFormatter.stringFromDate(startDate)
-//        self.endTimeLabel.text = dateFormatter.stringFromDate(endDate)
-//    }
-//    
-    
+extension ClassSetupViewController {    
     
     func setupUI() {
         view.backgroundColor = UIColor.init(red: 6/255, green: 38/255, blue: 51/255, alpha: 1.0)
@@ -63,14 +49,12 @@ extension ClassSetupViewController {
     
     func setupClassName() {
         let classNameLabel = UILabel.init(frame: CGRect.init(x: view.frame.width / 2 - view.frame.width / 3 , y: 240, width: view.frame.width, height: 50))
-//        classNameLabel.center = CGPoint.init(x: view.frame.width/2 + 70, y: 265)
         classNameLabel.text = "Class Name"
         classNameLabel.textColor = UIColor.white
         classNameLabel.font = UIFont(name: "Quicksand-Bold", size: 20)
         self.view.addSubview(classNameLabel)
         
         classNameField = UITextField.init(frame: CGRect.init(x:  view.frame.width / 2 - view.frame.width / 3, y: 290, width: 2*view.frame.width/3, height: 50))
-//        classNameField.center = CGPoint.init(x: view.frame.width/2, y: 315)
         classNameField.placeholder = "Enter your class name"
         classNameField.font = UIFont(name: "Quicksand-Bold", size: 18)
         classNameField.backgroundColor = UIColor.white
@@ -82,7 +66,6 @@ extension ClassSetupViewController {
     func setupClassDate() {
         
         let dateLabel = UILabel.init(frame: CGRect.init(x: view.frame.width / 2 - view.frame.width / 3, y: 365, width: view.frame.width, height: 50))
-//        dateLabel.center = CGPoint.init(x: view.frame.width/2 + 70, y: 315 + 100)
         dateLabel.text = "Date"
         dateLabel.textColor = UIColor.white
         dateLabel.font = UIFont(name: "Quicksand-Bold", size: 20)
@@ -93,7 +76,6 @@ extension ClassSetupViewController {
         datePicker = UIDatePicker()
         datePicker.datePickerMode = .date
         txtDatePicker = UITextField(frame: CGRect.init(x:  view.frame.width / 2 - view.frame.width / 3, y: 415, width: 2 * view.frame.width / 3, height: 50));
-        //txtDatePicker.center =  CGPoint.init(x: view.frame.width/2, y: 315 + 100)
         txtDatePicker.placeholder = "mm/dd/yyyy"
         txtDatePicker.font = UIFont(name: "Quicksand-Bold", size: 18)
         txtDatePicker.backgroundColor = UIColor.white
@@ -119,7 +101,6 @@ extension ClassSetupViewController {
         startTimePicker = UIDatePicker()
         startTimePicker.datePickerMode = .time
         startTxtTimePicker = UITextField(frame: CGRect.init(x:  view.frame.width / 2 - view.frame.width / 3, y: 415 + 75 + 50, width: view.frame.width / 3 - 5, height: 50));
-        //startTxtTimePicker.center =  CGPoint.init(x: view.frame.width/4, y: 315 + 100)
         startTxtTimePicker.placeholder = "hh:mm"
         startTxtTimePicker.font = UIFont(name: "Quicksand-Bold", size: 18)
         startTxtTimePicker.backgroundColor = UIColor.white
@@ -137,7 +118,6 @@ extension ClassSetupViewController {
         endTimePicker = UIDatePicker()
         endTimePicker.datePickerMode = .time
         endTxtTimePicker = UITextField(frame: CGRect.init(x: view.frame.width / 2 + 5, y: 415 + 75 + 50, width: view.frame.width / 3 - 5, height: 50));
-        //endTxtTimePicker.center =  CGPoint.init(x: 3 * view.frame.width/4, y: 315 + 100)
         endTxtTimePicker.placeholder = "hh:mm"
         endTxtTimePicker.font = UIFont(name: "Quicksand-Bold", size: 18)
         endTxtTimePicker.backgroundColor = UIColor.white
@@ -201,14 +181,6 @@ extension ClassSetupViewController {
         
     }
     
-//<<<<<<< Updated upstream
-//=======
-//    
-//    @objc func createClass() {
-//        performSegue(withIdentifier: "toHistogram", sender: self)
-//    }
-//    
-//>>>>>>> Stashed changes
     @objc func donedatePicker() {
         
         let formatter = DateFormatter()
@@ -248,17 +220,5 @@ extension ClassSetupViewController {
     @objc func cancelEndTimePicker(){
         self.view.endEditing(true)
     }
-
-    
-    
-    
-//    func startTimeDiveChanged(sender: UIDatePicker) {
-//        let formatter = DateFormatter()
-//        formatter.timeStyle = .short
-//        youtTextFieldName.text = formatter.string(from: sender.date)
-//        timePicker.removeFromSuperview() // if you want to remove time picker
-//    }
-//
-    
     
 }

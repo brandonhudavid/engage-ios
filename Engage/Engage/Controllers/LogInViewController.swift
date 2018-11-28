@@ -13,16 +13,10 @@ class LogInViewController: UIViewController {
     
     var nameField: UITextField!
     
-//    let quicksandBold = UIFont(name: "Quicksand-Bold", size: UIFont.systemFontSize)
-
-
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
         setupUI()
-        
-        // Do any additional setup after loading the view, typically from a nib.
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -75,6 +69,8 @@ class LogInViewController: UIViewController {
                 } else {
                     completionHandler("false")
                 }
+            } else {
+                completionHandler("false") // To bypass the first Firebase query without snapshot callback.
             }
         }
         completionHandler("") // To bypass the first Firebase query without snapshot callback.
@@ -103,11 +99,5 @@ class LogInViewController: UIViewController {
         } else if segue.identifier == "loginToClassSetupVC", let classSetupVC = segue.destination as? ClassSetupViewController {
             classSetupVC.name = sender as? String
         }
-//        else if segue.identifier == "toClassSetupVC", let classSetupVC = segue.destination as? ClassSetupViewController {
-//
-//        }
     }
-
-
 }
-

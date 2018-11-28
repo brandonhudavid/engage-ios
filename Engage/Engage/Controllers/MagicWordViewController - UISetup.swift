@@ -17,7 +17,6 @@ extension MagicWordViewController {
         setUpWelcomeLabel()
         setUpTextField()
         setUpButtons()
-        
     }
     
     func setUpWelcomeLabel() {
@@ -61,9 +60,7 @@ extension MagicWordViewController {
         joinButton.titleLabel?.font = UIFont(name: "Quicksand-Bold", size: 18)
         joinButton.addTarget(nil, action: #selector(joinPressed), for: .touchUpInside)
         self.view.addSubview(joinButton)
-        
     }
-    
 }
 
 

@@ -10,11 +10,6 @@ import Foundation
 import UIKit
 
 extension LogInViewController {
-
-    
-//    agreementButton.setAttributedTitle(attributedTitle, forState: .Normal)
-    
-    
     
     func setupUI() {
         navigationController?.isNavigationBarHidden = true
@@ -24,7 +19,6 @@ extension LogInViewController {
         setUpTextField()
         setUpButtons()
         setupImage()
-        
     }
     
     func setUpLabel() {
@@ -35,16 +29,6 @@ extension LogInViewController {
         engageLabel.textColor = UIColor.white
         engageLabel.font = UIFont(name: "Quicksand-Bold", size: 32)
         engageLabel.textAlignment = .center
-        
-//        let stringAttributes: [NSAttributedString.Key : Any] = [
-//            NSAttributedString.Key.font: UIFont(name: "Quicksand-Bold", size: 32),
-//            NSAttributedString.Key.kern: 0.1,
-//            NSAttributedString.Key.foregroundColor: UIColor.white
-//            ]
-//
-//        let attributedTitle = NSAttributedString(string: "Engage", attributes: stringAttributes)
-//        engageLabel.attributedText = attributedTitle
-        
         self.view.addSubview(engageLabel)
     }
     
@@ -83,9 +67,7 @@ extension LogInViewController {
         teacherButton.titleLabel?.font = UIFont(name: "Quicksand-Bold", size: 14)
         teacherButton.addTarget(nil, action: #selector(teacherPressed), for: .touchUpInside)
         self.view.addSubview(teacherButton)
-        
     }
-    
     
     func setupImage() {
         let icon = UIImageView(frame: CGRect(x: 0, y: 0, width: 120, height: 120))

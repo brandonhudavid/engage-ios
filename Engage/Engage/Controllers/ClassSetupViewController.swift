@@ -109,11 +109,9 @@ class ClassSetupViewController: UIViewController {
         dbRef.child("MagicKeys").observeSingleEvent(of: .value) { (snapshot) in
             if snapshot.exists() {
                 var magicKeys = snapshot.value as! [String: String]
-//                while magicKeys.keys.contains(magicKey) {
                 if magicKeys.keys.contains(magicKey) {
                     self.getSections(completionHandler: { (sections) in
                         guard !sections.isEmpty else {
-//                            completionHandler(Int(magicKey)!)
                             return
                         }
                         var sections = sections
@@ -201,22 +199,6 @@ class ClassSetupViewController: UIViewController {
             completionHandler([:])
         }
     }
-    
-//    func getSectionEndTime(_ existingKey: String, completionHandler: @escaping (String) -> ()) {
-//        let dbRef = Database.database().reference()
-//
-//        dbRef.child("Sections").child(existingKey).observeSingleEvent(of: .value) { (snapshot) in
-//            if snapshot.exists() {
-//                let section = snapshot.value as! [String: AnyObject]
-//                completionHandler(section["b_end"] as! String)
-//            }
-//
-//        completionHandler("")
-//        }
-//
-//    }
-    
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toHistogram", let histogramVC = segue.destination as? HistogramViewController {
