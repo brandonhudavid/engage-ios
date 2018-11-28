@@ -36,6 +36,7 @@ class HistogramViewController: UIViewController {
     var userIDs : [String] = []
     var timer = Timer()
     var first = true
+    var customSC : UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()

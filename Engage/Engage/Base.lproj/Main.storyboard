@@ -72,10 +72,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YXt-I9-Vuy">
-                                <rect key="frame" x="0.0" y="127" width="375" height="540"/>
+                            <containerView opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YXt-I9-Vuy">
+                                <rect key="frame" x="0.0" y="-159" width="375" height="826"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" red="0.023529411764705882" green="0.14901960784313725" blue="0.20000000000000001" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.023529411764705882" green="0.14901960784313725" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <segue destination="JaG-Ie-5l5" kind="embed" id="4PR-3q-ecw"/>
                                 </connections>
@@ -170,8 +170,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u7o-Aw-Fle">
-                                <rect key="frame" x="67" y="64" width="308" height="603"/>
+                            <containerView opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u7o-Aw-Fle">
+                                <rect key="frame" x="46" y="-187" width="329" height="854"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" red="0.023529411764705882" green="0.14901960784313725" blue="0.20000000000000001" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                 <connections>
@@ -195,7 +195,7 @@
             <objects>
                 <viewController id="kFf-Hn-Z88" customClass="BothLineGraphViewController" customModule="Engage" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="D2t-Ja-KAd">
-                        <rect key="frame" x="0.0" y="0.0" width="308" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="329" height="854"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
@@ -209,7 +209,7 @@
             <objects>
                 <viewController id="JaG-Ie-5l5" customClass="TimelineViewController" customModule="Engage" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ayT-zq-qJX">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="540"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="826"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
