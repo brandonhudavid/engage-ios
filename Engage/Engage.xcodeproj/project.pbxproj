@@ -38,6 +38,8 @@
 		8AF9AC5321A80F770002D019 /* ClassCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF9AC5221A80F770002D019 /* ClassCell.swift */; };
 		B25B6F5521ABCC92000CDCDC /* BothLineGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25B6F5421ABCC91000CDCDC /* BothLineGraphViewController.swift */; };
 		B25B6F5721ABE4A8000CDCDC /* BothLineGraphViewController-UISetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25B6F5621ABE4A8000CDCDC /* BothLineGraphViewController-UISetup.swift */; };
+		B2C5ADAA21AE513500F4DA85 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C5ADA921AE513500F4DA85 /* TimelineViewController.swift */; };
+		B2C5ADB021AE518000F4DA85 /* TimelineViewController-UISetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C5ADAF21AE518000F4DA85 /* TimelineViewController-UISetup.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +77,8 @@
 		9BDDF113EE4A33A70C1AFC85 /* Pods-Engage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Engage.release.xcconfig"; path = "Pods/Target Support Files/Pods-Engage/Pods-Engage.release.xcconfig"; sourceTree = "<group>"; };
 		B25B6F5421ABCC91000CDCDC /* BothLineGraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BothLineGraphViewController.swift; sourceTree = "<group>"; };
 		B25B6F5621ABE4A8000CDCDC /* BothLineGraphViewController-UISetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BothLineGraphViewController-UISetup.swift"; sourceTree = "<group>"; };
+		B2C5ADA921AE513500F4DA85 /* TimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
+		B2C5ADAF21AE518000F4DA85 /* TimelineViewController-UISetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimelineViewController-UISetup.swift"; sourceTree = "<group>"; };
 		D8DC94FFAE97A1BDD8E4C44E /* Pods-Engage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Engage.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Engage/Pods-Engage.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,16 +110,18 @@
 				8AAA615F21929EDE00CBBF7A /* MagicWordViewController - UISetup.swift */,
 				431A84CC219794750003CAA8 /* HistogramViewController.swift */,
 				43BD6C9921AB324800500216 /* HistogramViewController - UISetup.swift */,
+				B2C5ADA921AE513500F4DA85 /* TimelineViewController.swift */,
+				B2C5ADAF21AE518000F4DA85 /* TimelineViewController-UISetup.swift */,
 				431A84D02197E5660003CAA8 /* DataInputViewController.swift */,
 				8A9372EA21955906009E3048 /* StudentViewController.swift */,
 				431A84CE21979C0D0003CAA8 /* File.swift */,
 				8A9372EC2195592D009E3048 /* StudentViewController - UISetup.swift */,
 				8AAA614A21928E7C00CBBF7A /* ClassSetupViewController.swift */,
 				8AAA614C2192926A00CBBF7A /* ClassSetupViewController - UISetup.swift */,
-				B25B6F5421ABCC91000CDCDC /* BothLineGraphViewController.swift */,
-				B25B6F5621ABE4A8000CDCDC /* BothLineGraphViewController-UISetup.swift */,
 				431A84D42197E8330003CAA8 /* SliderViewController.swift */,
 				8AF9AC4721A4EA100002D019 /* SliderViewController - UISetup.swift */,
+				B25B6F5421ABCC91000CDCDC /* BothLineGraphViewController.swift */,
+				B25B6F5621ABE4A8000CDCDC /* BothLineGraphViewController-UISetup.swift */,
 				8AF9AC4B21A6A19A0002D019 /* TeacherViewController - UISetup.swift */,
 				8AF9AC4921A6A1880002D019 /* TeacherViewController.swift */,
 				8AF9AC4D21A80CA10002D019 /* ClassListController.swift */,
@@ -343,12 +349,14 @@
 				B25B6F5521ABCC92000CDCDC /* BothLineGraphViewController.swift in Sources */,
 				43BD6C9A21AB324800500216 /* HistogramViewController - UISetup.swift in Sources */,
 				8AF9AC4C21A6A19A0002D019 /* TeacherViewController - UISetup.swift in Sources */,
+				B2C5ADAA21AE513500F4DA85 /* TimelineViewController.swift in Sources */,
 				B25B6F5721ABE4A8000CDCDC /* BothLineGraphViewController-UISetup.swift in Sources */,
 				8AAA614F2192929500CBBF7A /* LogInViewController - UISetup.swift in Sources */,
 				8AF9AC5321A80F770002D019 /* ClassCell.swift in Sources */,
 				8AF9AC4E21A80CA10002D019 /* ClassListController.swift in Sources */,
 				8AF9AC4821A4EA100002D019 /* SliderViewController - UISetup.swift in Sources */,
 				8A9372EB21955906009E3048 /* StudentViewController.swift in Sources */,
+				B2C5ADB021AE518000F4DA85 /* TimelineViewController-UISetup.swift in Sources */,
 				8AAA614921928E4C00CBBF7A /* MagicWordViewController.swift in Sources */,
 				8AEDEF3F21928908006ECE42 /* AppDelegate.swift in Sources */,
 				431A84D12197E5660003CAA8 /* DataInputViewController.swift in Sources */,

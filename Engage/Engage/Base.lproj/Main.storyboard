@@ -71,13 +71,26 @@
                     <view key="view" contentMode="scaleToFill" id="Foo-92-qla">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YXt-I9-Vuy">
+                                <rect key="frame" x="0.0" y="127" width="375" height="540"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" red="0.023529411764705882" green="0.14901960784313725" blue="0.20000000000000001" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <segue destination="JaG-Ie-5l5" kind="embed" id="4PR-3q-ecw"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="oGK-zN-0Lw"/>
                     </view>
+                    <connections>
+                        <outlet property="timelineView" destination="YXt-I9-Vuy" id="ROY-Li-Lqr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mYJ-gg-lKK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1686" y="949"/>
+            <point key="canvasLocation" x="1685.5999999999999" y="948.57571214392806"/>
         </scene>
         <!--Teacher View Controller-->
         <scene sceneID="aA4-gF-mCf">
@@ -156,11 +169,21 @@
                     <view key="view" contentMode="scaleToFill" id="hPA-Wj-oG1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u7o-Aw-Fle">
+                                <rect key="frame" x="67" y="64" width="308" height="603"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" red="0.023529411764705882" green="0.14901960784313725" blue="0.20000000000000001" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <segue destination="kFf-Hn-Z88" kind="embed" id="8y6-65-vA2"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="IV5-Pv-MQC"/>
                     </view>
                     <connections>
-                        <segue destination="Rha-kJ-RrM" kind="show" identifier="toBoth" id="cJl-jm-8Nt"/>
+                        <outlet property="bothView" destination="u7o-Aw-Fle" id="ymW-EU-udb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="09c-ns-ltc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -168,26 +191,35 @@
             <point key="canvasLocation" x="2407.1999999999998" y="134.48275862068968"/>
         </scene>
         <!--Both Line Graph View Controller-->
-        <scene sceneID="OXs-if-hRk">
+        <scene sceneID="pQX-NP-u0Y">
             <objects>
-                <viewController id="Rha-kJ-RrM" customClass="BothLineGraphViewController" customModule="Engage" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="AjA-pl-sTT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController id="kFf-Hn-Z88" customClass="BothLineGraphViewController" customModule="Engage" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="D2t-Ja-KAd">
+                        <rect key="frame" x="0.0" y="0.0" width="308" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="Pjc-N7-ESh"/>
                     </view>
-                    <connections>
-                        <segue destination="hfz-1q-0wk" kind="show" identifier="toMe" id="jbz-U2-aUg"/>
-                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CN0-bR-xii" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4HX-ob-W2D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3196" y="133.5832083958021"/>
+            <point key="canvasLocation" x="3277" y="134"/>
+        </scene>
+        <!--Timeline View Controller-->
+        <scene sceneID="eeq-nb-VMt">
+            <objects>
+                <viewController id="JaG-Ie-5l5" customClass="TimelineViewController" customModule="Engage" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ayT-zq-qJX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="540"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QQc-oA-e2f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2756" y="949"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="7UV-zO-Kk4"/>
         <segue reference="4g4-OP-aay"/>
         <segue reference="CiA-JC-lsC"/>
     </inferredMetricsTieBreakers>

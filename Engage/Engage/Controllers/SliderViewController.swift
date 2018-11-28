@@ -14,7 +14,9 @@ class SliderViewController: UIViewController {
     var sectionKey: String!
     var slider : UISlider!
     var userName : String!
-    
+    var welcomeLabel : UILabel!
+    var slider_back : UIImageView!
+    @IBOutlet weak var bothView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +25,6 @@ class SliderViewController: UIViewController {
         setupSlider()
         setUpSegmentedControl()
 
-        // Do any additional setup after loading the view.
     }
 
     @objc func numberValueChanged() {
@@ -35,25 +36,5 @@ class SliderViewController: UIViewController {
         let tempref = Database.database().reference()
         tempref.child("UserSessions").child(userID).child("slider_val").setValue( Int(slider.value))
     }
-    
-    
-//
-//    override func viewDidLayoutSubviews() {
-//        let margin: CGFloat = 20.0
-//        let width = view.bounds.width - 2.0 * margin
-//        slider.frame = CGRect(x: margin, y: margin + topLayoutGuide.length,
-//                                   width: width, height: 31.0)
-//    }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

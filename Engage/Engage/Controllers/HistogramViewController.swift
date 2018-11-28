@@ -30,6 +30,7 @@ class HistogramViewController: UIViewController {
     @IBOutlet var label: UILabel!
     @IBOutlet var pieChartViewL: PieChartView!
     @IBOutlet var pieChartViewR: PieChartView!
+    @IBOutlet weak var timelineView: UIView!
     var counts : [Int] = []
     var countValid : Int!
     var userIDs : [String] = []
@@ -219,14 +220,3 @@ class HistogramViewController: UIViewController {
 
 }
 
-
-
-// MARK: axisFormatDelegate
-//extension HistogramViewController: IAxisValueFormatter {
-//
-//    func stringForValue(_ value: Double, axis: AxisBase?) -> String {
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = “HH:mm.ss”
-//        return dateFormatter.string(from: Date(timeIntervalSince1970: value))
-//    }
-//}
