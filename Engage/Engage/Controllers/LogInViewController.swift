@@ -40,6 +40,7 @@ class LogInViewController: UIViewController {
         if let name = nameField.text {
             let studentName = name.trimmingCharacters(in: .whitespaces)
             if studentName != "" {
+                UserDefaults.standard.set(studentName, forKey: "name")
                 performSegue(withIdentifier: "toMagicWordVC", sender: studentName)
             } else {
                 invalidName()
@@ -84,6 +85,7 @@ class LogInViewController: UIViewController {
             invalidName()
             return
         }
+        UserDefaults.standard.set(name, forKey: "name")
         teacherHasSections { (hasSections) in
             if hasSections == "true" {
                 self.performSegue(withIdentifier: "toTeacherVC", sender: name.trimmingCharacters(in: .whitespaces))
