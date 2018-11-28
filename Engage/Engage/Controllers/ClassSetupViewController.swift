@@ -100,8 +100,7 @@ class ClassSetupViewController: UIViewController {
     }
     
     func generateMagicKey(_ sectionRefKey: String, completionHandler: @escaping (Int) -> ()) {
-//        var magicKey = String(arc4random_uniform(1000))
-        var magicKey = "180"
+        var magicKey = String(arc4random_uniform(1000))
         let dbRef = Database.database().reference()
         
         let formatter = DateFormatter()
