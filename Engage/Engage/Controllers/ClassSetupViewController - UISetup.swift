@@ -64,17 +64,18 @@ extension ClassSetupViewController {
     func setupClassName() {
         let classNameLabel = UILabel.init(frame: CGRect.init(x: view.frame.width / 2 - view.frame.width / 3 , y: 240, width: view.frame.width, height: 50))
 //        classNameLabel.center = CGPoint.init(x: view.frame.width/2 + 70, y: 265)
-        classNameLabel.text = " Class Name"
+        classNameLabel.text = "Class Name"
         classNameLabel.textColor = UIColor.white
         classNameLabel.font = UIFont(name: "Quicksand-Bold", size: 20)
         self.view.addSubview(classNameLabel)
         
         classNameField = UITextField.init(frame: CGRect.init(x:  view.frame.width / 2 - view.frame.width / 3, y: 290, width: 2*view.frame.width/3, height: 50))
 //        classNameField.center = CGPoint.init(x: view.frame.width/2, y: 315)
-        classNameField.placeholder = " Enter your class name"
+        classNameField.placeholder = "Enter your class name"
         classNameField.font = UIFont(name: "Quicksand-Bold", size: 18)
         classNameField.backgroundColor = UIColor.white
         classNameField.layer.cornerRadius = 5.0
+        classNameField.textAlignment = .center
         self.view.addSubview(classNameField)
     }
     
@@ -82,7 +83,7 @@ extension ClassSetupViewController {
         
         let dateLabel = UILabel.init(frame: CGRect.init(x: view.frame.width / 2 - view.frame.width / 3, y: 365, width: view.frame.width, height: 50))
 //        dateLabel.center = CGPoint.init(x: view.frame.width/2 + 70, y: 315 + 100)
-        dateLabel.text = " Date"
+        dateLabel.text = "Date"
         dateLabel.textColor = UIColor.white
         dateLabel.font = UIFont(name: "Quicksand-Bold", size: 20)
         self.view.addSubview(dateLabel)
@@ -93,10 +94,11 @@ extension ClassSetupViewController {
         datePicker.datePickerMode = .date
         txtDatePicker = UITextField(frame: CGRect.init(x:  view.frame.width / 2 - view.frame.width / 3, y: 415, width: 2 * view.frame.width / 3, height: 50));
         //txtDatePicker.center =  CGPoint.init(x: view.frame.width/2, y: 315 + 100)
-        txtDatePicker.placeholder = " mm/dd/yyyy"
+        txtDatePicker.placeholder = "mm/dd/yyyy"
         txtDatePicker.font = UIFont(name: "Quicksand-Bold", size: 18)
         txtDatePicker.backgroundColor = UIColor.white
         txtDatePicker.layer.cornerRadius = 5.0
+        txtDatePicker.textAlignment = .center
         view.addSubview(txtDatePicker)
         
         showDatePicker()
@@ -108,7 +110,7 @@ extension ClassSetupViewController {
         
         let startLabel = UILabel.init(frame: CGRect.init(x: view.frame.width / 2 - view.frame.width / 3, y:  415 + 75, width: view.frame.width, height: 50))
        
-        startLabel.text = " Start Time"
+        startLabel.text = "Start Time"
         startLabel.textColor = UIColor.white
         startLabel.font = UIFont(name: "Quicksand-Bold", size: 20)
         self.view.addSubview(startLabel)
@@ -118,15 +120,16 @@ extension ClassSetupViewController {
         startTimePicker.datePickerMode = .time
         startTxtTimePicker = UITextField(frame: CGRect.init(x:  view.frame.width / 2 - view.frame.width / 3, y: 415 + 75 + 50, width: view.frame.width / 3 - 5, height: 50));
         //startTxtTimePicker.center =  CGPoint.init(x: view.frame.width/4, y: 315 + 100)
-        startTxtTimePicker.placeholder = " hh:mm"
+        startTxtTimePicker.placeholder = "hh:mm"
         startTxtTimePicker.font = UIFont(name: "Quicksand-Bold", size: 18)
         startTxtTimePicker.backgroundColor = UIColor.white
         startTxtTimePicker.layer.cornerRadius = 5.0
+        startTxtTimePicker.textAlignment = .center
         view.addSubview(startTxtTimePicker)
         
         
         let endLabel = UILabel.init(frame: CGRect.init(x: view.frame.width / 2, y:  415 + 75, width: view.frame.width, height: 50))
-        endLabel.text = " End Time"
+        endLabel.text = "End Time"
         endLabel.textColor = UIColor.white
         endLabel.font = UIFont(name: "Quicksand-Bold", size: 20)
         self.view.addSubview(endLabel)
@@ -135,10 +138,12 @@ extension ClassSetupViewController {
         endTimePicker.datePickerMode = .time
         endTxtTimePicker = UITextField(frame: CGRect.init(x: view.frame.width / 2 + 5, y: 415 + 75 + 50, width: view.frame.width / 3 - 5, height: 50));
         //endTxtTimePicker.center =  CGPoint.init(x: 3 * view.frame.width/4, y: 315 + 100)
-        endTxtTimePicker.placeholder = " hh:mm"
+        endTxtTimePicker.placeholder = "hh:mm"
         endTxtTimePicker.font = UIFont(name: "Quicksand-Bold", size: 18)
         endTxtTimePicker.backgroundColor = UIColor.white
         endTxtTimePicker.layer.cornerRadius = 5.0
+        endTxtTimePicker.textAlignment = .center
+
         view.addSubview(endTxtTimePicker)
         
         showStartTimePicker()

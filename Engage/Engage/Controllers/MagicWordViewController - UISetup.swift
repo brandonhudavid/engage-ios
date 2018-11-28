@@ -43,9 +43,11 @@ extension MagicWordViewController {
         magicWordField.center = CGPoint.init(x: view.frame.width/2, y: view.frame.height/2 + 25)
         magicWordField.keyboardType = .numberPad
         magicWordField.backgroundColor = UIColor.white
-        magicWordField.placeholder = " Magic code"
+        magicWordField.placeholder = "Magic word"
         magicWordField.layer.cornerRadius = 5.0
         magicWordField.font = UIFont(name: "Quicksand-Bold", size: 18)
+        magicWordField.textAlignment = .center
+
         self.view.addSubview(magicWordField)
     }
     

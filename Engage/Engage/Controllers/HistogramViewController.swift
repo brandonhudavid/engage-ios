@@ -38,6 +38,7 @@ class HistogramViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor =  UIColor(red: 6/255, green: 38/255, blue: 51/255, alpha: 1)
         first = true
         getSectionData(completion: {
         })
