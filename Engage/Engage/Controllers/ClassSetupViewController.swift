@@ -66,6 +66,10 @@ class ClassSetupViewController: UIViewController {
             guard magicKey != -1 else {
                 return
             }
+            guard magicKey != -2 else {
+                print("error finding magic key")
+                return
+            }
             let sectionData: [String:AnyObject] = [
                 "a_start": sectionDate + "-" + startTime as AnyObject,
                 "b_end": sectionDate + "-" + endTime as AnyObject,
@@ -82,9 +86,6 @@ class ClassSetupViewController: UIViewController {
                     dbRef.child("Teachers").child(userID).child("name").setValue(self.name!)
                     dbRef.child("Teachers").child(userID).child("existingSections").setValue([sectionRefKey: sectionName])
                     self.performSegue(withIdentifier: "toHistogram", sender: sectionRefKey)
-                    var vcs: [UIViewController] = (self.navigationController?.viewControllers)!
-                    let prev = vcs.count - 2
-                    vcs.remove(at: prev)
                     return
                 }
                 if teacherSections == ["None":"None"] {
@@ -94,51 +95,127 @@ class ClassSetupViewController: UIViewController {
                 dbRef.child("Teachers").child(userID).child("name").setValue(self.name!)
                 dbRef.child("Teachers").child(userID).child("existingSections").setValue(teacherSections)
                 self.performSegue(withIdentifier: "toHistogram", sender: sectionRefKey)
-                var vcs: [UIViewController] = (self.navigationController?.viewControllers)!
-                let prev = vcs.count - 2
-                vcs.remove(at: prev)
             }
         }
     }
     
     func generateMagicKey(_ sectionRefKey: String, completionHandler: @escaping (Int) -> ()) {
-        var magicKey = String(arc4random_uniform(1000))
+//        var magicKey = String(arc4random_uniform(1000))
+        var magicKey = "180"
         let dbRef = Database.database().reference()
         
         let formatter = DateFormatter()
-        formatter.dateFormat = "MM/dd/yyyy HH:mm"
+        formatter.dateFormat = "MM-dd-yyyy-hh:mma"
         
         dbRef.child("MagicKeys").observeSingleEvent(of: .value) { (snapshot) in
             if snapshot.exists() {
                 var magicKeys = snapshot.value as! [String: String]
-                while magicKeys.keys.contains(magicKey) {
-                    let existingKey = magicKeys[magicKey]
-                    
-                    magicKey = String(arc4random_uniform(1000))
+//                while magicKeys.keys.contains(magicKey) {
+                if magicKeys.keys.contains(magicKey) {
+                    self.getSections(completionHandler: { (sections) in
+                        guard !sections.isEmpty else {
+//                            completionHandler(Int(magicKey)!)
+                            return
+                        }
+                        var sections = sections
+                        while magicKeys.keys.contains(magicKey) {
+                            let existingKey: String! = magicKeys[magicKey]
+                            let endTime = sections[existingKey]!["b_end"] as! String
+                            guard let endDate = formatter.date(from: endTime) else {
+                                completionHandler(-2)
+                                return
+                            }
+                            let currentDate = Date()
+                            if endDate < currentDate {
+                                self.deleteSection(existingKey, sections[existingKey]!)
+                                break
+                            }
+                            magicKey = String(arc4random_uniform(1000))
+                        }
+                        magicKeys[magicKey] = sectionRefKey
+                        dbRef.child("MagicKeys").setValue(magicKeys)
+                        completionHandler(Int(magicKey)!)
+                        return
+                    })
+                } else {
+                    magicKeys[magicKey] = sectionRefKey
+                    dbRef.child("MagicKeys").setValue(magicKeys)
+                    completionHandler(Int(magicKey)!)
+                    return
                 }
-                magicKeys[magicKey] = sectionRefKey
-                dbRef.child("MagicKeys").setValue(magicKeys)
             } else {
                 dbRef.child("MagicKeys").setValue([magicKey: sectionRefKey])
+                completionHandler(Int(magicKey)!)
+                return
             }
-            completionHandler(Int(magicKey)!)
         }
         completionHandler(-1)
     }
     
-    func getSectionEndTime(_ existingKey: String, completionHandler: @escaping (String) -> ()) {
+    func deleteSection(_ sectionKey: String, _ section: [String:AnyObject]) {
+        let dbRef = Database.database().reference()
+        if section.keys.contains("user_ids") {
+            let userIDs = section["user_ids"] as! [String:String]
+            getUserSessions { (userSessions) in
+                for id in userIDs.keys {
+                    dbRef.child("UserSessions").child(id).removeValue()
+                }
+            }
+        }
+        let teacher = section["ta_key"] as! String
+        dbRef.child("Teachers").child(teacher).child("existingSections").child(sectionKey).removeValue()
+        dbRef.child("Sections").child(sectionKey).removeValue()
+    }
+    
+    func getUserSessions(completionHandler: @escaping ([String: [String: AnyObject]]) -> ()) {
         let dbRef = Database.database().reference()
         
-        dbRef.child("Sections").child(existingKey).observeSingleEvent(of: .value) { (snapshot) in
+        dbRef.child("UserSessions").observeSingleEvent(of: .value) { (snapshot) in
             if snapshot.exists() {
-                let section = snapshot.value as! [String: AnyObject]
-                completionHandler(section["b_end"] as! String)
+                let userSessions = snapshot.value as! [String: [String: AnyObject]]
+                completionHandler(userSessions)
             }
-            
-        completionHandler("")
+            completionHandler([:])
+        }
     }
+    
+    func getTeachers(completionHandler: @escaping ([String: [String: AnyObject]]) -> ()) {
+        let dbRef = Database.database().reference()
         
+        dbRef.child("Teachers").observeSingleEvent(of: .value) { (snapshot) in
+            if snapshot.exists() {
+                let teachers = snapshot.value as! [String: [String: AnyObject]]
+                completionHandler(teachers)
+            }
+            completionHandler([:])
+        }
     }
+    
+    func getSections(completionHandler: @escaping ([String: [String: AnyObject]]) -> ()) {
+        let dbRef = Database.database().reference()
+        
+        dbRef.child("Sections").observeSingleEvent(of: .value) { (snapshot) in
+            if snapshot.exists() {
+                let section = snapshot.value as! [String: [String: AnyObject]]
+                completionHandler(section)
+            }
+            completionHandler([:])
+        }
+    }
+    
+//    func getSectionEndTime(_ existingKey: String, completionHandler: @escaping (String) -> ()) {
+//        let dbRef = Database.database().reference()
+//
+//        dbRef.child("Sections").child(existingKey).observeSingleEvent(of: .value) { (snapshot) in
+//            if snapshot.exists() {
+//                let section = snapshot.value as! [String: AnyObject]
+//                completionHandler(section["b_end"] as! String)
+//            }
+//
+//        completionHandler("")
+//        }
+//
+//    }
     
     
     
