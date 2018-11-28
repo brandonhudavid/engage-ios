@@ -56,6 +56,7 @@ class HistogramViewController: UIViewController {
         // Scheduling timer to Call the function "updateCounting" with the interval of 1 seconds
         shouldUpdate = true
         timer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(self.updateData), userInfo: nil, repeats: true)
+
     }
     
  

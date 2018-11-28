@@ -20,11 +20,7 @@ extension HistogramViewController {
         self.setLeftPieChart()
         self.setRightPieChart()
         self.setupSlider()
-//<<<<<<< Updated upstream
-//        //self.setUpSegmentedControl()
-//=======
-////        self.setUpSegmentedControl()
-//>>>>>>> Stashed changes
+        self.setUpSegmentedControl()
         //self.navigationItem.titleView = customSC
     }
     
@@ -127,12 +123,12 @@ extension HistogramViewController {
         barView.data = chartData
         view.addSubview(barView)
         
-        thumbs_up = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        let thumbs_up = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
         thumbs_up.center = CGPoint.init(x: view.frame.width - 50, y: 3 * view.frame.height/4 - 100 + 5)
         thumbs_up.image = UIImage(named: "thumbs")
         view.addSubview(thumbs_up)
         
-        thumbs_down = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        let thumbs_down = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
         thumbs_down.center = CGPoint.init(x: 50, y: 3 * view.frame.height/4 - 100 + 15 )
         thumbs_down.image = UIImage(named: "thumbs")
         thumbs_down.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
@@ -259,7 +255,7 @@ extension HistogramViewController {
         view.addSubview(studentsLabel)
     }
     
-    /*func setUpSegmentedControl(){
+    func setUpSegmentedControl(){
         
         let items = ["Now", "Timeline"]
         customSC = UISegmentedControl(items: items)
@@ -284,31 +280,19 @@ extension HistogramViewController {
     @objc func changeColor(sender: UISegmentedControl){
         switch sender.selectedSegmentIndex {
         case 0:
-            shouldUpdate = true
-            view.addSubview(sectionNameLabel)
-            view.addSubview(magicWordLabel)
-            view.addSubview(numStudentsLabel)
-            view.addSubview(barView)
-            view.addSubview(thumbs_up)
-            view.addSubview(thumbs_down)
+            /*view.addSubview(slider_back)
             view.addSubview(slider)
-            scheduledTimerWithTimeInterval()
+            view.addSubview(welcomeLabel)*/
             self.timelineView.alpha = 0
         case 1:
-            timer.invalidate()
-            shouldUpdate = false
-            sectionNameLabel.removeFromSuperview()
-            magicWordLabel.removeFromSuperview()
-            numStudentsLabel.removeFromSuperview()
-            barView.removeFromSuperview()
-            thumbs_up.removeFromSuperview()
-            thumbs_down.removeFromSuperview()
-            slider.removeFromSuperview()
             self.timelineView.alpha = 1
+            /*slider.removeFromSuperview()
+            slider_back.removeFromSuperview()
+            welcomeLabel.removeFromSuperview()*/
         default:
             break
         }
-    }*/
+    }
 }
 
 /* func setUpSegmentedControl(){
