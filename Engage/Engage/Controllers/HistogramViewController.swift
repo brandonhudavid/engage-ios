@@ -55,7 +55,7 @@ class HistogramViewController: UIViewController {
     
     func getSectionData(completion: @escaping () -> ()) {
         let tempref = Database.database().reference()
-        sectionRefKey = "2347E732-EE49-42ED-9463-F1BDF6B62700"
+//        sectionRefKey = "2347E732-EE49-42ED-9463-F1BDF6B62700"
         if let sectionRefKey = sectionRefKey {
             tempref.child("Sections").child(sectionRefKey).observeSingleEvent(of: .value, with: { (snapshot) in
                     // Get user value
