@@ -20,7 +20,7 @@ extension HistogramViewController {
         self.setLeftPieChart()
         self.setRightPieChart()
         self.setupSlider()
-        self.setUpSegmentedControl()
+        //self.setUpSegmentedControl()
         //self.navigationItem.titleView = customSC
     }
     
@@ -255,7 +255,7 @@ extension HistogramViewController {
         view.addSubview(studentsLabel)
     }
     
-    func setUpSegmentedControl(){
+    /*func setUpSegmentedControl(){
         
         let items = ["Now", "Timeline"]
         customSC = UISegmentedControl(items: items)
@@ -280,6 +280,7 @@ extension HistogramViewController {
     @objc func changeColor(sender: UISegmentedControl){
         switch sender.selectedSegmentIndex {
         case 0:
+            shouldUpdate = true
             view.addSubview(sectionNameLabel)
             view.addSubview(magicWordLabel)
             view.addSubview(numStudentsLabel)
@@ -287,9 +288,11 @@ extension HistogramViewController {
             view.addSubview(thumbs_up)
             view.addSubview(thumbs_down)
             view.addSubview(slider)
+            scheduledTimerWithTimeInterval()
             self.timelineView.alpha = 0
         case 1:
-            self.timelineView.alpha = 1
+            timer.invalidate()
+            shouldUpdate = false
             sectionNameLabel.removeFromSuperview()
             magicWordLabel.removeFromSuperview()
             numStudentsLabel.removeFromSuperview()
@@ -297,10 +300,11 @@ extension HistogramViewController {
             thumbs_up.removeFromSuperview()
             thumbs_down.removeFromSuperview()
             slider.removeFromSuperview()
+            self.timelineView.alpha = 1
         default:
             break
         }
-    }
+    }*/
 }
 
 /* func setUpSegmentedControl(){

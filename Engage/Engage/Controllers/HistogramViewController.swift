@@ -39,6 +39,7 @@ class HistogramViewController: UIViewController {
     var timer = Timer()
     var first = true
     var customSC : UISegmentedControl!
+    var shouldUpdate : Bool!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +54,7 @@ class HistogramViewController: UIViewController {
 
     func scheduledTimerWithTimeInterval(){
         // Scheduling timer to Call the function "updateCounting" with the interval of 1 seconds
+        shouldUpdate = true
         timer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(self.updateData), userInfo: nil, repeats: true)
     }
     
@@ -179,10 +181,12 @@ class HistogramViewController: UIViewController {
     
     
     func updatePage() {
-        clearPage()
-        self.updateChartWithData()
-        self.setLeftPieChart()
-        self.setRightPieChart()
+        if shouldUpdate{
+            clearPage()
+            self.updateChartWithData()
+            self.setLeftPieChart()
+            self.setRightPieChart()
+        }
     }
     
 
