@@ -72,12 +72,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YXt-I9-Vuy">
-                                <rect key="frame" x="0.0" y="-159" width="375" height="826"/>
+                            <containerView opaque="NO" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sf8-Jc-pXt">
+                                <rect key="frame" x="0.0" y="-146" width="375" height="590"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" red="0.023529411764705882" green="0.14901960784313725" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <segue destination="JaG-Ie-5l5" kind="embed" id="4PR-3q-ecw"/>
+                                    <segue destination="Q6u-WL-gnO" kind="embed" id="hNL-X6-uDa"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -85,7 +85,7 @@
                         <viewLayoutGuide key="safeArea" id="oGK-zN-0Lw"/>
                     </view>
                     <connections>
-                        <outlet property="timelineView" destination="YXt-I9-Vuy" id="ROY-Li-Lqr"/>
+                        <outlet property="timelineView" destination="Sf8-Jc-pXt" id="Tz0-LY-1a8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mYJ-gg-lKK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -205,18 +205,18 @@
             <point key="canvasLocation" x="3277" y="134"/>
         </scene>
         <!--Timeline View Controller-->
-        <scene sceneID="eeq-nb-VMt">
+        <scene sceneID="wVH-Uc-ZPs">
             <objects>
-                <viewController id="JaG-Ie-5l5" customClass="TimelineViewController" customModule="Engage" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ayT-zq-qJX">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="826"/>
+                <viewController id="Q6u-WL-gnO" customClass="TimelineViewController" customModule="Engage" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="P7a-UI-fAA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="590"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QQc-oA-e2f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z8H-b5-2Jl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2756" y="949"/>
+            <point key="canvasLocation" x="2569" y="949"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

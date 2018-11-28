@@ -255,6 +255,10 @@ extension HistogramViewController {
         view.addSubview(studentsLabel)
     }
     
+    func setUpView(){
+        timelineView.backgroundColor = self.view.backgroundColor
+    }
+    
     func setUpSegmentedControl(){
         
         let items = ["Now", "Timeline"]
