@@ -29,20 +29,22 @@ extension SliderViewController {
     
     
     func setupSlider() {
-        slider = UISlider(frame: CGRect(x: 0, y: 0, width: view.frame.height - 250, height: view.frame.width - 120))
-        slider.center = CGPoint(x: view.frame.width / 2, y: view.frame.height / 2 + 50)
+      
+        slider = UISlider(frame: CGRect(x: 0, y: 0, width: 812 - 250, height: 375 - 120))
+        slider.center = CGPoint(x: view.frame.width / 2 + 2, y: view.frame.height / 2 + 50)
+        
         let thumbImage = UIImage(named: "slider_thumb")
         slider.setThumbImage(thumbImage, for: .normal)
         slider.transform = CGAffineTransform(rotationAngle: CGFloat(3 * Double.pi / 2))
         slider.maximumTrackTintColor = UIColor.clear
         slider.minimumTrackTintColor = UIColor.clear
         
-        slider_back = UIImageView(frame: CGRect(x: 0, y: 0, width: view.frame.height - 250, height: view.frame.width - 120))
+        slider_back = UIImageView(frame: CGRect(x: 0, y: 0, width: 812 - 250, height: 375 - 108))
         slider_back.image = UIImage(named: "slider_track")
         slider_back.transform = CGAffineTransform(rotationAngle: CGFloat(3 * Double.pi / 2))
         slider_back.center = CGPoint(x: view.frame.width / 2, y: view.frame.height / 2 + 50)
         slider.minimumValue = 0
-        slider.maximumValue = 100
+        slider.maximumValue = 99
         slider.value = 50
         slider.addTarget(self, action: #selector(numberValueChanged), for: UIControl.Event.valueChanged)
         view.addSubview(slider_back)
