@@ -26,13 +26,12 @@ class MagicWordViewController: UIViewController {
     
     @objc func joinPressed() {
         if let magicWord = magicWordField.text, magicWord.trimmingCharacters(in: .whitespaces) != "" {
-            let number: Int! = Int(magicWord)
-            magicWordToSection(number) { (sectionRefKey) in
+            magicWordToSection(magicWord) { (sectionRefKey) in
                 if sectionRefKey == "None" {
                     self.invalidMagicWord()
                 }
                 else if sectionRefKey != "" {
-                    self.createUserSession(number, sectionRefKey!)
+                    self.createUserSession(Int(magicWord)!, sectionRefKey)
                     self.performSegue(withIdentifier: "toSlider", sender: sectionRefKey)
                 }
             }
@@ -104,26 +103,37 @@ class MagicWordViewController: UIViewController {
         
     }
     
-    func magicWordToSection(_ magicWord: Int, completionHandler: @escaping (String?) -> ()) {
+    func magicWordToSection(_ magicWord: String, completionHandler: @escaping (String) -> ()) {
         let dbRef = Database.database().reference()
-        dbRef.child("Sections").observeSingleEvent(of: .value) { (snapshot) in
-            var magicKeyFound = false
+        dbRef.child("MagicKeys").observeSingleEvent(of: .value) { (snapshot) in
             if snapshot.exists() {
-                if let sections = snapshot.value as? [String : [String : Any]] {
-                    for (key, value) in sections {
-                        if magicWord == value["magic_key"] as? Int {
-                            magicKeyFound = true
-                            completionHandler(key)
-                        } else {
-                            print("missed key")
-                        }
-                    }
-                    if !magicKeyFound {
-                        completionHandler("None")
-                    }
+                let magicKeys: [String: String] = snapshot.value as! [String: String]
+                if magicKeys.keys.contains(magicWord) {
+                    completionHandler(magicKeys[magicWord]!)
+                } else {
+                    completionHandler("None")
                 }
+                
             }
         }
+//        dbRef.child("Sections").observeSingleEvent(of: .value) { (snapshot) in
+//            var magicKeyFound = false
+//            if snapshot.exists() {
+//                if let sections = snapshot.value as? [String : [String : Any]] {
+//                    for (key, value) in sections {
+//                        if magicWord == value["magic_key"] as? Int {
+//                            magicKeyFound = true
+//                            completionHandler(key)
+//                        } else {
+//                            print("missed key")
+//                        }
+//                    }
+//                    if !magicKeyFound {
+//                        completionHandler("None")
+//                    }
+//                }
+//            }
+//        }
         completionHandler("")
     }
 
