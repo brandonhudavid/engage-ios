@@ -17,7 +17,7 @@ extension LogInViewController {
     
     
     func setupUI() {
-        
+        navigationController?.isNavigationBarHidden = true
         navigationController?.navigationBar.barTintColor = UIColor.init(red: 6/255, green: 38/255, blue: 51/255, alpha: 1.0)
         view.backgroundColor = UIColor.init(red: 6/255, green: 38/255, blue: 51/255, alpha: 1.0)
         setUpLabel()
@@ -59,6 +59,8 @@ extension LogInViewController {
         }
         nameField.layer.cornerRadius = 5.0
         nameField.font = UIFont(name: "Quicksand-Bold", size: 18)
+        nameField.textAlignment = .center
+
         self.view.addSubview(nameField)
     }
     

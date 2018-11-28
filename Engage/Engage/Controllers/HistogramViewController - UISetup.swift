@@ -20,13 +20,15 @@ extension HistogramViewController {
         self.setLeftPieChart()
         self.setRightPieChart()
         self.setupSlider()
+        self.setUpSegmentedControl()
+        //self.navigationItem.titleView = customSC
     }
     
     
     func setLabel(counts : [Int]) {
         
         sectionNameLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 50))
-        sectionNameLabel.center = CGPoint(x: view.frame.width / 2, y: 125)
+        sectionNameLabel.center = CGPoint(x: view.frame.width / 2, y: 150)
         sectionNameLabel.textAlignment = .center
         sectionNameLabel.text  = "Section Name: " + sectionName
         sectionNameLabel.textColor = UIColor.white
@@ -34,7 +36,7 @@ extension HistogramViewController {
         view.addSubview(sectionNameLabel)
         
         magicWordLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 50))
-        magicWordLabel.center = CGPoint(x: view.frame.width / 2, y: 150)
+        magicWordLabel.center = CGPoint(x: view.frame.width / 2, y: 175)
         magicWordLabel.textAlignment = .center
         magicWordLabel.text  = "Magic Word: " + String(magicWord!)
         magicWordLabel.textColor = UIColor.white
@@ -253,4 +255,82 @@ extension HistogramViewController {
         view.addSubview(studentsLabel)
     }
     
+    func setUpSegmentedControl(){
+        
+        let items = ["Now", "Timeline"]
+        customSC = UISegmentedControl(items: items)
+        customSC.selectedSegmentIndex = 0
+        let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        
+        customSC.frame = CGRect(x: 75, y: 100, width: 264, height: 25)
+        customSC.layer.cornerRadius = 3.0
+        customSC.backgroundColor = self.view.backgroundColor
+        customSC.tintColor = UIColor.init(red: 47/255, green: 92/255, blue: 216/255, alpha: 1.0)
+        customSC.setTitleTextAttributes(titleTextAttributes, for: .normal)
+        customSC.setTitleTextAttributes(titleTextAttributes, for: .selected)
+        customSC.transform = CGAffineTransform(rotationAngle: 0)
+        customSC.clipsToBounds = true
+        
+        
+        customSC.addTarget(self, action: #selector(changeColor), for: .valueChanged)
+        
+        self.view.addSubview(customSC)
+    }
+    
+    @objc func changeColor(sender: UISegmentedControl){
+        switch sender.selectedSegmentIndex {
+        case 0:
+            /*view.addSubview(slider_back)
+            view.addSubview(slider)
+            view.addSubview(welcomeLabel)*/
+            self.timelineView.alpha = 0
+        case 1:
+            self.timelineView.alpha = 1
+            /*slider.removeFromSuperview()
+            slider_back.removeFromSuperview()
+            welcomeLabel.removeFromSuperview()*/
+        default:
+            break
+        }
+    }
 }
+
+/* func setUpSegmentedControl(){
+ 
+ let items = ["Now", "Timeline"]
+ let customSC = UISegmentedControl(items: items)
+ customSC.selectedSegmentIndex = 0
+ let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+ 
+ customSC.frame = CGRect(x: view.frame.width/2, y: 20, width: 264, height: 25)
+ customSC.layer.cornerRadius = 3.0
+ customSC.backgroundColor = self.view.backgroundColor
+ customSC.tintColor = UIColor.init(red: 47/255, green: 92/255, blue: 216/255, alpha: 1.0)
+ customSC.setTitleTextAttributes(titleTextAttributes, for: .normal)
+ customSC.setTitleTextAttributes(titleTextAttributes, for: .selected)
+ customSC.clipsToBounds = true
+ 
+ customSC.addTarget(self, action: #selector(changeColor), for: .valueChanged)
+ 
+ self.view.addSubview(customSC)
+ }
+ 
+ @objc func changeColor(sender: UISegmentedControl){
+ switch sender.selectedSegmentIndex {
+ case 0:
+ view.addSubview(sectionNameLabel)
+ view.addSubview(slider)
+ view.addSubview(magicWordLabel)
+ view.addSubview(numStudentsLabel)
+ self.timelineView.alpha = 0
+ case 1:
+ self.timelineView.alpha = 1
+ slider.removeFromSuperview()
+ numStudentsLabel.removeFromSuperview()
+ magicWordLabel.removeFromSuperview()
+ sectionNameLabel.removeFromSuperview()
+ default:
+ break
+ }
+ 
+ }*/

@@ -30,14 +30,17 @@ class HistogramViewController: UIViewController {
     @IBOutlet var label: UILabel!
     @IBOutlet var pieChartViewL: PieChartView!
     @IBOutlet var pieChartViewR: PieChartView!
+    @IBOutlet weak var timelineView: UIView!
     var counts : [Int] = []
     var countValid : Int!
     var userIDs : [String] = []
     var timer = Timer()
     var first = true
+    var customSC : UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor =  UIColor(red: 6/255, green: 38/255, blue: 51/255, alpha: 1)
         first = true
         getSectionData(completion: {
         })
@@ -218,14 +221,3 @@ class HistogramViewController: UIViewController {
 
 }
 
-
-
-// MARK: axisFormatDelegate
-//extension HistogramViewController: IAxisValueFormatter {
-//
-//    func stringForValue(_ value: Double, axis: AxisBase?) -> String {
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = “HH:mm.ss”
-//        return dateFormatter.string(from: Date(timeIntervalSince1970: value))
-//    }
-//}

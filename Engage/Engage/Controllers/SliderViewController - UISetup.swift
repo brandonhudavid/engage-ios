@@ -17,7 +17,7 @@ extension SliderViewController {
     }
     
     func setupLabel () {
-        let welcomeLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.height, height: 50))
+        welcomeLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.height, height: 50))
         welcomeLabel.center = CGPoint(x: view.frame.width - 30, y: view.frame.height / 2 + 50)
         welcomeLabel.textAlignment = .center
         welcomeLabel.transform = CGAffineTransform(rotationAngle: CGFloat(3 * Double.pi / 2))
@@ -29,19 +29,22 @@ extension SliderViewController {
     
     
     func setupSlider() {
-        slider = UISlider(frame: CGRect(x: 0, y: 0, width: view.frame.height - 250, height: view.frame.width - 120))
-        slider.center = CGPoint(x: view.frame.width / 2, y: view.frame.height / 2 + 50)
+      
+        slider = UISlider(frame: CGRect(x: 0, y: 0, width: 812 - 250, height: 375 - 120))
+        slider.center = CGPoint(x: view.frame.width / 2 + 2, y: view.frame.height / 2 + 50)
+        
         let thumbImage = UIImage(named: "slider_thumb")
         slider.setThumbImage(thumbImage, for: .normal)
         slider.transform = CGAffineTransform(rotationAngle: CGFloat(3 * Double.pi / 2))
         slider.maximumTrackTintColor = UIColor.clear
         slider.minimumTrackTintColor = UIColor.clear
-        let slider_back = UIImageView(frame: CGRect(x: 0, y: 0, width: view.frame.height - 250, height: view.frame.width - 120))
+        
+        slider_back = UIImageView(frame: CGRect(x: 0, y: 0, width: 812 - 250, height: 375 - 108))
         slider_back.image = UIImage(named: "slider_track")
         slider_back.transform = CGAffineTransform(rotationAngle: CGFloat(3 * Double.pi / 2))
         slider_back.center = CGPoint(x: view.frame.width / 2, y: view.frame.height / 2 + 50)
         slider.minimumValue = 0
-        slider.maximumValue = 100
+        slider.maximumValue = 99
         slider.value = 50
         slider.addTarget(self, action: #selector(numberValueChanged), for: UIControl.Event.valueChanged)
         view.addSubview(slider_back)
@@ -50,14 +53,14 @@ extension SliderViewController {
     }
     
     func setUpSegmentedControl(){
-
+        
         let items = ["Me", "Class"]
         let customSC = UISegmentedControl(items: items)
         customSC.selectedSegmentIndex = 0
         let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         
         customSC.frame = CGRect(x: -103, y: view.frame.height/2 + 37, width: 264, height: 25)
-        customSC.layer.cornerRadius = 3.0  
+        customSC.layer.cornerRadius = 3.0
         customSC.backgroundColor = self.view.backgroundColor
         customSC.tintColor = UIColor.init(red: 47/255, green: 92/255, blue: 216/255, alpha: 1.0)
         customSC.setTitleTextAttributes(titleTextAttributes, for: .normal)
@@ -73,9 +76,15 @@ extension SliderViewController {
     @objc func changeColor(sender: UISegmentedControl){
         switch sender.selectedSegmentIndex {
         case 0:
-            performSegue(withIdentifier: "toMe", sender: self)
+            view.addSubview(slider_back)
+            view.addSubview(slider)
+            view.addSubview(welcomeLabel)
+            self.bothView.alpha = 0
         case 1:
-            performSegue(withIdentifier: "toBoth", sender: self)
+            self.bothView.alpha = 1
+            slider.removeFromSuperview()
+            slider_back.removeFromSuperview()
+            welcomeLabel.removeFromSuperview()
         default:
             break
         }
