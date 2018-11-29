@@ -116,6 +116,7 @@ class HistogramViewController: UIViewController {
                         }
                     }
                 }
+//                self.counts = [2, 22, 33, 33, 33, 44, 44, 44, 55, 55, 66, 77, 88, 99, 99]
                 print(self.counts)
                 if self.first {
                     self.setupPage()

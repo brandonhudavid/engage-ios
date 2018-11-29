@@ -32,7 +32,7 @@ extension HistogramViewController {
     func setLabel(counts : [Int]) {
         
         sectionNameLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 50))
-        sectionNameLabel.center = CGPoint(x: view.frame.width / 2, y: 150)
+        sectionNameLabel.center = CGPoint(x: view.frame.width / 2, y: 100)
         sectionNameLabel.textAlignment = .center
         sectionNameLabel.text  = "Section Name: " + sectionName
         sectionNameLabel.textColor = UIColor.white
@@ -40,7 +40,7 @@ extension HistogramViewController {
         view.addSubview(sectionNameLabel)
         
         magicWordLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 50))
-        magicWordLabel.center = CGPoint(x: view.frame.width / 2, y: 175)
+        magicWordLabel.center = CGPoint(x: view.frame.width / 2, y: 125)
         magicWordLabel.textAlignment = .center
         magicWordLabel.text  = "Magic Word: " + String(magicWord!)
         magicWordLabel.textColor = UIColor.white
@@ -49,7 +49,7 @@ extension HistogramViewController {
         
         
         numStudentsLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 20))
-        numStudentsLabel.center = CGPoint(x: view.frame.width / 2, y: view.frame.height - 250)
+        numStudentsLabel.center = CGPoint(x: view.frame.width / 2, y: view.frame.height - 200)
         numStudentsLabel.textAlignment = .center
         if (counts.count == 1) {
             numStudentsLabel.text  = String(counts.count) + " Student Total"
@@ -144,7 +144,7 @@ extension HistogramViewController {
     
     func setLeftPieChart() {
         pieChartViewL = PieChartView(frame: CGRect(x: 0, y: 0, width: 170, height: 170))
-        pieChartViewL.center = CGPoint(x: view.frame.width / 4, y: view.frame.height - 140)
+        pieChartViewL.center = CGPoint(x: view.frame.width / 4, y: view.frame.height - 100)
         var dataEntries: [PieChartDataEntry] = []
         //        let visitorCounts = getVisitorCountsFromDatabase()
         var colors: [UIColor] = []
@@ -185,7 +185,7 @@ extension HistogramViewController {
         
         
         pieChartLabelL = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 50))
-        pieChartLabelL.center = CGPoint(x: view.frame.width / 4, y: view.frame.height - 160)
+        pieChartLabelL.center = CGPoint(x: view.frame.width / 4, y: view.frame.height - 120)
         pieChartLabelL.textAlignment = .center
         pieChartLabelL.text  = String(belowOrEqual)
         pieChartLabelL.textColor = UIColor.white
@@ -194,7 +194,7 @@ extension HistogramViewController {
         
         
         let studentsLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 50))
-        studentsLabel.center = CGPoint(x: view.frame.width / 4, y: view.frame.height - 130)
+        studentsLabel.center = CGPoint(x: view.frame.width / 4, y: view.frame.height - 90)
         studentsLabel.textAlignment = .center
         studentsLabel.text  = "students"
         studentsLabel.textColor = UIColor.white
@@ -206,7 +206,7 @@ extension HistogramViewController {
     
     func setRightPieChart() {
         pieChartViewR = PieChartView(frame: CGRect(x: 0, y: 0, width: 170, height: 170))
-        pieChartViewR.center = CGPoint(x: 3 * view.frame.width / 4, y: view.frame.height - 140)
+        pieChartViewR.center = CGPoint(x: 3 * view.frame.width / 4, y: view.frame.height - 100)
         var dataEntries: [PieChartDataEntry] = []
         //        let visitorCounts = getVisitorCountsFromDatabase()
         var colors: [UIColor] = []
@@ -243,7 +243,7 @@ extension HistogramViewController {
 
         
         pieChartLabelR = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 50))
-        pieChartLabelR.center = CGPoint(x: 3 * view.frame.width / 4, y: view.frame.height - 160)
+        pieChartLabelR.center = CGPoint(x: 3 * view.frame.width / 4, y: view.frame.height - 120)
         pieChartLabelR.textAlignment = .center
         pieChartLabelR.text  = String(above)
         pieChartLabelR.textColor = UIColor.white
@@ -251,7 +251,7 @@ extension HistogramViewController {
         view.addSubview(pieChartLabelR)
         
         let studentsLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 50))
-        studentsLabel.center = CGPoint(x: 3 * view.frame.width / 4, y: view.frame.height - 130)
+        studentsLabel.center = CGPoint(x: 3 * view.frame.width / 4, y: view.frame.height - 90)
         studentsLabel.textAlignment = .center
         studentsLabel.text  = "students"
         studentsLabel.textColor = UIColor.white
