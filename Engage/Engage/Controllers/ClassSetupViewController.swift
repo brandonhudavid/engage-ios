@@ -27,11 +27,14 @@ class ClassSetupViewController: UIViewController {
     var endTxtTimePicker : UITextField!
     var endTime : String!
     
+    var navBarHeight : CGFloat!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
     
         self.navigationController?.isNavigationBarHidden = false
+        navBarHeight = CGFloat(self.navigationController?.navigationBar.frame.size.height ?? 50)
         setupUI()
         
 

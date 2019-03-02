@@ -29,9 +29,12 @@ extension SliderViewController {
     
     
     func setupSlider() {
-      
-        slider = UISlider(frame: CGRect(x: 0, y: 0, width: 812 - 250, height: 375 - 120))
-        slider.center = CGPoint(x: view.frame.width / 2 + 2, y: view.frame.height / 2 + 50)
+        let sliderWidth = view.frame.height * 0.8
+        let sliderHeight = view.frame.width * 0.7
+        let navBarHeight = CGFloat(self.navigationController?.navigationBar.frame.size.height ?? 50)
+        
+        slider = UISlider(frame: CGRect(x: 0, y: 0, width: sliderWidth, height: sliderHeight))
+        slider.center = CGPoint(x: view.frame.width / 2, y: (view.frame.height + navBarHeight) / 2)
         
         let thumbImage = UIImage(named: "slider_thumb")
         slider.setThumbImage(thumbImage, for: .normal)
@@ -39,10 +42,10 @@ extension SliderViewController {
         slider.maximumTrackTintColor = UIColor.clear
         slider.minimumTrackTintColor = UIColor.clear
         
-        slider_back = UIImageView(frame: CGRect(x: 0, y: 0, width: 812 - 250, height: 375 - 108))
+        slider_back = UIImageView(frame: CGRect(x: 0, y: 0, width: sliderWidth, height: sliderHeight))
         slider_back.image = UIImage(named: "slider_track")
         slider_back.transform = CGAffineTransform(rotationAngle: CGFloat(3 * Double.pi / 2))
-        slider_back.center = CGPoint(x: view.frame.width / 2, y: view.frame.height / 2 + 50)
+        slider_back.center = CGPoint(x: view.frame.width / 2, y: (view.frame.height  + navBarHeight) / 2 )
         slider.minimumValue = 0
         slider.maximumValue = 99
         slider.value = 50

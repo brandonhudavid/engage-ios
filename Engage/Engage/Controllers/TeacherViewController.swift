@@ -12,10 +12,12 @@ import FirebaseDatabase
 class TeacherViewController: UIViewController {
     
     var name: String!
+    var navBarHeight : Int = 50
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = false
+        let navBarHeight = CGFloat(self.navigationController?.navigationBar.frame.size.height ?? 50)
         setupUI()
     }
     

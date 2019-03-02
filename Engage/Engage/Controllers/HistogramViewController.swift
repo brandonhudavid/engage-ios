@@ -40,6 +40,7 @@ class HistogramViewController: UIViewController {
     var first = true
     var customSC : UISegmentedControl!
     var shouldUpdate : Bool!
+    var navBarHeight : CGFloat!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +49,7 @@ class HistogramViewController: UIViewController {
         getSectionData(completion: {
         })
         scheduledTimerWithTimeInterval()
+          navBarHeight = CGFloat(self.navigationController?.navigationBar.frame.size.height ?? 50)
         // Do any additional setup after loading the view.
     }
 

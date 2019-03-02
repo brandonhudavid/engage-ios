@@ -17,7 +17,16 @@ extension MagicWordViewController {
         setUpWelcomeLabel()
         setUpTextField()
         setUpButtons()
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
+        self.view.addGestureRecognizer(tapGesture)
     }
+    
+    
+    @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
+       magicWordField.resignFirstResponder()
+    }
+
     
     func setUpWelcomeLabel() {
         welcomeLabel = UILabel.init(frame: CGRect.init(x: 0, y: 0, width: view.frame.width, height: 50))

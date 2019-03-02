@@ -11,8 +11,8 @@ import UIKit
 import Charts
 
 extension HistogramViewController {
-    
-    
+
+
     func setupPage() {
         self.threshold = 50
         self.view.backgroundColor =  UIColor(red: 6/255, green: 38/255, blue: 51/255, alpha: 1)
@@ -27,27 +27,27 @@ extension HistogramViewController {
 //>>>>>>> Stashed changes
         //self.navigationItem.titleView = customSC
     }
-    
-    
+
+
     func setLabel(counts : [Int]) {
-        
+
         sectionNameLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 50))
-        sectionNameLabel.center = CGPoint(x: view.frame.width / 2, y: 100)
+        sectionNameLabel.center = CGPoint(x: view.frame.width / 2, y: ((2 * view.frame.height) - navBarHeight) / 12)
         sectionNameLabel.textAlignment = .center
         sectionNameLabel.text  = "Section Name: " + sectionName
         sectionNameLabel.textColor = UIColor.white
         sectionNameLabel.font = UIFont(name: "Quicksand-Bold", size: 20)
         view.addSubview(sectionNameLabel)
-        
+
         magicWordLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 50))
-        magicWordLabel.center = CGPoint(x: view.frame.width / 2, y: 125)
+        magicWordLabel.center = CGPoint(x: view.frame.width / 2, y: ((2.5 * view.frame.height) - navBarHeight) / 12)
         magicWordLabel.textAlignment = .center
         magicWordLabel.text  = "Magic Word: " + String(magicWord!)
         magicWordLabel.textColor = UIColor.white
         magicWordLabel.font = UIFont(name: "Quicksand-Bold", size: 20)
         view.addSubview(magicWordLabel)
-        
-        
+
+
         numStudentsLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 20))
         numStudentsLabel.center = CGPoint(x: view.frame.width / 2, y: view.frame.height - 200)
         numStudentsLabel.textAlignment = .center
@@ -60,8 +60,8 @@ extension HistogramViewController {
         numStudentsLabel.font = UIFont(name: "Quicksand-Bold", size: 21)
         view.addSubview(numStudentsLabel)
     }
-    
-    
+
+
     func setupSlider() {
         slider = UISlider(frame: CGRect(x: 0, y: 0, width: view.frame.width - 160, height: view.frame.height - 50))
         slider.center = CGPoint(x: view.frame.width / 2, y:  3 * view.frame.height / 4 - 85 )
@@ -74,9 +74,9 @@ extension HistogramViewController {
         view.addSubview(slider)
         slider.layer.zPosition = 1;
     }
-    
-    
-    
+
+
+
     func updateChartWithData() {
         setLabel(counts: counts)
         barView = BarChartView(frame: CGRect(x: 0, y: 0, width: view.frame.width - 120, height: view.frame.height / 2 - 50))
@@ -90,20 +90,20 @@ extension HistogramViewController {
             } else {
                 totals[counts[i] / 10] += 1
             }
-        
+
         }
         for i in 0..<totals.count {
             let dataEntry = BarChartDataEntry(x:Double(i * 10), y:  Double(totals[i]))
             dataEntries.append(dataEntry)
             colors.append(setColor(value: Double(i * 10)))
-            
+
         }
-        
+
         let dataEntry_100 = BarChartDataEntry(x:Double(95), y:  Double(0))
         dataEntries.append(dataEntry_100)
         let dataEntry_0 = BarChartDataEntry(x:Double(-5), y:  Double(0))
         dataEntries.append(dataEntry_0)
-        
+
         let chartDataSet = BarChartDataSet(values: dataEntries, label: "Student Input")
         let chartData = BarChartData(dataSet: chartDataSet)
         chartData.barWidth = Double(9)
@@ -126,22 +126,22 @@ extension HistogramViewController {
         barView.isUserInteractionEnabled = false
         barView.data = chartData
         view.addSubview(barView)
-        
+
         thumbs_up = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
         thumbs_up.center = CGPoint.init(x: view.frame.width - 50, y: 3 * view.frame.height/4 - 100 + 5)
         thumbs_up.image = UIImage(named: "thumbs")
         view.addSubview(thumbs_up)
-        
+
         thumbs_down = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
         thumbs_down.center = CGPoint.init(x: 50, y: 3 * view.frame.height/4 - 100 + 15 )
         thumbs_down.image = UIImage(named: "thumbs")
         thumbs_down.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
 
         view.addSubview(thumbs_down)
-        
+
     }
 
-    
+
     func setLeftPieChart() {
         pieChartViewL = PieChartView(frame: CGRect(x: 0, y: 0, width: 170, height: 170))
         pieChartViewL.center = CGPoint(x: view.frame.width / 4, y: view.frame.height - 100)
@@ -159,14 +159,14 @@ extension HistogramViewController {
             dataEntries.append(dataEntryNone)
             colors.append(setColor(value: -1))
         }
-        
+
         if counts.count != 0 {
             let dataEntryBelow = PieChartDataEntry(value: Double(100 * belowOrEqual / counts.count ))
             dataEntries.append(dataEntryBelow)
             colors.append(setColor(value: 1))
         }
-        
-        
+
+
         let pieChartDataSet = PieChartDataSet(values: dataEntries, label: "Student Input")
         let pieChartData = PieChartData(dataSet: pieChartDataSet)
         pieChartData.setDrawValues(false)
@@ -181,9 +181,9 @@ extension HistogramViewController {
         pieChartViewL.holeRadiusPercent = 0.75
 
         view.addSubview(pieChartViewL)
-        
-        
-        
+
+
+
         pieChartLabelL = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 50))
         pieChartLabelL.center = CGPoint(x: view.frame.width / 4, y: view.frame.height - 120)
         pieChartLabelL.textAlignment = .center
@@ -191,8 +191,8 @@ extension HistogramViewController {
         pieChartLabelL.textColor = UIColor.white
         pieChartLabelL.font = UIFont(name: "Quicksand-Bold", size: 30)
         view.addSubview(pieChartLabelL)
-        
-        
+
+
         let studentsLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 50))
         studentsLabel.center = CGPoint(x: view.frame.width / 4, y: view.frame.height - 90)
         studentsLabel.textAlignment = .center
@@ -201,9 +201,9 @@ extension HistogramViewController {
         studentsLabel.font = UIFont(name: "Quicksand-Bold", size: 17)
         view.addSubview(studentsLabel)
     }
-    
-    
-    
+
+
+
     func setRightPieChart() {
         pieChartViewR = PieChartView(frame: CGRect(x: 0, y: 0, width: 170, height: 170))
         pieChartViewR.center = CGPoint(x: 3 * view.frame.width / 4, y: view.frame.height - 100)
@@ -226,7 +226,7 @@ extension HistogramViewController {
             dataEntries.append(dataEntryNone)
             colors.append(setColor(value: -1))
         }
-        
+
         let pieChartDataSet = PieChartDataSet(values: dataEntries, label: "Student Input")
         let pieChartData = PieChartData(dataSet: pieChartDataSet)
         pieChartData.setDrawValues(false)
@@ -241,7 +241,7 @@ extension HistogramViewController {
         pieChartViewR.holeRadiusPercent = 0.75
         view.addSubview(pieChartViewR)
 
-        
+
         pieChartLabelR = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 50))
         pieChartLabelR.center = CGPoint(x: 3 * view.frame.width / 4, y: view.frame.height - 120)
         pieChartLabelR.textAlignment = .center
@@ -249,7 +249,7 @@ extension HistogramViewController {
         pieChartLabelR.textColor = UIColor.white
         pieChartLabelR.font = UIFont(name: "Quicksand-Bold", size: 30)
         view.addSubview(pieChartLabelR)
-        
+
         let studentsLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 50))
         studentsLabel.center = CGPoint(x: 3 * view.frame.width / 4, y: view.frame.height - 90)
         studentsLabel.textAlignment = .center
@@ -258,14 +258,14 @@ extension HistogramViewController {
         studentsLabel.font = UIFont(name: "Quicksand-Bold", size: 17)
         view.addSubview(studentsLabel)
     }
-    
+
     /*func setUpSegmentedControl(){
-        
+
         let items = ["Now", "Timeline"]
         customSC = UISegmentedControl(items: items)
         customSC.selectedSegmentIndex = 0
         let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        
+
         customSC.frame = CGRect(x: 75, y: 100, width: 264, height: 25)
         customSC.layer.cornerRadius = 3.0
         customSC.backgroundColor = self.view.backgroundColor
@@ -274,13 +274,13 @@ extension HistogramViewController {
         customSC.setTitleTextAttributes(titleTextAttributes, for: .selected)
         customSC.transform = CGAffineTransform(rotationAngle: 0)
         customSC.clipsToBounds = true
-        
-        
+
+
         customSC.addTarget(self, action: #selector(changeColor), for: .valueChanged)
-        
+
         self.view.addSubview(customSC)
     }
-    
+
     @objc func changeColor(sender: UISegmentedControl){
         switch sender.selectedSegmentIndex {
         case 0:
@@ -312,12 +312,12 @@ extension HistogramViewController {
 }
 
 /* func setUpSegmentedControl(){
- 
+
  let items = ["Now", "Timeline"]
  let customSC = UISegmentedControl(items: items)
  customSC.selectedSegmentIndex = 0
  let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
- 
+
  customSC.frame = CGRect(x: view.frame.width/2, y: 20, width: 264, height: 25)
  customSC.layer.cornerRadius = 3.0
  customSC.backgroundColor = self.view.backgroundColor
@@ -325,12 +325,12 @@ extension HistogramViewController {
  customSC.setTitleTextAttributes(titleTextAttributes, for: .normal)
  customSC.setTitleTextAttributes(titleTextAttributes, for: .selected)
  customSC.clipsToBounds = true
- 
+
  customSC.addTarget(self, action: #selector(changeColor), for: .valueChanged)
- 
+
  self.view.addSubview(customSC)
  }
- 
+
  @objc func changeColor(sender: UISegmentedControl){
  switch sender.selectedSegmentIndex {
  case 0:
@@ -348,5 +348,5 @@ extension HistogramViewController {
  default:
  break
  }
- 
+
  }*/
