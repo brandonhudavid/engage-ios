@@ -14,8 +14,6 @@ target 'Engage' do
 
 pod 'fluid-slider'
 pod 'Charts'
-pod 'Realm'
-pod 'ChartsRealm'
 pod '10Clock'
 
 end

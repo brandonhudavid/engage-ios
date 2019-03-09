@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 import Charts
-import ChartsRealm
+
 
 extension BothLineGraphViewController{
     

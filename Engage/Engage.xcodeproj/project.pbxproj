@@ -10,9 +10,9 @@
 		431A84CD219794750003CAA8 /* HistogramViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431A84CC219794750003CAA8 /* HistogramViewController.swift */; };
 		431A84D12197E5660003CAA8 /* DataInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431A84D02197E5660003CAA8 /* DataInputViewController.swift */; };
 		431A84D52197E8330003CAA8 /* SliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431A84D42197E8330003CAA8 /* SliderViewController.swift */; };
+		43BBBBA02234661D006768F1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 43BBBB9F2234661C006768F1 /* GoogleService-Info.plist */; };
 		43BD6C9A21AB324800500216 /* HistogramViewController - UISetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BD6C9921AB324800500216 /* HistogramViewController - UISetup.swift */; };
 		87B9C8CD893936C6DC549E79 /* Pods_Engage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FF5597B9F482FB1DF51C43A /* Pods_Engage.framework */; };
-		8A9372E921955482009E3048 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A9372E821955482009E3048 /* GoogleService-Info.plist */; };
 		8A9372EB21955906009E3048 /* StudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9372EA21955906009E3048 /* StudentViewController.swift */; };
 		8A9372ED2195592D009E3048 /* StudentViewController - UISetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9372EC2195592D009E3048 /* StudentViewController - UISetup.swift */; };
 		8AAA614921928E4C00CBBF7A /* MagicWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAA614821928E4C00CBBF7A /* MagicWordViewController.swift */; };
@@ -45,9 +45,9 @@
 		431A84CC219794750003CAA8 /* HistogramViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistogramViewController.swift; sourceTree = "<group>"; };
 		431A84D02197E5660003CAA8 /* DataInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataInputViewController.swift; sourceTree = "<group>"; };
 		431A84D42197E8330003CAA8 /* SliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderViewController.swift; sourceTree = "<group>"; };
+		43BBBB9F2234661C006768F1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		43BD6C9921AB324800500216 /* HistogramViewController - UISetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HistogramViewController - UISetup.swift"; sourceTree = "<group>"; };
 		7FF5597B9F482FB1DF51C43A /* Pods_Engage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Engage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8A9372E821955482009E3048 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8A9372EA21955906009E3048 /* StudentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentViewController.swift; sourceTree = "<group>"; };
 		8A9372EC2195592D009E3048 /* StudentViewController - UISetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StudentViewController - UISetup.swift"; sourceTree = "<group>"; };
 		8A9372EE21958548009E3048 /* Quicksand-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Regular.ttf"; sourceTree = "<group>"; };
@@ -167,7 +167,7 @@
 		8AEDEF3D21928908006ECE42 /* Engage */ = {
 			isa = PBXGroup;
 			children = (
-				8A9372E821955482009E3048 /* GoogleService-Info.plist */,
+				43BBBB9F2234661C006768F1 /* GoogleService-Info.plist */,
 				8AAA614721928CDC00CBBF7A /* Controllers */,
 				435C1B57222A24D700710ECC /* View */,
 				8AAA6150219296DA00CBBF7A /* Fonts */,
@@ -268,13 +268,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AAD851721958884004A0D0A /* Quicksand-Bold.ttf in Resources */,
+				43BBBBA02234661D006768F1 /* GoogleService-Info.plist in Resources */,
 				8AAD851821958884004A0D0A /* Quicksand-Light.ttf in Resources */,
 				8AAD851921958884004A0D0A /* Quicksand-Medium.ttf in Resources */,
 				8AAD851A21958884004A0D0A /* Quicksand-Regular.ttf in Resources */,
 				8AEDEF492192890A006ECE42 /* LaunchScreen.storyboard in Resources */,
 				8AEDEF462192890A006ECE42 /* Assets.xcassets in Resources */,
 				8AEDEF4421928908006ECE42 /* Main.storyboard in Resources */,
-				8A9372E921955482009E3048 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,11 +308,8 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Engage/Pods-Engage-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/10Clock/_10Clock.framework",
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
-				"${BUILT_PRODUCTS_DIR}/ChartsRealm/ChartsRealm.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
-				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/fluid-slider/fluid_slider.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -322,11 +319,8 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/_10Clock.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChartsRealm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/fluid_slider.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",

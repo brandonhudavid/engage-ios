@@ -22,11 +22,7 @@ extension MagicWordViewController {
         self.view.addGestureRecognizer(tapGesture)
     }
     
-    
-    @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
-       magicWordField.resignFirstResponder()
-    }
-
+   
     
     func setUpWelcomeLabel() {
         welcomeLabel = UILabel.init(frame: CGRect.init(x: 0, y: 0, width: view.frame.width, height: 50))
@@ -70,6 +66,11 @@ extension MagicWordViewController {
         joinButton.addTarget(nil, action: #selector(joinPressed), for: .touchUpInside)
         self.view.addSubview(joinButton)
     }
+    
+    @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
+        magicWordField.resignFirstResponder()
+    }
+
 }
 
 

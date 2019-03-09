@@ -12,6 +12,7 @@ import FirebaseAuth
 
 class MagicWordViewController: UIViewController {
 
+    /*Variable declarations*/
     var magicWordField: UITextField!
     var welcomeLabel: UILabel!
     var name: String!
@@ -22,22 +23,7 @@ class MagicWordViewController: UIViewController {
         setupUI()
     }
     
-    @objc func joinPressed() {
-        if let magicWord = magicWordField.text, magicWord.trimmingCharacters(in: .whitespaces) != "" {
-            magicWordToSection(magicWord) { (sectionRefKey) in
-                if sectionRefKey == "None" {
-                    self.invalidMagicWord()
-                }
-                else if sectionRefKey != "" {
-                    self.createUserSession(Int(magicWord)!, sectionRefKey)
-                    self.performSegue(withIdentifier: "toSlider", sender: sectionRefKey)
-                }
-            }
-        } else {
-            invalidMagicWord()
-        }
-    }
-    
+   
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let sliderVC = segue.destination as? SliderViewController {
             sliderVC.sectionKey = sender as? String
@@ -96,8 +82,9 @@ class MagicWordViewController: UIViewController {
         dbRef.child("MagicKeys").observeSingleEvent(of: .value) { (snapshot) in
             if snapshot.exists() {
                 let magicKeys: [String: String] = snapshot.value as! [String: String]
-                if magicKeys.keys.contains(magicWord) {
-                    completionHandler(magicKeys[magicWord]!)
+                let magicWordInt = String(Int(magicWord) ?? 0)
+                if magicKeys.keys.contains(magicWordInt) {
+                    completionHandler(magicKeys[magicWordInt]!)
                 } else {
                     completionHandler("None")
                 }
@@ -106,4 +93,22 @@ class MagicWordViewController: UIViewController {
         }
         completionHandler("")
     }
+    
+    @objc func joinPressed() {
+              print("here 5")
+        if let magicWord = magicWordField.text, magicWord.trimmingCharacters(in: .whitespaces) != "" {
+            magicWordToSection(magicWord) { (sectionRefKey) in
+                if sectionRefKey == "None" {
+                    self.invalidMagicWord()
+                }
+                else if sectionRefKey != "" {
+                    self.createUserSession(Int(magicWord)!, sectionRefKey)
+                    self.performSegue(withIdentifier: "toSlider", sender: sectionRefKey)
+                }
+            }
+        } else {
+            invalidMagicWord()
+        }
+    }
+    
 }

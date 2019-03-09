@@ -11,6 +11,7 @@ import Firebase
 
 class SliderViewController: UIViewController {
     
+    /*Variable declarations*/
     var sectionKey: String!
     var slider : UISlider!
     var userName : String!
@@ -27,9 +28,7 @@ class SliderViewController: UIViewController {
 
     }
 
-    @objc func numberValueChanged() {
-        updateSlider()
-    }
+  
     
     func updateSlider() {
         let userID = UIDevice.current.identifierForVendor!.uuidString
@@ -37,4 +36,7 @@ class SliderViewController: UIViewController {
         tempref.child("UserSessions").child(userID).child("slider_val").setValue( Int(slider.value))
     }
 
+    @objc func numberValueChanged() {
+        updateSlider()
+    }
 }

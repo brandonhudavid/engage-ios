@@ -11,6 +11,8 @@ import FirebaseDatabase
 
 class ClassSetupViewController: UIViewController {
     
+    
+    /*Variable declarations*/
     var name: String!
     
     var classNameField: UITextField!
@@ -41,66 +43,6 @@ class ClassSetupViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @objc func addSectionToFirebase() {
-        guard let sectionName = classNameField.text?.trimmingCharacters(in: .whitespaces),
-            !sectionName.isEmpty else {
-            noSectionName()
-            return
-        }
-        guard let sectionDate = txtDatePicker.text?.trimmingCharacters(in: .whitespaces),
-            !sectionDate.isEmpty else {
-            noDate()
-            return
-        }
-        guard let startTime = startTxtTimePicker.text?.trimmingCharacters(in: .whitespaces),
-            !startTime.isEmpty else {
-            noStartTime()
-            return
-        }
-        guard let endTime = endTxtTimePicker.text?.trimmingCharacters(in: .whitespaces),
-            !endTime.isEmpty else {
-            noEndTime()
-            return
-        }
-        let userID = UIDevice.current.identifierForVendor!.uuidString
-        let sectionRefKey = UUID().uuidString
-        
-        generateMagicKey(sectionRefKey) { (magicKey) in
-            guard magicKey != -1 else {
-                return
-            }
-            guard magicKey != -2 else {
-                print("error finding magic key")
-                return
-            }
-            let sectionData: [String:AnyObject] = [
-                "a_start": sectionDate + "-" + startTime as AnyObject,
-                "b_end": sectionDate + "-" + endTime as AnyObject,
-                "magic_key": magicKey as AnyObject,
-                "ref_key": sectionRefKey as AnyObject,
-                "section_id": sectionName as AnyObject,
-                "ta_key": userID as AnyObject
-            ]
-            let dbRef = Database.database().reference()
-            dbRef.child("Sections").child(sectionRefKey).setValue(sectionData)
-            
-            self.updateTeacher(userID) { (teacherSections) in
-                guard var teacherSections = teacherSections, teacherSections != [:] else {
-                    dbRef.child("Teachers").child(userID).child("name").setValue(self.name!)
-                    dbRef.child("Teachers").child(userID).child("existingSections").setValue([sectionRefKey: sectionName])
-                    self.performSegue(withIdentifier: "toHistogram", sender: sectionRefKey)
-                    return
-                }
-                if teacherSections == ["None":"None"] {
-                    return // Ignore the first Firebase query without snapshot callback.
-                }
-                teacherSections[sectionRefKey] = sectionName
-                dbRef.child("Teachers").child(userID).child("name").setValue(self.name!)
-                dbRef.child("Teachers").child(userID).child("existingSections").setValue(teacherSections)
-                self.performSegue(withIdentifier: "toHistogram", sender: sectionRefKey)
-            }
-        }
-    }
     
     func generateMagicKey(_ sectionRefKey: String, completionHandler: @escaping (Int) -> ()) {
         var magicKey = String(arc4random_uniform(1000))
@@ -260,5 +202,67 @@ class ClassSetupViewController: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
     
+    
+    
+    @objc func addSectionToFirebase() {
+        guard let sectionName = classNameField.text?.trimmingCharacters(in: .whitespaces),
+            !sectionName.isEmpty else {
+                noSectionName()
+                return
+        }
+        guard let sectionDate = txtDatePicker.text?.trimmingCharacters(in: .whitespaces),
+            !sectionDate.isEmpty else {
+                noDate()
+                return
+        }
+        guard let startTime = startTxtTimePicker.text?.trimmingCharacters(in: .whitespaces),
+            !startTime.isEmpty else {
+                noStartTime()
+                return
+        }
+        guard let endTime = endTxtTimePicker.text?.trimmingCharacters(in: .whitespaces),
+            !endTime.isEmpty else {
+                noEndTime()
+                return
+        }
+        let userID = UIDevice.current.identifierForVendor!.uuidString
+        let sectionRefKey = UUID().uuidString
+        
+        generateMagicKey(sectionRefKey) { (magicKey) in
+            guard magicKey != -1 else {
+                return
+            }
+            guard magicKey != -2 else {
+                print("error finding magic key")
+                return
+            }
+            let sectionData: [String:AnyObject] = [
+                "a_start": sectionDate + "-" + startTime as AnyObject,
+                "b_end": sectionDate + "-" + endTime as AnyObject,
+                "magic_key": magicKey as AnyObject,
+                "ref_key": sectionRefKey as AnyObject,
+                "section_id": sectionName as AnyObject,
+                "ta_key": userID as AnyObject
+            ]
+            let dbRef = Database.database().reference()
+            dbRef.child("Sections").child(sectionRefKey).setValue(sectionData)
+            
+            self.updateTeacher(userID) { (teacherSections) in
+                guard var teacherSections = teacherSections, teacherSections != [:] else {
+                    dbRef.child("Teachers").child(userID).child("name").setValue(self.name!)
+                    dbRef.child("Teachers").child(userID).child("existingSections").setValue([sectionRefKey: sectionName])
+                    self.performSegue(withIdentifier: "toHistogram", sender: sectionRefKey)
+                    return
+                }
+                if teacherSections == ["None":"None"] {
+                    return // Ignore the first Firebase query without snapshot callback.
+                }
+                teacherSections[sectionRefKey] = sectionName
+                dbRef.child("Teachers").child(userID).child("name").setValue(self.name!)
+                dbRef.child("Teachers").child(userID).child("existingSections").setValue(teacherSections)
+                self.performSegue(withIdentifier: "toHistogram", sender: sectionRefKey)
+            }
+        }
+    }
 
 }

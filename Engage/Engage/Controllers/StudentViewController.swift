@@ -10,6 +10,7 @@ import UIKit
 
 class StudentViewController: UIViewController {
     
+    /*Variable declarations*/
     var sectionKey: String!
     var testLabel: UILabel!
 

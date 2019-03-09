@@ -11,6 +11,7 @@ import FirebaseDatabase
 
 class TeacherViewController: UIViewController {
     
+    /*Variable declarations*/
     var name: String!
     var navBarHeight : Int = 50
 
@@ -21,25 +22,7 @@ class TeacherViewController: UIViewController {
         setupUI()
     }
     
-    @objc func createNewSection() {
-        performSegue(withIdentifier: "toClassSetupVC", sender: name)
-        
-    }
     
-    @objc func resumeSection() {
-        teacherSections { (sections) in
-            guard var sections = sections else {
-                self.noExistingClasses()
-                return
-            }
-            if sections != [] {
-                sections.sort {
-                    return $0[1] < $1[1]
-                }
-                self.performSegue(withIdentifier: "toClassListVC", sender: sections)
-            }
-        }
-    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toClassListVC", let classListVC = segue.destination as? ClassListController {
@@ -82,6 +65,27 @@ class TeacherViewController: UIViewController {
         alertController.addAction(defaultAction)
         self.present(alertController, animated: true, completion: nil)
         
+    }
+    
+    
+    @objc func createNewSection() {
+        performSegue(withIdentifier: "toClassSetupVC", sender: name)
+        
+    }
+    
+    @objc func resumeSection() {
+        teacherSections { (sections) in
+            guard var sections = sections else {
+                self.noExistingClasses()
+                return
+            }
+            if sections != [] {
+                sections.sort {
+                    return $0[1] < $1[1]
+                }
+                self.performSegue(withIdentifier: "toClassListVC", sender: sections)
+            }
+        }
     }
     
 

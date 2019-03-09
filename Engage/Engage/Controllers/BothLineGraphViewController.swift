@@ -11,21 +11,24 @@ import Charts
 
 class BothLineGraphViewController: UIViewController {
 
+    
+/*Variable declarations*/
     var lineView: LineChartView!
     var counts : [Int] = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
     var sectionNameLabel : UILabel!
     var threshold : Float! = 70.0
     var num : UILabel!
     var engaged : UILabel!
+    var navBarHeight : CGFloat!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        setUpBasics()
-//        updateChartWithData()
+        navBarHeight = CGFloat(self.navigationController?.navigationBar.frame.size.height ?? 50)
+        setUpBasics()
+        updateChartWithData()
     }
     
     func updateChartWithData() {
-        setLabel(counts: counts)
         lineView = LineChartView(frame: CGRect(x: 0, y: 0, width: 4 * view.frame.height / 6, height: 2 * view.frame.width / 3 ))
         lineView.center = CGPoint(x: view.frame.width / 2 , y: 13 * view.frame.height / 20)
         lineView.drawGridBackgroundEnabled = false
@@ -52,7 +55,7 @@ class BothLineGraphViewController: UIViewController {
 
         var dataEntries: [ChartDataEntry] = []
         var colors : [UIColor] = []
-        var data : [Int] = [54,34,65,23,64,76,48,97,67,44,96,46,56,87,92]
+        var data : [Int] = [54, 53, 52, 60, 64, 67, 69, 20, 22, 23, 10, 12, 13, 15, 17, 20]
         for i in 0..<counts.count {
             let dataEntry = ChartDataEntry(x:Double(i), y: Double(data[i]))
             dataEntries.append(dataEntry)
@@ -65,6 +68,8 @@ class BothLineGraphViewController: UIViewController {
 //        dataEntries.append(dataEntry_0)
         
         let chartDataSet = LineChartDataSet(values: dataEntries, label: "Student Input")
+        chartDataSet.mode = .cubicBezier
+        chartDataSet.drawCirclesEnabled = false
         let chartData = LineChartData(dataSet: chartDataSet)
         //chartData.lineWidth = Double(9)
         if counts.count != 0 {
@@ -82,6 +87,7 @@ class BothLineGraphViewController: UIViewController {
         lineView.transform = CGAffineTransform(rotationAngle: 3*CGFloat.pi/2)
 
         view.addSubview(lineView)
+        setLabel(counts: counts)
     }
     
     func setColor(value: Double) -> UIColor{
@@ -111,7 +117,7 @@ class BothLineGraphViewController: UIViewController {
         
         
         let num = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 20))
-        num.center = CGPoint(x: view.frame.width / 5, y: view.frame.height - 250)
+        num.center = CGPoint(x: view.frame.width / 12, y:  4 * (view.frame.height - navBarHeight) / 12)
         num.textAlignment = .center
         num.text  = String(counts.count)
         num.textColor = UIColor.white
@@ -121,15 +127,37 @@ class BothLineGraphViewController: UIViewController {
     
     
         let engaged = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 20))
-        engaged.center = CGPoint(x: view.frame.width / 2, y: view.frame.height - 250)
+        engaged.center =  CGPoint(x: 2 * view.frame.width / 12, y:  4 * (view.frame.height - navBarHeight) / 12)
         engaged.textAlignment = .center
         engaged.text  = "engaged"
         engaged.textColor = UIColor.white
         engaged.font = UIFont(name: "Quicksand-Bold", size: 21)
         engaged.transform = CGAffineTransform(rotationAngle: 3*CGFloat.pi/2)
         view.addSubview(engaged)
-    
+        
+        circleOfDots()
+        
     }
+        func circleOfDots() {
+            let circlePath = UIBezierPath(arcCenter: CGPoint(x:  view.frame.width / 12, y:  (view.frame.height) / 12), radius: CGFloat(50), startAngle: CGFloat(0), endAngle:CGFloat(M_PI * 2), clockwise: true)
+            let shapeLayer = CAShapeLayer()
+            shapeLayer.path = circlePath.cgPath
+            shapeLayer.position = CGPoint(x:  view.frame.width / 12, y:  (view.frame.height ) / 12)
+            //change the fill color
+            shapeLayer.fillColor = UIColor.clear.cgColor
+            //you can change the stroke color
+            shapeLayer.strokeColor = UIColor.white.cgColor
+            //you can change the line width
+            shapeLayer.lineWidth = 6.0
+            let one : NSNumber = 1
+            let two : NSNumber = 20
+            shapeLayer.lineDashPattern = [one,two]
+            shapeLayer.lineCap = CAShapeLayerLineCap.round
+            self.view.layer.addSublayer(shapeLayer)
+        }
+
+    
+    
 
     
     

@@ -11,7 +11,12 @@ import FirebaseDatabase
 
 class LogInViewController: UIViewController {
     
+    
+    
+    /*Variable declarations*/
     var nameField: UITextField!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,10 +24,15 @@ class LogInViewController: UIViewController {
         setupUI()
     }
     
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
     }
     
+    
+    
+    /// Displays alert if invalid name entered
     func invalidName() {
         let alertController = UIAlertController(title: "Invalid Name", message: "Please enter a name.", preferredStyle: .alert)
         let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
@@ -30,18 +40,9 @@ class LogInViewController: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
     
-    @objc func studentPressed() {
-        if let name = nameField.text {
-            let studentName = name.trimmingCharacters(in: .whitespaces)
-            if studentName != "" {
-                UserDefaults.standard.set(studentName, forKey: "name")
-                performSegue(withIdentifier: "toMagicWordVC", sender: studentName)
-            } else {
-                invalidName()
-            }
-        }
-    }
+   
     
+    /// Adds userID (user) into section based on sectionRefKey
     func updateSection(_ userID: String, _ sectionRefKey: String, completionHandler: @escaping ([String:String]?) -> ()) {
         let dbRef = Database.database().reference()
         dbRef.child("Sections").observeSingleEvent(of: .value) { (snapshot) in
@@ -58,6 +59,9 @@ class LogInViewController: UIViewController {
         completionHandler(["None":"None"]) // To bypass the first Firebase query without snapshot callback.
     }
     
+    
+    
+    /// Checks if teacher already exists in database based on their device ID
     func teacherHasSections(completionHandler: @escaping (String) -> ()) {
         let dbRef = Database.database().reference()
         dbRef.child("Teachers").observeSingleEvent(of: .value) { (snapshot) in
@@ -76,6 +80,30 @@ class LogInViewController: UIViewController {
         completionHandler("") // To bypass the first Firebase query without snapshot callback.
     }
     
+
+    /// Prepares for segue to either MagicWordViewController (student), TeacherViewController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toMagicWordVC", let magicWordVC = segue.destination as? MagicWordViewController {
+            magicWordVC.name = sender as? String
+        } else if segue.identifier == "toTeacherVC", let teacherVC = segue.destination as? TeacherViewController {
+            teacherVC.name = sender as? String
+        } else if segue.identifier == "loginToClassSetupVC", let classSetupVC = segue.destination as? ClassSetupViewController {
+            classSetupVC.name = sender as? String
+        }
+    }
+    
+    @objc func studentPressed() {
+        if let name = nameField.text {
+            let studentName = name.trimmingCharacters(in: .whitespaces)
+            if studentName != "" {
+                UserDefaults.standard.set(studentName, forKey: "name")
+                performSegue(withIdentifier: "toMagicWordVC", sender: studentName)
+            } else {
+                invalidName()
+            }
+        }
+    }
+    
     @objc func teacherPressed() {
         guard let name = nameField.text, name.trimmingCharacters(in: .whitespaces) != "" else {
             invalidName()
@@ -88,16 +116,6 @@ class LogInViewController: UIViewController {
             } else if hasSections == "false" {
                 self.performSegue(withIdentifier: "loginToClassSetupVC", sender: name.trimmingCharacters(in: .whitespaces))
             }
-        }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toMagicWordVC", let magicWordVC = segue.destination as? MagicWordViewController {
-            magicWordVC.name = sender as? String
-        } else if segue.identifier == "toTeacherVC", let teacherVC = segue.destination as? TeacherViewController {
-            teacherVC.name = sender as? String
-        } else if segue.identifier == "loginToClassSetupVC", let classSetupVC = segue.destination as? ClassSetupViewController {
-            classSetupVC.name = sender as? String
         }
     }
 }

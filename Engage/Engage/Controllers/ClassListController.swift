@@ -10,6 +10,7 @@ import UIKit
 
 class ClassListController: UIViewController {
     
+    /*Variable declarations*/
     var sections: [[String]]!
     var classList: UITableView!
     var selected : Int!

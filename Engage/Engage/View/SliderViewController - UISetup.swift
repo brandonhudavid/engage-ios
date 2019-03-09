@@ -88,6 +88,11 @@ extension SliderViewController {
             slider.removeFromSuperview()
             slider_back.removeFromSuperview()
             welcomeLabel.removeFromSuperview()
+            
+            
+            
+            
+            
         default:
             break
         }
